@@ -1,0 +1,4942 @@
+window.QUESTIONS_DATA = [
+  {
+    "id": 1,
+    "topic": "Half Adder",
+    "question": "A Half Adder is a combinational circuit designed to add:",
+    "options": {
+      "A": "Three 1-bit binary numbers",
+      "B": "Two 1-bit binary numbers",
+      "C": "Two 4-bit binary numbers",
+      "D": "One bit and one carry bit"
+    },
+    "answer": "B",
+    "reason": "By definition, a Half Adder only adds two single-bit binary inputs (A and B) without accommodating a carry-in from a preceding stage."
+  },
+  {
+    "id": 2,
+    "topic": "Half Adder",
+    "question": "The Boolean expression for the Sum (S) output of a Half Adder with inputs A and B is:",
+    "options": {
+      "A": "A · B",
+      "B": "A + B",
+      "C": "A ⊕ B",
+      "D": "(A ⊕ B)'"
+    },
+    "answer": "C",
+    "reason": "The Sum output is HIGH only when the inputs differ (0+1=1 and 1+0=1), representing the XOR logic function: S = A·B' + A'·B = A ⊕ B."
+  },
+  {
+    "id": 3,
+    "topic": "Half Adder",
+    "question": "The Boolean expression for the Carry (C) output of a Half Adder with inputs A and B is:",
+    "options": {
+      "A": "A + B",
+      "B": "A · B",
+      "C": "A ⊕ B",
+      "D": "A' · B"
+    },
+    "answer": "B",
+    "reason": "A carry bit is generated only when both inputs are 1 (1 + 1 = 10 in binary), which corresponds directly to the AND operation: C = A · B."
+  },
+  {
+    "id": 4,
+    "topic": "Half Adder",
+    "question": "What are the outputs (Sum, Carry) of a Half Adder when both inputs are Logic 1?",
+    "options": {
+      "A": "S = 0, C = 0",
+      "B": "S = 1, C = 0",
+      "C": "S = 0, C = 1",
+      "D": "S = 1, C = 1"
+    },
+    "answer": "C",
+    "reason": "Binary addition of 1 + 1 equals decimal 2 (10 in binary). Thus, Sum = 0 and Carry = 1."
+  },
+  {
+    "id": 5,
+    "topic": "Half Adder",
+    "question": "What is the minimum number of 2-input NAND gates required to construct a Half Adder?",
+    "options": {
+      "A": "4",
+      "B": "5",
+      "C": "6",
+      "D": "7"
+    },
+    "answer": "B",
+    "reason": "An XOR gate for Sum requires 4 NAND gates. Inverting the intermediate NAND term (A·B)' using 1 extra NAND gate yields Carry (A·B), totaling 5 NAND gates."
+  },
+  {
+    "id": 6,
+    "topic": "Half Adder",
+    "question": "What is the minimum number of 2-input NOR gates required to construct a Half Adder?",
+    "options": {
+      "A": "4",
+      "B": "5",
+      "C": "6",
+      "D": "8"
+    },
+    "answer": "B",
+    "reason": "By duality with the NAND implementation, synthesizing both XOR (Sum) and AND (Carry) with 2-input NOR gates requires a minimum of 5 NOR gates."
+  },
+  {
+    "id": 7,
+    "topic": "Half Adder",
+    "question": "In a Half Adder, the Sum output represents which arithmetic operation on bits?",
+    "options": {
+      "A": "Modulo-2 addition",
+      "B": "Modulo-4 addition",
+      "C": "Logical AND",
+      "D": "Bitwise complement"
+    },
+    "answer": "A",
+    "reason": "Modulo-2 addition evaluates to 0 when the sum of bits is even and 1 when odd, which is identical to the XOR operation."
+  },
+  {
+    "id": 8,
+    "topic": "Half Adder",
+    "question": "Which logic gate directly generates the Carry output of a Half Adder?",
+    "options": {
+      "A": "OR",
+      "B": "XOR",
+      "C": "AND",
+      "D": "NAND"
+    },
+    "answer": "C",
+    "reason": "The truth table for Carry is 1 if and only if both inputs are 1, precisely defining an AND gate."
+  },
+  {
+    "id": 9,
+    "topic": "Half Adder",
+    "question": "In terms of minterms, the Sum output of a Half Adder is given by:",
+    "options": {
+      "A": "Σm(0, 3)",
+      "B": "Σm(1, 2)",
+      "C": "Σm(1, 3)",
+      "D": "Σm(2, 3)"
+    },
+    "answer": "B",
+    "reason": "Sum is 1 for inputs A=0, B=1 (minterm 1) and A=1, B=0 (minterm 2), making Sum = Σm(1, 2)."
+  },
+  {
+    "id": 10,
+    "topic": "Half Adder",
+    "question": "In terms of minterms, the Carry output of a Half Adder is given by:",
+    "options": {
+      "A": "Σm(0)",
+      "B": "Σm(1)",
+      "C": "Σm(2)",
+      "D": "Σm(3)"
+    },
+    "answer": "D",
+    "reason": "Carry is 1 only when A=1 and B=1, which corresponds to decimal minterm 3 (m3)."
+  },
+  {
+    "id": 11,
+    "topic": "Half Adder",
+    "question": "How does a Half Subtractor differ from a Half Adder in terms of Boolean expressions?",
+    "options": {
+      "A": "The Difference is different, Borrow is the same",
+      "B": "The Difference is the same (A ⊕ B), but Borrow is A'·B instead of A·B",
+      "C": "Both Difference and Borrow expressions are completely different",
+      "D": "Only the inversion of both inputs is required"
+    },
+    "answer": "B",
+    "reason": "Difference remains A ⊕ B, but Borrow is triggered when subtracting 1 from 0 (0 - 1 = 1 with Borrow 1), resulting in Borrow = A'·B."
+  },
+  {
+    "id": 12,
+    "topic": "Half Adder",
+    "question": "If each 2-input gate has a propagation delay of tpd, what is the total propagation delay to produce the Sum in a basic AND-OR-NOT implementation of a Half Adder?",
+    "options": {
+      "A": "tpd",
+      "B": "2 · tpd",
+      "C": "3 · tpd",
+      "D": "4 · tpd"
+    },
+    "answer": "C",
+    "reason": "Implementing A·B' + A'·B requires Inverters (1 tpd), AND gates (1 tpd), and an OR gate (1 tpd), resulting in 3 tpd total critical delay."
+  },
+  {
+    "id": 13,
+    "topic": "Half Adder",
+    "question": "A Half Adder can be implemented using a 2:1 Multiplexer and:",
+    "options": {
+      "A": "One NOT gate",
+      "B": "One AND gate",
+      "C": "One OR gate",
+      "D": "No external gates"
+    },
+    "answer": "A",
+    "reason": "With A as the select input, the multiplexer outputs B when A=0 and B' when A=1, which produces A ⊕ B using a single inverter for B'."
+  },
+  {
+    "id": 14,
+    "topic": "Half Adder",
+    "question": "What are the outputs (Sum, Carry) when the inputs are A = 1 and B = 0?",
+    "options": {
+      "A": "S = 0, C = 0",
+      "B": "S = 1, C = 0",
+      "C": "S = 0, C = 1",
+      "D": "S = 1, C = 1"
+    },
+    "answer": "B",
+    "reason": "1 + 0 = 1 in binary, which gives Sum = 1 and Carry = 0."
+  },
+  {
+    "id": 15,
+    "topic": "Half Adder",
+    "question": "Why is a Half Adder insufficient for adding multi-bit binary numbers?",
+    "options": {
+      "A": "It produces inverted outputs",
+      "B": "It cannot accept a carry-in bit from a previous stage",
+      "C": "It cannot generate a carry output",
+      "D": "It operates slower than sequential logic"
+    },
+    "answer": "B",
+    "reason": "Multi-bit binary arithmetic propagates carries across columns; a Half Adder only possesses two inputs and cannot accept an incoming carry bit."
+  },
+  {
+    "id": 16,
+    "topic": "Full Adder",
+    "question": "How many inputs and outputs does a single Full Adder block have?",
+    "options": {
+      "A": "2 inputs, 2 outputs",
+      "B": "3 inputs, 2 outputs",
+      "C": "3 inputs, 3 outputs",
+      "D": "2 inputs, 3 outputs"
+    },
+    "answer": "B",
+    "reason": "A Full Adder takes three 1-bit inputs (A, B, Cin) and produces two outputs (Sum and Cout)."
+  },
+  {
+    "id": 17,
+    "topic": "Full Adder",
+    "question": "The Boolean expression for the Sum (S) output of a Full Adder with inputs A, B, and Cin is:",
+    "options": {
+      "A": "A + B + Cin",
+      "B": "A ⊕ B ⊕ Cin",
+      "C": "A·B + B·Cin + A·Cin",
+      "D": "A · B · Cin"
+    },
+    "answer": "B",
+    "reason": "Sum is an odd parity function evaluating to 1 when an odd count of inputs is HIGH, represented by A ⊕ B ⊕ Cin."
+  },
+  {
+    "id": 18,
+    "topic": "Full Adder",
+    "question": "What is the simplified Boolean expression for the Carry Out (Cout) of a Full Adder?",
+    "options": {
+      "A": "A ⊕ B ⊕ Cin",
+      "B": "A·B + B·Cin + A·Cin",
+      "C": "A·B' + B·Cin'",
+      "D": "(A + B) · Cin"
+    },
+    "answer": "B",
+    "reason": "Cout is 1 whenever two or more inputs are 1 (majority logic). K-map minimization gives Cout = AB + BCin + ACin."
+  },
+  {
+    "id": 19,
+    "topic": "Full Adder",
+    "question": "What is the output (S, Cout) of a Full Adder when A = 1, B = 0, Cin = 1?",
+    "options": {
+      "A": "S = 0, Cout = 1",
+      "B": "S = 1, Cout = 0",
+      "C": "S = 1, Cout = 1",
+      "D": "S = 0, Cout = 0"
+    },
+    "answer": "A",
+    "reason": "1 + 0 + 1 = 2 (10 in binary), so Sum = 0 and Carry-out = 1."
+  },
+  {
+    "id": 20,
+    "topic": "Full Adder",
+    "question": "What is the output (S, Cout) of a Full Adder when all three inputs are Logic 1?",
+    "options": {
+      "A": "S = 0, Cout = 1",
+      "B": "S = 1, Cout = 0",
+      "C": "S = 1, Cout = 1",
+      "D": "S = 0, Cout = 0"
+    },
+    "answer": "C",
+    "reason": "1 + 1 + 1 = 3 (11 in binary), resulting in Sum = 1 and Carry-out = 1."
+  },
+  {
+    "id": 21,
+    "topic": "Full Adder",
+    "question": "A Full Adder can be constructed using:",
+    "options": {
+      "A": "Two Half Adders and one OR gate",
+      "B": "Two Half Adders and one AND gate",
+      "C": "One Half Adder and two OR gates",
+      "D": "Two Half Adders and one NOR gate"
+    },
+    "answer": "A",
+    "reason": "The first Half Adder calculates A ⊕ B and A·B. The second calculates (A ⊕ B) ⊕ Cin and (A ⊕ B)·Cin. An OR gate merges both carry terms."
+  },
+  {
+    "id": 22,
+    "topic": "Full Adder",
+    "question": "What is the minimum number of 2-input NAND gates required to implement a Full Adder?",
+    "options": {
+      "A": "8",
+      "B": "9",
+      "C": "10",
+      "D": "12"
+    },
+    "answer": "B",
+    "reason": "Reusing inverted intermediate terms from the two XOR paths allows Sum and Cout to be produced with exactly 9 two-input NAND gates."
+  },
+  {
+    "id": 23,
+    "topic": "Full Adder",
+    "question": "What is the minimum number of 2-input NOR gates required to implement a Full Adder?",
+    "options": {
+      "A": "8",
+      "B": "9",
+      "C": "10",
+      "D": "11"
+    },
+    "answer": "B",
+    "reason": "By Boolean duality, the minimal 2-input NOR implementation mirrors the NAND structure and requires exactly 9 NOR gates."
+  },
+  {
+    "id": 24,
+    "topic": "Full Adder",
+    "question": "How many 7400 Quad 2-input NAND IC chips are required to build a Full Adder on a breadboard using NAND logic?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "answer": "C",
+    "reason": "A Full Adder needs 9 NAND gates. Since each 7400 IC provides 4 gates, 2 ICs provide 8 gates (insufficient), requiring a 3rd IC (3 x 4 = 12 gates)."
+  },
+  {
+    "id": 25,
+    "topic": "Full Adder",
+    "question": "The Sum output of a Full Adder expressed as a sum of minterms is:",
+    "options": {
+      "A": "Σm(1, 2, 4, 7)",
+      "B": "Σm(3, 5, 6, 7)",
+      "C": "Σm(0, 3, 5, 6)",
+      "D": "Σm(2, 3, 5, 7)"
+    },
+    "answer": "A",
+    "reason": "Sum is HIGH for input combinations 001 (1), 010 (2), 100 (4), and 111 (7)."
+  },
+  {
+    "id": 26,
+    "topic": "Full Adder",
+    "question": "The Carry Out (Cout) of a Full Adder expressed as a sum of minterms is:",
+    "options": {
+      "A": "Σm(1, 2, 4, 7)",
+      "B": "Σm(3, 5, 6, 7)",
+      "C": "Σm(0, 1, 2, 4)",
+      "D": "Σm(2, 4, 6, 7)"
+    },
+    "answer": "B",
+    "reason": "Carry is HIGH when at least two inputs are HIGH: 011 (3), 101 (5), 110 (6), and 111 (7)."
+  },
+  {
+    "id": 27,
+    "topic": "Full Adder",
+    "question": "What happens if the Cin input of a Full Adder is grounded (Cin = 0)?",
+    "options": {
+      "A": "It functions as a Full Subtractor",
+      "B": "It functions as a Half Adder",
+      "C": "The outputs are always inverted",
+      "D": "It functions as an OR gate"
+    },
+    "answer": "B",
+    "reason": "Setting Cin = 0 reduces S = A ⊕ B ⊕ 0 = A ⊕ B, and Cout = AB + 0(A ⊕ B) = AB, matching the Half Adder equations exactly."
+  },
+  {
+    "id": 28,
+    "topic": "Full Adder",
+    "question": "To implement a Full Adder using a 3-to-8 line decoder with active-HIGH outputs, what additional gates are required?",
+    "options": {
+      "A": "Two 4-input AND gates",
+      "B": "Two 4-input OR gates",
+      "C": "One 8-input OR gate",
+      "D": "Two 3-input NAND gates"
+    },
+    "answer": "B",
+    "reason": "One 4-input OR gate sums minterms m(1, 2, 4, 7) for Sum, while a second 4-input OR gate sums m(3, 5, 6, 7) for Carry."
+  },
+  {
+    "id": 29,
+    "topic": "Full Adder",
+    "question": "In an n-bit Ripple Carry Adder, how many Full Adders are required if the least significant bit does not receive an external carry?",
+    "options": {
+      "A": "n Full Adders",
+      "B": "(n - 1) Full Adders and 1 Half Adder",
+      "C": "n / 2 Full Adders",
+      "D": "2n Full Adders"
+    },
+    "answer": "B",
+    "reason": "The LSB only adds two bits (no initial carry), requiring only 1 Half Adder. The subsequent n - 1 bit positions require Full Adders to handle ripple carries."
+  },
+  {
+    "id": 30,
+    "topic": "Full Adder",
+    "question": "In a Full Adder implemented with two Half Adders and an OR gate, the second Half Adder produces an intermediate carry of:",
+    "options": {
+      "A": "A · B",
+      "B": "(A ⊕ B) · Cin",
+      "C": "(A + B) · Cin",
+      "D": "(A ⊕ Cin) · B"
+    },
+    "answer": "B",
+    "reason": "The second Half Adder takes (A ⊕ B) and Cin as inputs; its carry output is the AND product of its inputs: (A ⊕ B) · Cin."
+  },
+  {
+    "id": 31,
+    "topic": "Half Subtractor",
+    "question": "A Half Subtractor is a combinational circuit designed to perform subtraction of:",
+    "options": {
+      "A": "Three 1-bit binary numbers",
+      "B": "Two 1-bit binary numbers",
+      "C": "Two 4-bit binary numbers",
+      "D": "One bit and two borrow bits"
+    },
+    "answer": "B",
+    "reason": "A Half Subtractor subtracts a single subtrahend bit from a single minuend bit (A - B) without considering a borrow-in from a preceding stage."
+  },
+  {
+    "id": 32,
+    "topic": "Half Subtractor",
+    "question": "The Boolean expression for the Difference (D) output of a Half Subtractor with inputs A (minuend) and B (subtrahend) is:",
+    "options": {
+      "A": "A · B",
+      "B": "A' · B",
+      "C": "A ⊕ B",
+      "D": "(A ⊕ B)'"
+    },
+    "answer": "C",
+    "reason": "The Difference output is HIGH when the inputs are different (0 - 1 = 1 with borrow 1, and 1 - 0 = 1 with borrow 0), which matches the XOR function: D = A'B + AB' = A ⊕ B."
+  },
+  {
+    "id": 33,
+    "topic": "Half Subtractor",
+    "question": "The Boolean expression for the Borrow (B_out) output of a Half Subtractor (A - B) is:",
+    "options": {
+      "A": "A · B",
+      "B": "A · B'",
+      "C": "A' · B",
+      "D": "A + B"
+    },
+    "answer": "C",
+    "reason": "A borrow is generated only when subtracting 1 from 0 (0 - 1), which requires borrowing from a higher stage, giving Borrow = A' · B."
+  },
+  {
+    "id": 34,
+    "topic": "Half Subtractor",
+    "question": "What are the outputs (Difference, Borrow) of a Half Subtractor when A = 0 and B = 1?",
+    "options": {
+      "A": "D = 0, B_out = 0",
+      "B": "D = 1, B_out = 0",
+      "C": "D = 0, B_out = 1",
+      "D": "D = 1, B_out = 1"
+    },
+    "answer": "D",
+    "reason": "0 - 1 in binary requires borrowing 1 from the next higher position, resulting in (2 - 1) = 1. Hence, Difference = 1 and Borrow = 1."
+  },
+  {
+    "id": 35,
+    "topic": "Half Subtractor",
+    "question": "What is the minimum number of 2-input NAND gates required to realize a Half Subtractor?",
+    "options": {
+      "A": "4",
+      "B": "5",
+      "C": "6",
+      "D": "7"
+    },
+    "answer": "B",
+    "reason": "An XOR gate requires 4 NAND gates. In a standard 4-NAND XOR gate, the output of the upper branch gate is exactly (A · (AB)')' = (A · B')', and taking an intermediate point or inverter branch allows realizing A'B with a total of 5 NAND gates."
+  },
+  {
+    "id": 36,
+    "topic": "Half Subtractor",
+    "question": "What is the minimum number of 2-input NOR gates required to construct a Half Subtractor?",
+    "options": {
+      "A": "4",
+      "B": "5",
+      "C": "6",
+      "D": "7"
+    },
+    "answer": "B",
+    "reason": "By duality, just like the Half Adder, a Half Subtractor can be implemented using a minimum of 5 two-input NOR gates."
+  },
+  {
+    "id": 37,
+    "topic": "Half Subtractor",
+    "question": "In terms of minterms, the Difference (D) output of a Half Subtractor is:",
+    "options": {
+      "A": "Σm(0, 3)",
+      "B": "Σm(1, 2)",
+      "C": "Σm(1, 3)",
+      "D": "Σm(2, 3)"
+    },
+    "answer": "B",
+    "reason": "The Difference is HIGH when A=0, B=1 (minterm 1) and A=1, B=0 (minterm 2), exactly like the Sum in a Half Adder: D = Σm(1, 2)."
+  },
+  {
+    "id": 38,
+    "topic": "Half Subtractor",
+    "question": "In terms of minterms, the Borrow (B_out) output of a Half Subtractor (A - B) is:",
+    "options": {
+      "A": "Σm(0)",
+      "B": "Σm(1)",
+      "C": "Σm(2)",
+      "D": "Σm(3)"
+    },
+    "answer": "B",
+    "reason": "Borrow is 1 only when A = 0 and B = 1, which corresponds to binary 01 (minterm 1, m1)."
+  },
+  {
+    "id": 39,
+    "topic": "Half Subtractor",
+    "question": "Which output equation is identical between a Half Adder and a Half Subtractor?",
+    "options": {
+      "A": "Carry and Borrow",
+      "B": "Sum and Difference",
+      "C": "Both Carry/Borrow and Sum/Difference",
+      "D": "Neither output"
+    },
+    "answer": "B",
+    "reason": "Both the Sum of a Half Adder and the Difference of a Half Subtractor are given by the identical XOR equation: A ⊕ B."
+  },
+  {
+    "id": 40,
+    "topic": "Half Subtractor",
+    "question": "What are the outputs (Difference, Borrow) when both inputs A and B are Logic 1?",
+    "options": {
+      "A": "D = 0, B_out = 0",
+      "B": "D = 1, B_out = 0",
+      "C": "D = 0, B_out = 1",
+      "D": "D = 1, B_out = 1"
+    },
+    "answer": "A",
+    "reason": "1 - 1 = 0 with no borrow needed, so Difference = 0 and Borrow = 0."
+  },
+  {
+    "id": 41,
+    "topic": "Half Subtractor",
+    "question": "If you invert the minuend input A before feeding it into a Half Adder along with B, the Carry output becomes:",
+    "options": {
+      "A": "A · B",
+      "B": "A' · B (Borrow of Half Subtractor)",
+      "C": "A · B'",
+      "D": "(A · B)'"
+    },
+    "answer": "B",
+    "reason": "A Half Adder produces Carry = In1 · In2. If In1 = A' and In2 = B, the carry output becomes A' · B, which is the Borrow of a Half Subtractor."
+  },
+  {
+    "id": 42,
+    "topic": "Half Subtractor",
+    "question": "What are the outputs (Difference, Borrow) when A = 1 and B = 0?",
+    "options": {
+      "A": "D = 0, B_out = 0",
+      "B": "D = 1, B_out = 0",
+      "C": "D = 0, B_out = 1",
+      "D": "D = 1, B_out = 1"
+    },
+    "answer": "B",
+    "reason": "1 - 0 = 1 without requiring any borrow, yielding Difference = 1 and Borrow = 0."
+  },
+  {
+    "id": 43,
+    "topic": "Half Subtractor",
+    "question": "To implement the Borrow output (A'B) using an active-HIGH 2:4 decoder, which output line should be selected if inputs are A (MSB) and B (LSB)?",
+    "options": {
+      "A": "Y0",
+      "B": "Y1",
+      "C": "Y2",
+      "D": "Y3"
+    },
+    "answer": "B",
+    "reason": "A'B corresponds to input binary code 01, which activates decoder line Y1 (minterm m1)."
+  },
+  {
+    "id": 44,
+    "topic": "Half Subtractor",
+    "question": "In a 2:1 Multiplexer implementation of Difference (D) where A is connected to select line S, what should be connected to data inputs I0 and I1?",
+    "options": {
+      "A": "I0 = B, I1 = B'",
+      "B": "I0 = B', I1 = B",
+      "C": "I0 = 0, I1 = 1",
+      "D": "I0 = 1, I1 = 0"
+    },
+    "answer": "A",
+    "reason": "When A = 0, D = 0 ⊕ B = B (so I0 = B). When A = 1, D = 1 ⊕ B = B' (so I1 = B')."
+  },
+  {
+    "id": 45,
+    "topic": "Half Subtractor",
+    "question": "Why can a Half Subtractor NOT be used for multi-bit subtraction directly?",
+    "options": {
+      "A": "It cannot handle negative numbers",
+      "B": "It has no input pin for a borrow-in from the lower bit position",
+      "C": "Its propagation delay is infinite",
+      "D": "It only works with 2's complement numbers"
+    },
+    "answer": "B",
+    "reason": "Multi-bit binary subtraction produces borrow signals that ripple to the left; a Half Subtractor only accepts two operands and cannot accept an incoming borrow."
+  },
+  {
+    "id": 46,
+    "topic": "Full Subtractor",
+    "question": "A Full Subtractor has how many inputs and outputs?",
+    "options": {
+      "A": "2 inputs, 2 outputs",
+      "B": "3 inputs, 2 outputs",
+      "C": "3 inputs, 3 outputs",
+      "D": "2 inputs, 3 outputs"
+    },
+    "answer": "B",
+    "reason": "A Full Subtractor takes 3 inputs: Minuend (A), Subtrahend (B), and Borrow-in (B_in), and produces 2 outputs: Difference (D) and Borrow-out (B_out)."
+  },
+  {
+    "id": 47,
+    "topic": "Full Subtractor",
+    "question": "The Boolean expression for the Difference (D) output of a Full Subtractor is:",
+    "options": {
+      "A": "A + B + B_in",
+      "B": "A ⊕ B ⊕ B_in",
+      "C": "A'B + B'B_in + A'B_in",
+      "D": "A · B · B_in"
+    },
+    "answer": "B",
+    "reason": "Just like the Sum in a Full Adder, Difference is an odd parity function: D = A ⊕ B ⊕ B_in."
+  },
+  {
+    "id": 48,
+    "topic": "Full Subtractor",
+    "question": "The simplified Boolean expression for Borrow-out (B_out) in a Full Subtractor is:",
+    "options": {
+      "A": "AB + BC_in + AC_in",
+      "B": "A'B + B·B_in + A'·B_in",
+      "C": "AB' + B'·B_in + A·B_in",
+      "D": "A ⊕ B ⊕ B_in"
+    },
+    "answer": "B",
+    "reason": "Borrow is required when A=0 and B or B_in is 1, or when all three are 1. K-map minimization gives B_out = A'B + B·B_in + A'·B_in."
+  },
+  {
+    "id": 49,
+    "topic": "Full Subtractor",
+    "question": "What are the outputs (D, B_out) of a Full Subtractor when A = 0, B = 1, and B_in = 1?",
+    "options": {
+      "A": "D = 0, B_out = 1",
+      "B": "D = 1, B_out = 0",
+      "C": "D = 1, B_out = 1",
+      "D": "D = 0, B_out = 0"
+    },
+    "answer": "A",
+    "reason": "Arithmetic evaluation: 0 - 1 - 1 = -2. With a borrow from a higher stage (worth +2), (2 - 2) = 0. Hence, Difference = 0 and Borrow-out = 1."
+  },
+  {
+    "id": 50,
+    "topic": "Full Subtractor",
+    "question": "What are the outputs (D, B_out) of a Full Subtractor when A = 1, B = 1, and B_in = 1?",
+    "options": {
+      "A": "D = 0, B_out = 1",
+      "B": "D = 1, B_out = 0",
+      "C": "D = 1, B_out = 1",
+      "D": "D = 0, B_out = 0"
+    },
+    "answer": "C",
+    "reason": "Arithmetic evaluation: 1 - 1 - 1 = -1. Borrowing 1 (worth +2) gives (2 - 1) = 1. Hence, Difference = 1 and Borrow-out = 1."
+  },
+  {
+    "id": 51,
+    "topic": "Full Subtractor",
+    "question": "A Full Subtractor can be constructed using:",
+    "options": {
+      "A": "Two Half Subtractors and one OR gate",
+      "B": "Two Half Subtractors and one AND gate",
+      "C": "Two Half Subtractors and one XOR gate",
+      "D": "One Half Subtractor and two OR gates"
+    },
+    "answer": "A",
+    "reason": "The first Half Subtractor computes A - B, yielding intermediate Difference D1 and Borrow Bo1. The second computes D1 - B_in. An OR gate combines both borrow signals to generate B_out."
+  },
+  {
+    "id": 52,
+    "topic": "Full Subtractor",
+    "question": "What is the minimum number of 2-input NAND gates required to construct a Full Subtractor?",
+    "options": {
+      "A": "8",
+      "B": "9",
+      "C": "10",
+      "D": "12"
+    },
+    "answer": "B",
+    "reason": "Analogous to the 9-NAND Full Adder, using optimized logic sharing between the two difference stages allows a Full Subtractor to be implemented with exactly 9 two-input NAND gates."
+  },
+  {
+    "id": 53,
+    "topic": "Full Subtractor",
+    "question": "What is the minimum number of 2-input NOR gates required to construct a Full Subtractor?",
+    "options": {
+      "A": "8",
+      "B": "9",
+      "C": "10",
+      "D": "12"
+    },
+    "answer": "B",
+    "reason": "Due to dual logic gate transformations, a Full Subtractor can also be realized using a minimum of 9 two-input NOR gates."
+  },
+  {
+    "id": 54,
+    "topic": "Full Subtractor",
+    "question": "The Difference (D) output of a Full Subtractor expressed as a sum of minterms is:",
+    "options": {
+      "A": "Σm(1, 2, 4, 7)",
+      "B": "Σm(3, 5, 6, 7)",
+      "C": "Σm(1, 2, 3, 7)",
+      "D": "Σm(0, 3, 5, 6)"
+    },
+    "answer": "A",
+    "reason": "Since Difference is A ⊕ B ⊕ B_in, it evaluates to 1 when an odd number of inputs are HIGH: minterms 1 (001), 2 (010), 4 (100), and 7 (111)."
+  },
+  {
+    "id": 55,
+    "topic": "Full Subtractor",
+    "question": "The Borrow-out (B_out) of a Full Subtractor expressed as a sum of minterms is:",
+    "options": {
+      "A": "Σm(1, 2, 4, 7)",
+      "B": "Σm(3, 5, 6, 7)",
+      "C": "Σm(1, 2, 3, 7)",
+      "D": "Σm(0, 1, 2, 4)"
+    },
+    "answer": "C",
+    "reason": "Borrow-out is HIGH for input combinations 001 (1), 010 (2), 011 (3), and 111 (7)."
+  },
+  {
+    "id": 56,
+    "topic": "Full Subtractor",
+    "question": "What does a Full Subtractor reduce to when the Borrow-in input is tied to Logic 0 (B_in = 0)?",
+    "options": {
+      "A": "A Half Adder",
+      "B": "A Half Subtractor",
+      "C": "A Full Adder",
+      "D": "An inverter"
+    },
+    "answer": "B",
+    "reason": "Substituting B_in = 0 gives D = A ⊕ B ⊕ 0 = A ⊕ B, and B_out = A'B + 0 = A'B, which matches the Half Subtractor equations exactly."
+  },
+  {
+    "id": 57,
+    "topic": "Full Subtractor",
+    "question": "A Full Adder can be converted into a Full Subtractor by inverting which input?",
+    "options": {
+      "A": "Input B",
+      "B": "Input A (Minuend)",
+      "C": "Input C_in",
+      "D": "Both B and C_in"
+    },
+    "answer": "B",
+    "reason": "If input A is inverted before entering a Full Adder, the Carry output becomes A'B + A'Cin + BCin (which is B_out of a Full Subtractor), and Difference becomes (A' ⊕ B ⊕ Cin) = (A ⊕ B ⊕ Cin)' if inverted, or by 2's complement logic where inverting subtrahend B and setting Cin=1 performs subtraction."
+  },
+  {
+    "id": 58,
+    "topic": "Full Subtractor",
+    "question": "To implement a Full Subtractor using a 3-to-8 line decoder with active-HIGH outputs, which minterms must be OR-ed together for the Borrow-out (B_out)?",
+    "options": {
+      "A": "m3, m5, m6, m7",
+      "B": "m1, m2, m3, m7",
+      "C": "m1, m2, m4, m7",
+      "D": "m0, m2, m4, m6"
+    },
+    "answer": "B",
+    "reason": "The Borrow-out function is B_out = Σm(1, 2, 3, 7), so lines 1, 2, 3, and 7 of the decoder must be fed into a 4-input OR gate."
+  },
+  {
+    "id": 59,
+    "topic": "Full Subtractor",
+    "question": "When constructing a Full Subtractor using two Half Subtractors and an OR gate, the intermediate borrow from the second Half Subtractor is:",
+    "options": {
+      "A": "A' · B",
+      "B": "(A ⊕ B)' · B_in",
+      "C": "(A ⊕ B) · B_in'",
+      "D": "A · B_in"
+    },
+    "answer": "B",
+    "reason": "The second Half Subtractor subtracts B_in from (A ⊕ B). Its borrow equation is (Minuend)' · (Subtrahend), which gives (A ⊕ B)' · B_in."
+  },
+  {
+    "id": 60,
+    "topic": "Full Subtractor",
+    "question": "How many 7400 Quad 2-input NAND ICs are needed to build a Full Subtractor on a hardware breadboard?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "answer": "C",
+    "reason": "A Full Subtractor implemented purely with 2-input NAND gates requires 9 gates. Each 7400 IC has 4 NAND gates, meaning 2 chips provide only 8 gates, requiring 3 chips (up to 12 gates)."
+  },
+  {
+    "id": 61,
+    "topic": "SR Flip-Flop",
+    "question": "What do the letters 'S' and 'R' represent in an SR Flip-Flop?",
+    "options": {
+      "A": "Shift and Rotate",
+      "B": "Set and Reset",
+      "C": "Synchronous and Real-time",
+      "D": "Stop and Run"
+    },
+    "answer": "B",
+    "reason": "S stands for Set (forces output Q to 1) and R stands for Reset (forces output Q to 0)."
+  },
+  {
+    "id": 62,
+    "topic": "SR Flip-Flop",
+    "question": "What is the characteristic equation of an SR Flip-Flop?",
+    "options": {
+      "A": "Q(next) = S + R'Q",
+      "B": "Q(next) = S' + RQ",
+      "C": "Q(next) = S ⊕ Q",
+      "D": "Q(next) = S · R"
+    },
+    "answer": "A",
+    "reason": "Derived from the K-map of the SR truth table with constraint SR = 0, Q(next) = S + R'Q."
+  },
+  {
+    "id": 63,
+    "topic": "SR Flip-Flop",
+    "question": "What condition must be avoided for the inputs of an active-HIGH SR Flip-Flop?",
+    "options": {
+      "A": "S = 0, R = 0",
+      "B": "S = 0, R = 1",
+      "C": "S = 1, R = 0",
+      "D": "S = 1, R = 1"
+    },
+    "answer": "D",
+    "reason": "When both S = 1 and R = 1, both Q and Q' attempt to go LOW simultaneously, violating complementary outputs and leading to an indeterminate/metastable state."
+  },
+  {
+    "id": 64,
+    "topic": "SR Flip-Flop",
+    "question": "In an active-HIGH NOR-based SR latch, what happens when S = 0 and R = 0?",
+    "options": {
+      "A": "Output Q becomes 0",
+      "B": "Output Q becomes 1",
+      "C": "Output remains in its previous state (Memory / Hold)",
+      "D": "Circuit oscillates indefinitely"
+    },
+    "answer": "C",
+    "reason": "With both inputs at 0, NOR gates preserve existing feedback values, maintaining the hold/no-change state."
+  },
+  {
+    "id": 65,
+    "topic": "SR Flip-Flop",
+    "question": "In an active-LOW NAND-based SR latch (S'-R' latch), the invalid state occurs when:",
+    "options": {
+      "A": "S' = 1, R' = 1",
+      "B": "S' = 0, R' = 0",
+      "C": "S' = 1, R' = 0",
+      "D": "S' = 0, R' = 1"
+    },
+    "answer": "B",
+    "reason": "Applying 0 to both inputs of a NAND latch forces both Q and Q' to 1 simultaneously, which is prohibited."
+  },
+  {
+    "id": 66,
+    "topic": "SR Flip-Flop",
+    "question": "What is the excitation input (S, R) required to transition output Q from 0 to 0?",
+    "options": {
+      "A": "S = 0, R = X",
+      "B": "S = X, R = 0",
+      "C": "S = 1, R = 0",
+      "D": "S = 0, R = 1"
+    },
+    "answer": "A",
+    "reason": "To transition 0 -> 0, inputs can be either No Change (S=0, R=0) or Reset (S=0, R=1). Hence, S must be 0 and R is a don't care (X)."
+  },
+  {
+    "id": 67,
+    "topic": "SR Flip-Flop",
+    "question": "What is the excitation input (S, R) required to transition output Q from 0 to 1?",
+    "options": {
+      "A": "S = 0, R = 1",
+      "B": "S = 1, R = 0",
+      "C": "S = X, R = 0",
+      "D": "S = 0, R = X"
+    },
+    "answer": "B",
+    "reason": "Setting Q to 1 from 0 strictly requires a Set operation, which is S = 1, R = 0."
+  },
+  {
+    "id": 68,
+    "topic": "SR Flip-Flop",
+    "question": "What is the excitation input (S, R) required to transition output Q from 1 to 0?",
+    "options": {
+      "A": "S = 0, R = 1",
+      "B": "S = 1, R = 0",
+      "C": "S = X, R = 1",
+      "D": "S = 1, R = X"
+    },
+    "answer": "A",
+    "reason": "Resetting Q from 1 to 0 requires S = 0, R = 1."
+  },
+  {
+    "id": 69,
+    "topic": "SR Flip-Flop",
+    "question": "What is the excitation input (S, R) required to maintain output Q from 1 to 1?",
+    "options": {
+      "A": "S = 1, R = 0",
+      "B": "S = X, R = 0",
+      "C": "S = 0, R = X",
+      "D": "S = 0, R = 0"
+    },
+    "answer": "B",
+    "reason": "Staying at 1 can be achieved by No Change (S=0, R=0) or Set (S=1, R=0). Therefore, S is don't care (X) and R must be 0."
+  },
+  {
+    "id": 70,
+    "topic": "SR Flip-Flop",
+    "question": "What is the operational difference between an SR latch and a clocked SR Flip-Flop?",
+    "options": {
+      "A": "Latches operate on edges; flip-flops operate on voltage levels",
+      "B": "Latches are level-sensitive; flip-flops are synchronized by a clock signal",
+      "C": "Latches contain feedback; flip-flops do not",
+      "D": "Latches eliminate the invalid state completely"
+    },
+    "answer": "B",
+    "reason": "A latch is transparent and level-sensitive, whereas a flip-flop responds strictly at clock edges or during clock enable periods."
+  },
+  {
+    "id": 71,
+    "topic": "SR Flip-Flop",
+    "question": "How many 2-input NOR gates are required to construct a basic cross-coupled SR latch?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "answer": "B",
+    "reason": "A basic cross-coupled bistable multivibrator requires exactly two 2-input NOR gates."
+  },
+  {
+    "id": 72,
+    "topic": "SR Flip-Flop",
+    "question": "In a NOR SR latch, if input R = 1 and S = 0, the outputs will be:",
+    "options": {
+      "A": "Q = 1, Q' = 0",
+      "B": "Q = 0, Q' = 1",
+      "C": "Q = 0, Q' = 0",
+      "D": "Q = 1, Q' = 1"
+    },
+    "answer": "B",
+    "reason": "R = 1 forces the output of the NOR gate producing Q to 0, which feeds back to produce Q' = 1."
+  },
+  {
+    "id": 73,
+    "topic": "SR Flip-Flop",
+    "question": "What happens if both inputs of a clocked SR Flip-Flop transition simultaneously from 1 to 0 while Clock is active?",
+    "options": {
+      "A": "Output cleanly latches to 0",
+      "B": "Output cleanly latches to 1",
+      "C": "A race condition causes the flip-flop to enter a metastable state",
+      "D": "The clock frequency doubles"
+    },
+    "answer": "C",
+    "reason": "Both gates enter a race condition to determine which outputs first, causing metastability or an unpredictable state."
+  },
+  {
+    "id": 74,
+    "topic": "SR Flip-Flop",
+    "question": "In a clocked SR Flip-Flop built using NAND gates, how many total NAND gates are used?",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "6"
+    },
+    "answer": "C",
+    "reason": "Two NAND gates form the steering/clock gating stage, and two cross-coupled NAND gates form the storage latch (total 4 gates)."
+  },
+  {
+    "id": 75,
+    "topic": "SR Flip-Flop",
+    "question": "Which algebraic constraint represents the forbidden state condition in an SR Flip-Flop?",
+    "options": {
+      "A": "S + R = 1",
+      "B": "S · R = 0",
+      "C": "S ⊕ R = 1",
+      "D": "S · R = 1"
+    },
+    "answer": "B",
+    "reason": "To prevent both inputs from being simultaneously active HIGH, standard digital systems enforce S · R = 0."
+  },
+  {
+    "id": 76,
+    "topic": "SR Flip-Flop",
+    "question": "If S = 1 and R = 0 when a clock pulse arrives, what is Q(next)?",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "Toggle",
+      "D": "High Impedance"
+    },
+    "answer": "B",
+    "reason": "This is the Set condition, forcing Q to logic 1."
+  },
+  {
+    "id": 77,
+    "topic": "SR Flip-Flop",
+    "question": "Can an SR Flip-Flop toggle its state reliably on consecutive clock cycles without external steering logic?",
+    "options": {
+      "A": "Yes, by connecting S=1, R=1",
+      "B": "Yes, by connecting S=0, R=0",
+      "C": "No, because simultaneous active inputs result in an indeterminate condition",
+      "D": "Yes, using an RC delay line"
+    },
+    "answer": "C",
+    "reason": "An SR flip-flop has no toggle mode because the S=1, R=1 state is invalid."
+  },
+  {
+    "id": 78,
+    "topic": "SR Flip-Flop",
+    "question": "In a Master-Slave SR Flip-Flop, when the clock is HIGH:",
+    "options": {
+      "A": "Master is active, Slave is isolated",
+      "B": "Slave is active, Master is isolated",
+      "C": "Both Master and Slave are active",
+      "D": "Both Master and Slave are isolated"
+    },
+    "answer": "A",
+    "reason": "Master receives the active clock signal while Slave is gated off by an inverted clock pulse."
+  },
+  {
+    "id": 79,
+    "topic": "SR Flip-Flop",
+    "question": "When does the Slave stage update its output in a Master-Slave SR Flip-Flop?",
+    "options": {
+      "A": "On the rising edge of the clock",
+      "B": "On the falling edge of the clock (when Clock goes LOW)",
+      "C": "Immediately as S changes",
+      "D": "Continuously"
+    },
+    "answer": "B",
+    "reason": "When the clock drops LOW, the inverter enables the slave latch, transferring the master's state to Q."
+  },
+  {
+    "id": 80,
+    "topic": "SR Flip-Flop",
+    "question": "How can an SR Flip-Flop be converted into a D Flip-Flop?",
+    "options": {
+      "A": "Connect S to R directly",
+      "B": "Connect D to S, and D' (via an inverter) to R",
+      "C": "Connect D to R, and S to ground",
+      "D": "Tie both S and R to VCC"
+    },
+    "answer": "B",
+    "reason": "Feeding D to S and D' to R guarantees S and R are always complementary, eliminating the invalid S=R=1 state."
+  },
+  {
+    "id": 81,
+    "topic": "SR Flip-Flop",
+    "question": "What is the primary function of asynchronous PRESET and CLEAR pins on an SR Flip-Flop?",
+    "options": {
+      "A": "To accelerate clock pulses",
+      "B": "To initialize the output state independently of clock and synchronous inputs",
+      "C": "To prevent power supply transients",
+      "D": "To enable high-impedance tri-state mode"
+    },
+    "answer": "B",
+    "reason": "Asynchronous inputs bypass clock gating to immediately initialize the flip-flop to 1 (Preset) or 0 (Clear)."
+  },
+  {
+    "id": 82,
+    "topic": "SR Flip-Flop",
+    "question": "If PRESET = 0 and CLEAR = 1 on an active-LOW asynchronous input pair, the output Q becomes:",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "Retains prior state",
+      "D": "Invalid"
+    },
+    "answer": "B",
+    "reason": "Active-LOW PRESET = 0 forces Q to 1 immediately."
+  },
+  {
+    "id": 83,
+    "topic": "SR Flip-Flop",
+    "question": "What is the minimum pulse width requirement in an SR latch?",
+    "options": {
+      "A": "Zero picoseconds",
+      "B": "Equal to one clock period",
+      "C": "At least equal to the internal propagation delay of the cross-coupled gates",
+      "D": "Equal to the fall time of the input voltage"
+    },
+    "answer": "C",
+    "reason": "The input pulse must remain active long enough for feedback to propagate around the loop to achieve regeneration."
+  },
+  {
+    "id": 84,
+    "topic": "SR Flip-Flop",
+    "question": "In switch debounce circuits, which configuration is standardly used?",
+    "options": {
+      "A": "A T Flip-Flop",
+      "B": "A cross-coupled SR Latch",
+      "C": "A Master-Slave JK Flip-Flop",
+      "D": "A Dynamic Shift Register"
+    },
+    "answer": "B",
+    "reason": "A simple cross-coupled SR latch (SPDT switch debouncer) latches on the first contact bounce and ignores subsequent mechanical bounces."
+  },
+  {
+    "id": 85,
+    "topic": "SR Flip-Flop",
+    "question": "An active-LOW SR latch uses NAND gates. If S' = 1 and R' = 0, the output state is:",
+    "options": {
+      "A": "Reset (Q = 0, Q' = 1)",
+      "B": "Set (Q = 1, Q' = 0)",
+      "C": "No change",
+      "D": "Forbidden"
+    },
+    "answer": "A",
+    "reason": "R' = 0 asserts the active-LOW reset line, forcing Q to 0 and Q' to 1."
+  },
+  {
+    "id": 86,
+    "topic": "SR Flip-Flop",
+    "question": "What is the characteristic table output entry for Q(next) when Q(prev) = 1, S = 0, R = 1?",
+    "options": {
+      "A": "1",
+      "B": "0",
+      "C": "Indeterminate",
+      "D": "Toggle"
+    },
+    "answer": "B",
+    "reason": "S=0, R=1 is the explicit Reset command, so Q(next) resets to 0 regardless of prior state."
+  },
+  {
+    "id": 87,
+    "topic": "SR Flip-Flop",
+    "question": "How many rows in an 8-row truth table (Q, S, R) produce an invalid/prohibited output in an SR Flip-Flop?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "answer": "B",
+    "reason": "The rows where S=1 and R=1 (specifically (Q=0, S=1, R=1) and (Q=1, S=1, R=1)) are prohibited, giving 2 invalid rows."
+  },
+  {
+    "id": 88,
+    "topic": "SR Flip-Flop",
+    "question": "If an SR Flip-Flop is converted to a JK Flip-Flop, what are the logic equations for S and R?",
+    "options": {
+      "A": "S = J · Q', R = K · Q",
+      "B": "S = J · Q, R = K · Q'",
+      "C": "S = J' · Q, R = K' · Q'",
+      "D": "S = J + Q', R = K + Q"
+    },
+    "answer": "A",
+    "reason": "Connecting S = J · Q' and R = K · Q feeds back outputs to ensure S and R are never simultaneously 1 during toggle mode."
+  },
+  {
+    "id": 89,
+    "topic": "SR Flip-Flop",
+    "question": "What type of multivibrator circuit is an SR Flip-Flop?",
+    "options": {
+      "A": "Astable multivibrator",
+      "B": "Monostable multivibrator",
+      "C": "Bistable multivibrator",
+      "D": "Free-running multivibrator"
+    },
+    "answer": "C",
+    "reason": "It possesses two stable states (Q=0 and Q=1), classifying it as a bistable multivibrator."
+  },
+  {
+    "id": 90,
+    "topic": "SR Flip-Flop",
+    "question": "In a positive edge-triggered SR Flip-Flop, state transitions occur:",
+    "options": {
+      "A": "While Clock voltage is at steady HIGH",
+      "B": "While Clock voltage is at steady LOW",
+      "C": "Only during the LOW-to-HIGH transition of the clock",
+      "D": "Only during the HIGH-to-LOW transition of the clock"
+    },
+    "answer": "C",
+    "reason": "Positive edge triggering samples inputs and transfers the state strictly on the 0-to-1 rising edge of the clock."
+  },
+  {
+    "id": 91,
+    "topic": "JK Flip-Flop",
+    "question": "The JK Flip-Flop was designed primarily to eliminate which problem of the SR Flip-Flop?",
+    "options": {
+      "A": "Slow switching speed",
+      "B": "Indeterminate state when both inputs are HIGH",
+      "C": "High power consumption",
+      "D": "Inability to hold data"
+    },
+    "answer": "B",
+    "reason": "When J=1 and K=1, the JK flip-flop toggles its output, eliminating the invalid state seen in SR flip-flops."
+  },
+  {
+    "id": 92,
+    "topic": "JK Flip-Flop",
+    "question": "What is the characteristic equation of a JK Flip-Flop?",
+    "options": {
+      "A": "Q(next) = J · Q' + K' · Q",
+      "B": "Q(next) = J' · Q + K · Q'",
+      "C": "Q(next) = J + K' · Q",
+      "D": "Q(next) = J ⊕ K ⊕ Q"
+    },
+    "answer": "A",
+    "reason": "Minimizing the JK state table on a Karnaugh map yields Q(next) = J·Q' + K'·Q."
+  },
+  {
+    "id": 93,
+    "topic": "JK Flip-Flop",
+    "question": "What happens when both inputs J = 1 and K = 1 are applied during a clock pulse?",
+    "options": {
+      "A": "Output Q becomes 0",
+      "B": "Output Q becomes 1",
+      "C": "Output Q complements (Toggles)",
+      "D": "Output enters a metastable state"
+    },
+    "answer": "C",
+    "reason": "With J=1 and K=1, Q(next) = 1·Q' + 0·Q = Q', meaning the state toggles."
+  },
+  {
+    "id": 94,
+    "topic": "JK Flip-Flop",
+    "question": "Under what operational conditions does 'race-around condition' occur in a JK Flip-Flop?",
+    "options": {
+      "A": "Level-triggered flip-flop, J=1, K=1, and tp(clock) > tp(flip-flop)",
+      "B": "Edge-triggered flip-flop, J=0, K=0, and tp(clock) < tp(flip-flop)",
+      "C": "Master-slave flip-flop, J=1, K=0",
+      "D": "Level-triggered flip-flop, J=0, K=1, and tp(clock) = 0"
+    },
+    "answer": "A",
+    "reason": "When a level-triggered latch has J=K=1 and the clock pulse width exceeds internal propagation delay, output complements repeatedly within the same clock period."
+  },
+  {
+    "id": 95,
+    "topic": "JK Flip-Flop",
+    "question": "Which architecture is standardly used to eliminate the race-around condition in JK Flip-Flops?",
+    "options": {
+      "A": "Schmitt trigger inputs",
+      "B": "Master-Slave configuration or edge-triggering",
+      "C": "Higher supply voltage",
+      "D": "Capacitive bypass filtering"
+    },
+    "answer": "B",
+    "reason": "Master-Slave topology breaks feedback during sampling, and edge-triggering makes the sampling window shorter than propagation delay."
+  },
+  {
+    "id": 96,
+    "topic": "JK Flip-Flop",
+    "question": "What is the excitation input (J, K) required to cause a transition from Q = 0 to Q = 0?",
+    "options": {
+      "A": "J = 0, K = X",
+      "B": "J = X, K = 0",
+      "C": "J = 1, K = X",
+      "D": "J = 0, K = 0"
+    },
+    "answer": "A",
+    "reason": "0 -> 0 occurs with No Change (J=0, K=0) or Reset (J=0, K=1). Hence, J = 0 and K = X."
+  },
+  {
+    "id": 97,
+    "topic": "JK Flip-Flop",
+    "question": "What is the excitation input (J, K) required to cause a transition from Q = 0 to Q = 1?",
+    "options": {
+      "A": "J = 0, K = X",
+      "B": "J = 1, K = X",
+      "C": "J = X, K = 0",
+      "D": "J = X, K = 1"
+    },
+    "answer": "B",
+    "reason": "0 -> 1 occurs with Set (J=1, K=0) or Toggle (J=1, K=1). Hence, J = 1 and K = X."
+  },
+  {
+    "id": 98,
+    "topic": "JK Flip-Flop",
+    "question": "What is the excitation input (J, K) required to cause a transition from Q = 1 to Q = 0?",
+    "options": {
+      "A": "J = 0, K = 1",
+      "B": "J = X, K = 1",
+      "C": "J = 1, K = X",
+      "D": "J = X, K = 0"
+    },
+    "answer": "B",
+    "reason": "1 -> 0 occurs with Reset (J=0, K=1) or Toggle (J=1, K=1). Hence, J = X and K = 1."
+  },
+  {
+    "id": 99,
+    "topic": "JK Flip-Flop",
+    "question": "What is the excitation input (J, K) required to cause a transition from Q = 1 to Q = 1?",
+    "options": {
+      "A": "J = X, K = 0",
+      "B": "J = 0, K = X",
+      "C": "J = 1, K = X",
+      "D": "J = 0, K = 0"
+    },
+    "answer": "A",
+    "reason": "1 -> 1 occurs with No Change (J=0, K=0) or Set (J=1, K=0). Hence, J = X and K = 0."
+  },
+  {
+    "id": 100,
+    "topic": "JK Flip-Flop",
+    "question": "In a Master-Slave JK Flip-Flop, '1s catching' refers to:",
+    "options": {
+      "A": "Slave output latching 1 permanently",
+      "B": "Master latch picking up an unwanted transient 1 glitch while the clock is HIGH",
+      "C": "Clock signal ringing above VCC",
+      "D": "Preset pin failing to clear"
+    },
+    "answer": "B",
+    "reason": "Because the master is level-sensitive during clock HIGH, a transient logic 1 on an input can set the master, transferring to the slave on the clock edge."
+  },
+  {
+    "id": 101,
+    "topic": "JK Flip-Flop",
+    "question": "How can a JK Flip-Flop be converted into a T (Toggle) Flip-Flop?",
+    "options": {
+      "A": "Tie J to ground, use K as input",
+      "B": "Connect J and K together to a common input line T",
+      "C": "Connect J to Q' and K to Q",
+      "D": "Invert J and connect directly to K"
+    },
+    "answer": "B",
+    "reason": "When J = K = T, applying T=0 yields hold, and T=1 yields toggle mode, which is the functional definition of a T flip-flop."
+  },
+  {
+    "id": 102,
+    "topic": "JK Flip-Flop",
+    "question": "How can a JK Flip-Flop be converted into a D Flip-Flop?",
+    "options": {
+      "A": "Connect D to J, and connect D' (via an inverter) to K",
+      "B": "Connect D to K, and connect D' to J",
+      "C": "Connect J and K together",
+      "D": "Ground input K and connect D to J"
+    },
+    "answer": "A",
+    "reason": "Providing D to J and inverted D to K ensures that when D=1, J=1/K=0 (Set), and when D=0, J=0/K=1 (Reset)."
+  },
+  {
+    "id": 103,
+    "topic": "JK Flip-Flop",
+    "question": "If J = 0 and K = 0, the next state Q(next) is:",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "Q (Previous state holds)",
+      "D": "Q' (Inverted state)"
+    },
+    "answer": "C",
+    "reason": "J=0 and K=0 disables state modification, preserving the current state."
+  },
+  {
+    "id": 104,
+    "topic": "JK Flip-Flop",
+    "question": "If J = 0 and K = 1, the next state Q(next) will be:",
+    "options": {
+      "A": "0 (Reset)",
+      "B": "1 (Set)",
+      "C": "Toggled",
+      "D": "Indeterminate"
+    },
+    "answer": "A",
+    "reason": "Asserting K while J is LOW resets output Q to 0 on the active clock transition."
+  },
+  {
+    "id": 105,
+    "topic": "JK Flip-Flop",
+    "question": "If J = 1 and K = 0, the next state Q(next) will be:",
+    "options": {
+      "A": "0",
+      "B": "1 (Set)",
+      "C": "Toggled",
+      "D": "High Impedance"
+    },
+    "answer": "B",
+    "reason": "Asserting J while K is LOW sets output Q to 1 on the active clock transition."
+  },
+  {
+    "id": 106,
+    "topic": "JK Flip-Flop",
+    "question": "What is the standard standard TTL IC part number for a dual negative-edge-triggered JK Flip-Flop with clear/preset?",
+    "options": {
+      "A": "7400",
+      "B": "7474",
+      "C": "7476",
+      "D": "74138"
+    },
+    "answer": "C",
+    "reason": "7476 (and 74LS76) is a classic dual JK flip-flop integrated circuit with Preset and Clear."
+  },
+  {
+    "id": 107,
+    "topic": "JK Flip-Flop",
+    "question": "If the clock input to a T-connected JK Flip-Flop (J=K=1) is a 20 MHz square wave, what is the frequency at output Q?",
+    "options": {
+      "A": "40 MHz",
+      "B": "20 MHz",
+      "C": "10 MHz",
+      "D": "5 MHz"
+    },
+    "answer": "C",
+    "reason": "Since the output toggles on every active clock edge, two input cycles are required to complete one full output period, dividing frequency by 2 (20 MHz / 2 = 10 MHz)."
+  },
+  {
+    "id": 108,
+    "topic": "JK Flip-Flop",
+    "question": "In an asynchronous ripple counter composed of 4 cascading JK Flip-Flops in toggle mode, what is the total modulus?",
+    "options": {
+      "A": "4",
+      "B": "8",
+      "C": "16",
+      "D": "32"
+    },
+    "answer": "C",
+    "reason": "MOD = 2^n. For n = 4 flip-flops, the total count states MOD = 2^4 = 16."
+  },
+  {
+    "id": 109,
+    "topic": "JK Flip-Flop",
+    "question": "When constructing a Johnson counter with four JK Flip-Flops, the inputs of the first flip-flop (J0, K0) are connected to:",
+    "options": {
+      "A": "Q3 and Q3'",
+      "B": "Q3' and Q3",
+      "C": "Q0 and Q0'",
+      "D": "Ground and VCC"
+    },
+    "answer": "B",
+    "reason": "A Johnson (twisted ring) counter feeds the inverted outputs of the last stage back to the input of the first stage (J0 = Q3', K0 = Q3)."
+  },
+  {
+    "id": 110,
+    "topic": "JK Flip-Flop",
+    "question": "To design a counter that counts from 0 to 5 (MOD-6) using JK Flip-Flops, how many flip-flops are required?",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "5",
+      "D": "6"
+    },
+    "answer": "B",
+    "reason": "The number of flip-flops n must satisfy 2^n >= MOD. Since 2^2 = 4 < 6 and 2^3 = 8 >= 6, 3 flip-flops are required."
+  },
+  {
+    "id": 111,
+    "topic": "JK Flip-Flop",
+    "question": "If both asynchronous inputs PRESET' and CLEAR' on a 7476 IC are set to Logic 0 simultaneously, what happens?",
+    "options": {
+      "A": "Normal toggle operation",
+      "B": "Both Q and Q' go to Logic 1 (Unstable/Forbidden state)",
+      "C": "Both outputs go to high impedance",
+      "D": "The clock pulse gets inverted"
+    },
+    "answer": "B",
+    "reason": "Active-LOW inputs override clock control. Activating both PRESET' and CLEAR' simultaneously forces both outputs to 1, violating complementary operation."
+  },
+  {
+    "id": 112,
+    "topic": "JK Flip-Flop",
+    "question": "In a negative edge-triggered JK Flip-Flop, transitions occur when:",
+    "options": {
+      "A": "Clock remains at 0V",
+      "B": "Clock transitions from 1 to 0",
+      "C": "Clock transitions from 0 to 1",
+      "D": "Clock is disconnected"
+    },
+    "answer": "B",
+    "reason": "Negative-edge devices sample and trigger state updates specifically during the HIGH-to-LOW falling edge."
+  },
+  {
+    "id": 113,
+    "topic": "JK Flip-Flop",
+    "question": "If Q = 1 initially, and inputs J = 1, K = 1 are applied for 3 successive clock pulses, what is the final state of Q?",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "Indeterminate",
+      "D": "High Impedance"
+    },
+    "answer": "A",
+    "reason": "Initial Q = 1. After pulse 1: Q = 0. After pulse 2: Q = 1. After pulse 3: Q = 0."
+  },
+  {
+    "id": 114,
+    "topic": "JK Flip-Flop",
+    "question": "Which term describes the time the inputs J and K must remain stable BEFORE the active clock edge arrives?",
+    "options": {
+      "A": "Hold time (th)",
+      "B": "Setup time (tsu)",
+      "C": "Propagation delay (tpd)",
+      "D": "Slew rate"
+    },
+    "answer": "B",
+    "reason": "Setup time is the minimum duration the data inputs must remain stable prior to the triggering clock edge."
+  },
+  {
+    "id": 115,
+    "topic": "JK Flip-Flop",
+    "question": "Which term describes the time inputs J and K must remain stable AFTER the active clock edge has occurred?",
+    "options": {
+      "A": "Setup time (tsu)",
+      "B": "Hold time (th)",
+      "C": "Rise time (tr)",
+      "D": "Clock jitter"
+    },
+    "answer": "B",
+    "reason": "Hold time is the required minimum time data inputs must persist unchanged following the clock edge."
+  },
+  {
+    "id": 116,
+    "topic": "JK Flip-Flop",
+    "question": "A ring counter built using four cascaded JK Flip-Flops has how many distinct states?",
+    "options": {
+      "A": "4",
+      "B": "8",
+      "C": "16",
+      "D": "2"
+    },
+    "answer": "A",
+    "reason": "An standard n-bit ring counter cycles a single 1 through n stages, providing exactly n distinct states (4 states)."
+  },
+  {
+    "id": 117,
+    "topic": "JK Flip-Flop",
+    "question": "In a JK Flip-Flop, if K is connected to ground (0) and J is driven by signal X, the circuit operates as:",
+    "options": {
+      "A": "A toggling flip-flop",
+      "B": "A circuit that sets to 1 when X=1, and holds previous state when X=0",
+      "C": "An inverter",
+      "D": "A reset-only circuit"
+    },
+    "answer": "B",
+    "reason": "With K=0: if X=1 (J=1, K=0), Q becomes 1; if X=0 (J=0, K=0), Q retains its previous state."
+  },
+  {
+    "id": 118,
+    "topic": "JK Flip-Flop",
+    "question": "What is the primary trade-off of a Master-Slave JK Flip-Flop compared to a modern edge-triggered JK Flip-Flop?",
+    "options": {
+      "A": "Master-Slave flip-flops require fewer transistors",
+      "B": "Master-Slave flip-flops are vulnerable to 1s catching and occupy more silicon area",
+      "C": "Master-Slave flip-flops cannot divide frequencies",
+      "D": "Master-Slave flip-flops cannot use negative clock edges"
+    },
+    "answer": "B",
+    "reason": "Because the master remains enabled for the entire half-period of the clock, internal state can capture glitches (1s/0s catching)."
+  },
+  {
+    "id": 119,
+    "topic": "JK Flip-Flop",
+    "question": "In the state diagram of a JK Flip-Flop, how many transitions exist between states '0' and '1'?",
+    "options": {
+      "A": "1 in each direction",
+      "B": "2 possible input combinations in each direction",
+      "C": "4 in each direction",
+      "D": "0"
+    },
+    "answer": "B",
+    "reason": "From 0 -> 1 can occur via (J=1, K=0) or (J=1, K=1). From 1 -> 0 can occur via (J=0, K=1) or (J=1, K=1). There are two combinations per direction."
+  },
+  {
+    "id": 120,
+    "topic": "JK Flip-Flop",
+    "question": "What happens if both J and K are tied to Logic 1, but the clock line is held continuously at DC 5V (HIGH)?",
+    "options": {
+      "A": "The output toggles continuously at its maximum toggle rate",
+      "B": "The output holds its existing state (no edge occurs)",
+      "C": "The output burns out",
+      "D": "The output goes to High-Z"
+    },
+    "answer": "B",
+    "reason": "Edge-triggered flip-flops require a dynamic clock transition (voltage step); a steady DC level produces no edge, so no state change occurs."
+  },
+  {
+    "id": 121,
+    "topic": "T Flip-Flop",
+    "question": "What does the letter 'T' stand for in a T Flip-Flop?",
+    "options": {
+      "A": "Time",
+      "B": "Transfer",
+      "C": "Toggle",
+      "D": "Trigger"
+    },
+    "answer": "C",
+    "reason": "T stands for Toggle, describing its ability to invert its output state when active."
+  },
+  {
+    "id": 122,
+    "topic": "T Flip-Flop",
+    "question": "What is the characteristic equation of a T Flip-Flop?",
+    "options": {
+      "A": "Q(next) = T · Q",
+      "B": "Q(next) = T ⊕ Q",
+      "C": "Q(next) = T + Q",
+      "D": "Q(next) = T' · Q"
+    },
+    "answer": "B",
+    "reason": "When T = 0, Q(next) = Q. When T = 1, Q(next) = Q'. Combining these yields Q(next) = T·Q' + T'·Q = T ⊕ Q."
+  },
+  {
+    "id": 123,
+    "topic": "T Flip-Flop",
+    "question": "What occurs when the input T = 0 during an active clock transition?",
+    "options": {
+      "A": "Output resets to 0",
+      "B": "Output sets to 1",
+      "C": "No change (Hold state)",
+      "D": "Output oscillates"
+    },
+    "answer": "C",
+    "reason": "When T = 0, the flip-flop is disabled and maintains its current state Q(next) = Q."
+  },
+  {
+    "id": 124,
+    "topic": "T Flip-Flop",
+    "question": "What occurs when the input T = 1 during an active clock transition?",
+    "options": {
+      "A": "Output resets to 0",
+      "B": "Output sets to 1",
+      "C": "Output complements (Toggles)",
+      "D": "Output becomes indeterminate"
+    },
+    "answer": "C",
+    "reason": "When T = 1, the output state inverts: Q(next) = Q'."
+  },
+  {
+    "id": 125,
+    "topic": "T Flip-Flop",
+    "question": "What is the excitation input T required to transition from Q = 0 to Q = 0?",
+    "options": {
+      "A": "T = 0",
+      "B": "T = 1",
+      "C": "T = X",
+      "D": "T cannot be determined"
+    },
+    "answer": "A",
+    "reason": "Staying at 0 means no change has occurred, requiring T = 0."
+  },
+  {
+    "id": 126,
+    "topic": "T Flip-Flop",
+    "question": "What is the excitation input T required to transition from Q = 0 to Q = 1?",
+    "options": {
+      "A": "T = 0",
+      "B": "T = 1",
+      "C": "T = X",
+      "D": "T = 0 or 1"
+    },
+    "answer": "B",
+    "reason": "Changing from 0 to 1 is an inversion of state, requiring T = 1."
+  },
+  {
+    "id": 127,
+    "topic": "T Flip-Flop",
+    "question": "What is the excitation input T required to transition from Q = 1 to Q = 0?",
+    "options": {
+      "A": "T = 0",
+      "B": "T = 1",
+      "C": "T = X",
+      "D": "T = Q"
+    },
+    "answer": "B",
+    "reason": "Changing from 1 to 0 is an inversion of state, requiring T = 1."
+  },
+  {
+    "id": 128,
+    "topic": "T Flip-Flop",
+    "question": "What is the excitation input T required to transition from Q = 1 to Q = 1?",
+    "options": {
+      "A": "T = 0",
+      "B": "T = 1",
+      "C": "T = X",
+      "D": "T = Q'"
+    },
+    "answer": "A",
+    "reason": "Maintaining output at 1 is a hold operation, requiring T = 0."
+  },
+  {
+    "id": 129,
+    "topic": "T Flip-Flop",
+    "question": "How can a D Flip-Flop be converted into a T Flip-Flop?",
+    "options": {
+      "A": "Connect D = T · Q",
+      "B": "Connect D = T ⊕ Q",
+      "C": "Connect D = T + Q",
+      "D": "Connect D = T' · Q"
+    },
+    "answer": "B",
+    "reason": "For a D flip-flop, Q(next) = D. Matching this with the T flip-flop characteristic equation Q(next) = T ⊕ Q requires setting D = T ⊕ Q."
+  },
+  {
+    "id": 130,
+    "topic": "T Flip-Flop",
+    "question": "How can an SR Flip-Flop be converted into a T Flip-Flop?",
+    "options": {
+      "A": "S = T · Q', R = T · Q",
+      "B": "S = T · Q, R = T · Q'",
+      "C": "S = T, R = T'",
+      "D": "S = T ⊕ Q, R = T"
+    },
+    "answer": "A",
+    "reason": "When T=1: if Q=0, S=1 and R=0 sets Q to 1; if Q=1, S=0 and R=1 resets Q to 0. When T=0, S=R=0 holds the state."
+  },
+  {
+    "id": 131,
+    "topic": "T Flip-Flop",
+    "question": "A single T Flip-Flop with T tied to Logic 1 acts as a:",
+    "options": {
+      "A": "Divide-by-1 counter",
+      "B": "Divide-by-2 frequency divider",
+      "C": "Divide-by-4 frequency divider",
+      "D": "Buffer amplifier"
+    },
+    "answer": "B",
+    "reason": "With T=1, the output toggles every clock cycle, completing one full output period every two clock periods (f_out = f_in / 2)."
+  },
+  {
+    "id": 132,
+    "topic": "T Flip-Flop",
+    "question": "If an input signal of 64 kHz is applied to the clock pin of 3 cascaded T Flip-Flops (all with T=1), the final output frequency is:",
+    "options": {
+      "A": "32 kHz",
+      "B": "16 kHz",
+      "C": "8 kHz",
+      "D": "4 kHz"
+    },
+    "answer": "C",
+    "reason": "Each T flip-flop divides the frequency by 2. Total division factor = 2^3 = 8. Output frequency = 64 kHz / 8 = 8 kHz."
+  },
+  {
+    "id": 133,
+    "topic": "T Flip-Flop",
+    "question": "In a synchronous binary up-counter built with T Flip-Flops, the T input to stage 2 (T2) must be fed with:",
+    "options": {
+      "A": "Q0",
+      "B": "Q1",
+      "C": "Q0 · Q1",
+      "D": "Q0 + Q1"
+    },
+    "answer": "C",
+    "reason": "In binary counting, bit 2 toggles only when both lower bits (Q0 and Q1) are 1, requiring T2 = Q0 · Q1."
+  },
+  {
+    "id": 134,
+    "topic": "T Flip-Flop",
+    "question": "How many states are in the state table of a single T Flip-Flop?",
+    "options": {
+      "A": "2",
+      "B": "4",
+      "C": "8",
+      "D": "16"
+    },
+    "answer": "B",
+    "reason": "The state table considers two variables: Current State Q (0 or 1) and Input T (0 or 1), yielding 2 x 2 = 4 total states."
+  },
+  {
+    "id": 135,
+    "topic": "T Flip-Flop",
+    "question": "What is the duty cycle of the output waveform of a T Flip-Flop configured as a divide-by-2 counter driven by an asymmetric periodic clock?",
+    "options": {
+      "A": "Dependent on the clock duty cycle",
+      "B": "Exactly 50%",
+      "C": "25%",
+      "D": "75%"
+    },
+    "answer": "B",
+    "reason": "Because the flip-flop triggers only on one edge (e.g., rising edge), the output remains HIGH for one clock period and LOW for one clock period, creating a 50% duty cycle square wave."
+  },
+  {
+    "id": 136,
+    "topic": "T Flip-Flop",
+    "question": "Can a standard T Flip-Flop execute an unconditional 'Set to 1' without knowledge of its current state Q?",
+    "options": {
+      "A": "Yes, by holding T=1 for two cycles",
+      "B": "No, because the synchronous input T only supports hold or invert",
+      "C": "Yes, by setting T=0",
+      "D": "Yes, by modulating clock voltage"
+    },
+    "answer": "B",
+    "reason": "Synchronous input T can only keep the existing state or invert it; an unconditional set requires an asynchronous preset or knowledge of current state Q."
+  },
+  {
+    "id": 137,
+    "topic": "T Flip-Flop",
+    "question": "In a 3-bit ripple down-counter using negative edge-triggered T Flip-Flops with T=1, each clock input after the first should be connected to:",
+    "options": {
+      "A": "The Q output of the previous stage",
+      "B": "The Q' output of the previous stage",
+      "C": "The main system clock directly",
+      "D": "Ground"
+    },
+    "answer": "A",
+    "reason": "Connecting negative-edge triggered clock inputs to the normal Q outputs creates a down-counter sequence."
+  },
+  {
+    "id": 138,
+    "topic": "T Flip-Flop",
+    "question": "In a 3-bit ripple up-counter using negative edge-triggered T Flip-Flops with T=1, each clock input after the first should be connected to:",
+    "options": {
+      "A": "The Q output of the previous stage",
+      "B": "The Q' output of the previous stage",
+      "C": "The T input",
+      "D": "VCC"
+    },
+    "answer": "B",
+    "reason": "For negative edge-triggered flip-flops, connecting the clock to the inverted Q' outputs yields an up-counter sequence."
+  },
+  {
+    "id": 139,
+    "topic": "T Flip-Flop",
+    "question": "What is the output Q(next) if Q(prev) = 0 and input T = 1?",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "High-Z",
+      "D": "Metastable"
+    },
+    "answer": "B",
+    "reason": "Q(next) = T ⊕ Q = 1 ⊕ 0 = 1."
+  },
+  {
+    "id": 140,
+    "topic": "T Flip-Flop",
+    "question": "What is the output Q(next) if Q(prev) = 1 and input T = 1?",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "Toggled to 1",
+      "D": "Undefined"
+    },
+    "answer": "A",
+    "reason": "Q(next) = T ⊕ Q = 1 ⊕ 1 = 0."
+  },
+  {
+    "id": 141,
+    "topic": "T Flip-Flop",
+    "question": "What is the output Q(next) if Q(prev) = 1 and input T = 0?",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "Oscillating",
+      "D": "Inverted"
+    },
+    "answer": "B",
+    "reason": "Q(next) = T ⊕ Q = 0 ⊕ 1 = 1 (hold state)."
+  },
+  {
+    "id": 142,
+    "topic": "T Flip-Flop",
+    "question": "An asynchronous clear pin on a T Flip-Flop forces output Q to:",
+    "options": {
+      "A": "1 immediately",
+      "B": "0 immediately, independent of clock and T",
+      "C": "Complement of T",
+      "D": "High impedance"
+    },
+    "answer": "B",
+    "reason": "Asynchronous clearing overrides synchronous operation and immediately resets the internal storage node to 0."
+  },
+  {
+    "id": 143,
+    "topic": "T Flip-Flop",
+    "question": "How many T Flip-Flops are needed to construct a BCD (Decade) counter?",
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "10",
+      "D": "5"
+    },
+    "answer": "B",
+    "reason": "A BCD counter requires 10 distinct states (0–9). Since 2^3 = 8 < 10 and 2^4 = 16 >= 10, 4 flip-flops are necessary."
+  },
+  {
+    "id": 144,
+    "topic": "T Flip-Flop",
+    "question": "In a T Flip-Flop excitation table, the entry for transition (1 -> 0) is:",
+    "options": {
+      "A": "T = 0",
+      "B": "T = 1",
+      "C": "T = X",
+      "D": "T = Z"
+    },
+    "answer": "B",
+    "reason": "A 1 -> 0 change requires a toggle action, which is produced by T = 1."
+  },
+  {
+    "id": 145,
+    "topic": "T Flip-Flop",
+    "question": "What is the relationship between the propagation delay of an n-bit asynchronous counter and the delay of a single T Flip-Flop (tpd)?",
+    "options": {
+      "A": "Total delay = tpd",
+      "B": "Total delay = n · tpd",
+      "C": "Total delay = tpd / n",
+      "D": "Total delay = (tpd)^n"
+    },
+    "answer": "B",
+    "reason": "In ripple architectures, each stage must wait for the preceding stage's output transition to ripple through, accumulating total delay = n · tpd."
+  },
+  {
+    "id": 146,
+    "topic": "T Flip-Flop",
+    "question": "Why are T Flip-Flops preferred over D Flip-Flops for designing binary counters?",
+    "options": {
+      "A": "T flip-flops consume less static power",
+      "B": "T inputs directly map to toggling binary bit positions, simplifying combinational excitation logic",
+      "C": "D flip-flops cannot toggle",
+      "D": "T flip-flops do not require a clock line"
+    },
+    "answer": "B",
+    "reason": "Because binary counter bits toggle under specific conditions, T flip-flops align directly with counter excitation requirements."
+  },
+  {
+    "id": 147,
+    "topic": "T Flip-Flop",
+    "question": "If the T input is connected to output Q', what is the resulting next state equation?",
+    "options": {
+      "A": "Q(next) = Q",
+      "B": "Q(next) = Q'",
+      "C": "Q(next) = 1",
+      "D": "Q(next) = 0"
+    },
+    "answer": "C",
+    "reason": "Q(next) = T ⊕ Q. Substituting T = Q' gives Q(next) = Q' ⊕ Q = 1."
+  },
+  {
+    "id": 148,
+    "topic": "T Flip-Flop",
+    "question": "If the T input is connected to output Q, what is the resulting next state equation?",
+    "options": {
+      "A": "Q(next) = 1",
+      "B": "Q(next) = 0",
+      "C": "Q(next) = Q",
+      "D": "Q(next) = Q'"
+    },
+    "answer": "B",
+    "reason": "Q(next) = T ⊕ Q. Substituting T = Q gives Q(next) = Q ⊕ Q = 0."
+  },
+  {
+    "id": 149,
+    "topic": "T Flip-Flop",
+    "question": "For a T Flip-Flop, if clock frequency is 50 MHz and T = 0 continuously, what is the frequency of signal Q?",
+    "options": {
+      "A": "25 MHz",
+      "B": "50 MHz",
+      "C": "0 Hz (DC level)",
+      "D": "100 MHz"
+    },
+    "answer": "C",
+    "reason": "With T = 0, no transitions occur at output Q, keeping it at a constant DC level (0 Hz)."
+  },
+  {
+    "id": 150,
+    "topic": "T Flip-Flop",
+    "question": "How can a 2:1 Multiplexer implement the D input logic required to turn a D Flip-Flop into a T Flip-Flop?",
+    "options": {
+      "A": "Select line = T, Input 0 = Q, Input 1 = Q'",
+      "B": "Select line = Q, Input 0 = 0, Input 1 = 1",
+      "C": "Select line = T, Input 0 = 1, Input 1 = 0",
+      "D": "Select line = Q, Input 0 = T, Input 1 = T"
+    },
+    "answer": "A",
+    "reason": "When T=0, select line routes Input 0 (Q) to D (hold). When T=1, select line routes Input 1 (Q') to D (toggle)."
+  },
+  {
+    "id": 151,
+    "topic": "D Flip-Flop",
+    "question": "What does the letter 'D' stand for in a D Flip-Flop?",
+    "options": {
+      "A": "Dynamic or Digital",
+      "B": "Delay or Data",
+      "C": "Decoupled or Dual",
+      "D": "Derivative"
+    },
+    "answer": "B",
+    "reason": "D stands for Data (or Delay), as it stores the input bit and delays its appearance at Q by one clock period."
+  },
+  {
+    "id": 152,
+    "topic": "D Flip-Flop",
+    "question": "What is the characteristic equation of a D Flip-Flop?",
+    "options": {
+      "A": "Q(next) = D",
+      "B": "Q(next) = D · Q",
+      "C": "Q(next) = D ⊕ Q",
+      "D": "Q(next) = D + Q"
+    },
+    "answer": "A",
+    "reason": "The next state of a D flip-flop strictly tracks the value of D at the active clock edge: Q(next) = D."
+  },
+  {
+    "id": 153,
+    "topic": "D Flip-Flop",
+    "question": "What is the excitation requirement for a D Flip-Flop to transition from Q = 0 to Q = 1?",
+    "options": {
+      "A": "D = 0",
+      "B": "D = 1",
+      "C": "D = X",
+      "D": "D = Q'"
+    },
+    "answer": "B",
+    "reason": "Because Q(next) = D, achieving next state 1 requires setting D = 1."
+  },
+  {
+    "id": 154,
+    "topic": "D Flip-Flop",
+    "question": "What is the excitation requirement for a D Flip-Flop to transition from Q = 1 to Q = 0?",
+    "options": {
+      "A": "D = 0",
+      "B": "D = 1",
+      "C": "D = X",
+      "D": "D = Q"
+    },
+    "answer": "A",
+    "reason": "Because Q(next) = D, achieving next state 0 requires setting D = 0."
+  },
+  {
+    "id": 155,
+    "topic": "D Flip-Flop",
+    "question": "How can a D Flip-Flop be configured to toggle its output on every active clock edge?",
+    "options": {
+      "A": "Connect D to VCC",
+      "B": "Connect D to Ground",
+      "C": "Connect inverted output Q' back to input D",
+      "D": "Connect normal output Q directly to input D"
+    },
+    "answer": "C",
+    "reason": "Setting D = Q' forces Q(next) = Q', causing the output to invert on every clock cycle."
+  },
+  {
+    "id": 156,
+    "topic": "D Flip-Flop",
+    "question": "What is the primary operational difference between a D Latch and a D Flip-Flop?",
+    "options": {
+      "A": "A D latch is edge-triggered, whereas a D flip-flop is level-sensitive",
+      "B": "A D latch is transparent during clock/enable HIGH, whereas a D flip-flop captures data only at the clock edge",
+      "C": "D latches have no inverted output Q'",
+      "D": "D flip-flops cannot store binary data"
+    },
+    "answer": "B",
+    "reason": "When its enable line is active, a D latch is transparent and allows input changes to pass to output Q immediately. A D flip-flop samples only during clock transitions."
+  },
+  {
+    "id": 157,
+    "topic": "D Flip-Flop",
+    "question": "Which standard 7400-series TTL IC contains dual positive-edge-triggered D Flip-Flops with preset and clear?",
+    "options": {
+      "A": "7408",
+      "B": "7432",
+      "C": "7474",
+      "D": "7486"
+    },
+    "answer": "C",
+    "reason": "7474 (or 74LS74) is the industry standard dual positive edge-triggered D flip-flop IC."
+  },
+  {
+    "id": 158,
+    "topic": "D Flip-Flop",
+    "question": "What happens if the setup time (tsu) requirement of a D Flip-Flop is violated?",
+    "options": {
+      "A": "Power consumption drops to zero",
+      "B": "The flip-flop may enter a metastable state with unpredictable settling time",
+      "C": "The clock frequency increases automatically",
+      "D": "The flip-flop converts to an SR latch"
+    },
+    "answer": "B",
+    "reason": "Violating setup time prevents internal regenerative nodes from latching cleanly, which can lead to metastability."
+  },
+  {
+    "id": 159,
+    "topic": "D Flip-Flop",
+    "question": "How can a D Flip-Flop be converted into a JK Flip-Flop?",
+    "options": {
+      "A": "D = J · Q' + K' · Q",
+      "B": "D = J · Q + K · Q'",
+      "C": "D = J ⊕ K",
+      "D": "D = J + K'"
+    },
+    "answer": "A",
+    "reason": "Since Q(next) = D, setting D equal to the JK characteristic equation (J·Q' + K'·Q) creates identical behavior."
+  },
+  {
+    "id": 160,
+    "topic": "D Flip-Flop",
+    "question": "In a 4-bit Serial-In Serial-Out (SISO) shift register built using D Flip-Flops, how many clock cycles are needed to fully load 4 bits of data?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "4",
+      "D": "8"
+    },
+    "answer": "C",
+    "reason": "Each clock edge advances the serial data by one flip-flop stage, requiring 4 clock pulses to shift in all 4 bits."
+  },
+  {
+    "id": 161,
+    "topic": "D Flip-Flop",
+    "question": "In a 4-bit Serial-In Parallel-Out (SIPO) shift register, how many clock cycles are required to retrieve the parallel output once the data is loaded?",
+    "options": {
+      "A": "0 (Available immediately at outputs)",
+      "B": "1",
+      "C": "4",
+      "D": "8"
+    },
+    "answer": "A",
+    "reason": "Because all four flip-flop Q pins are exposed simultaneously, parallel data can be read immediately once shifted in."
+  },
+  {
+    "id": 162,
+    "topic": "D Flip-Flop",
+    "question": "If input D is tied directly to output Q, what happens on subsequent clock edges?",
+    "options": {
+      "A": "The flip-flop toggles continuously",
+      "B": "The flip-flop latches and maintains its current state indefinitely",
+      "C": "The output resets to 0",
+      "D": "The output sets to 1"
+    },
+    "answer": "B",
+    "reason": "Because D = Q, every clock edge loads its existing state back in (Q(next) = Q), creating a hold condition."
+  },
+  {
+    "id": 163,
+    "topic": "D Flip-Flop",
+    "question": "In a positive-edge-triggered D Flip-Flop, if D changes from 0 to 1 while Clock is steady at logic 1 (HIGH), the output Q will:",
+    "options": {
+      "A": "Change to 1 immediately",
+      "B": "Remain unchanged until the next rising clock edge",
+      "C": "Toggle repeatedly",
+      "D": "Reset to 0"
+    },
+    "answer": "B",
+    "reason": "Edge-triggered flip-flops are insensitive to input changes when the clock is held at a steady logic level."
+  },
+  {
+    "id": 164,
+    "topic": "D Flip-Flop",
+    "question": "What is the primary role of D Flip-Flops when used in synchronizer circuits for asynchronous inputs?",
+    "options": {
+      "A": "To amplify voltage levels",
+      "B": "To align external asynchronous signals with the local clock and mitigate metastability",
+      "C": "To invert incoming signal polarity",
+      "D": "To reduce system clock frequency"
+    },
+    "answer": "B",
+    "reason": "Cascading two D flip-flops (a two-stage synchronizer) allows metastable signals time to resolve before passing into internal logic."
+  },
+  {
+    "id": 165,
+    "topic": "D Flip-Flop",
+    "question": "What is the function of the 'Clock Enable' (CE) pin on a modern D Flip-Flop with enable?",
+    "options": {
+      "A": "Powers down the IC package",
+      "B": "When LOW, recirculates Q to D, preserving state; when HIGH, loads new data from D",
+      "C": "Inverts the master clock",
+      "D": "Acts as an analog gain control"
+    },
+    "answer": "B",
+    "reason": "A clock enable multiplexes the input: when CE=1, D_in is sampled; when CE=0, current state Q is fed back to hold data."
+  },
+  {
+    "id": 166,
+    "topic": "D Flip-Flop",
+    "question": "How many states exist in an 8-bit register formed by 8 parallel D Flip-Flops?",
+    "options": {
+      "A": "8",
+      "B": "16",
+      "C": "64",
+      "D": "256"
+    },
+    "answer": "D",
+    "reason": "An 8-bit register can store 2^8 = 256 unique binary combinations."
+  },
+  {
+    "id": 167,
+    "topic": "D Flip-Flop",
+    "question": "What is clock skew in a register file constructed using D Flip-Flops?",
+    "options": {
+      "A": "Phase drift caused by temperature variations in power supplies",
+      "B": "Difference in clock arrival times at different flip-flops due to routing wire lengths",
+      "C": "Variation in input setup time",
+      "D": "Decay of the stored gate dielectric charge"
+    },
+    "answer": "B",
+    "reason": "Clock skew is the difference in arrival time of the clock edge at different destination flip-flops caused by interconnect delay."
+  },
+  {
+    "id": 168,
+    "topic": "D Flip-Flop",
+    "question": "What condition must be met to avoid a hold time violation between two cascaded D Flip-Flops (FF1 driving FF2)?",
+    "options": {
+      "A": "tpd(FF1) + tcomb >= th(FF2)",
+      "B": "tpd(FF1) <= tsu(FF2)",
+      "C": "tpd(FF1) = 0",
+      "D": "Clock period < th(FF2)"
+    },
+    "answer": "A",
+    "reason": "The output of FF1 must not change faster than the hold time requirement of FF2; thus minimum propagation delay plus logic delay must exceed FF2's hold time."
+  },
+  {
+    "id": 169,
+    "topic": "D Flip-Flop",
+    "question": "A 4-bit Ring counter implemented using D Flip-Flops initializes with state 1000. What is the state after 3 clock pulses?",
+    "options": {
+      "A": "0100",
+      "B": "0010",
+      "C": "0001",
+      "D": "1000"
+    },
+    "answer": "C",
+    "reason": "Pulse 1: 0100. Pulse 2: 0010. Pulse 3: 0001."
+  },
+  {
+    "id": 170,
+    "topic": "D Flip-Flop",
+    "question": "A 4-bit Johnson counter implemented using D Flip-Flops initializes with state 0000. What is the state after 2 clock pulses?",
+    "options": {
+      "A": "1000",
+      "B": "1100",
+      "C": "1110",
+      "D": "0011"
+    },
+    "answer": "B",
+    "reason": "In a Johnson counter, the input D0 receives Q3'. Initial: 0000 (Q3'=1). Pulse 1: 1000 (Q3'=1). Pulse 2: 1100."
+  },
+  {
+    "id": 171,
+    "topic": "D Flip-Flop",
+    "question": "What is the maximum operating frequency (fmax) of a D Flip-Flop with setup time tsu and clock-to-Q delay tpd?",
+    "options": {
+      "A": "fmax = 1 / (tsu + tpd)",
+      "B": "fmax = tsu + tpd",
+      "C": "fmax = 1 / (tsu - tpd)",
+      "D": "fmax = 2 / (tsu + tpd)"
+    },
+    "answer": "A",
+    "reason": "The minimum possible clock period in a direct feedback register loop is Tmin = tpd + tsu, giving fmax = 1 / Tmin."
+  },
+  {
+    "id": 172,
+    "topic": "D Flip-Flop",
+    "question": "How can a D Flip-Flop be constructed using a 2:1 Multiplexer and cross-coupled inverters?",
+    "options": {
+      "A": "By using the clock as select line to switch between feedback hold and new data input",
+      "B": "By connecting both inputs to ground",
+      "C": "By routing Q directly to select line",
+      "D": "By bypassing the enable control"
+    },
+    "answer": "A",
+    "reason": "A transmission-gate or MUX-based latch selects external data D when enabled, and loops stored Q back when holding."
+  },
+  {
+    "id": 173,
+    "topic": "D Flip-Flop",
+    "question": "In FPGA architectures, logic cells primarily use D Flip-Flops as their sequential element because:",
+    "options": {
+      "A": "They are simpler to implement in silicon and map cleanly to look-up table (LUT) outputs",
+      "B": "FPGAs cannot implement JK flip-flops",
+      "C": "D flip-flops do not require power routing",
+      "D": "D flip-flops cannot toggle"
+    },
+    "answer": "A",
+    "reason": "A D flip-flop requires fewer transistors than JK/T flip-flops and pairs directly with lookup table outputs to implement registered logic."
+  },
+  {
+    "id": 174,
+    "topic": "D Flip-Flop",
+    "question": "If input D is driven by an XOR gate with inputs A and B, what is Q(next)?",
+    "options": {
+      "A": "A · B",
+      "B": "A ⊕ B",
+      "C": "(A ⊕ B)'",
+      "D": "A + B"
+    },
+    "answer": "B",
+    "reason": "Since Q(next) = D, feeding A ⊕ B into D directly gives Q(next) = A ⊕ B."
+  },
+  {
+    "id": 175,
+    "topic": "D Flip-Flop",
+    "question": "What is the excitation entry D for transitioning Q from 0 to 0?",
+    "options": {
+      "A": "D = 0",
+      "B": "D = 1",
+      "C": "D = X",
+      "D": "D = Z"
+    },
+    "answer": "A",
+    "reason": "The destination state is 0, so D must be held at 0."
+  },
+  {
+    "id": 176,
+    "topic": "D Flip-Flop",
+    "question": "What is the excitation entry D for transitioning Q from 1 to 1?",
+    "options": {
+      "A": "D = 0",
+      "B": "D = 1",
+      "C": "D = X",
+      "D": "D = Z"
+    },
+    "answer": "B",
+    "reason": "The destination state is 1, so D must be held at 1."
+  },
+  {
+    "id": 177,
+    "topic": "D Flip-Flop",
+    "question": "In an edge-triggered D Flip-Flop, the internal dynamic race condition is prevented by:",
+    "options": {
+      "A": "Using two-stage Master-Slave latches or edge-detecting gate loops",
+      "B": "Using pull-up resistors on output Q",
+      "C": "Lowering the system clock speed to zero",
+      "D": "Disabling ground connections"
+    },
+    "answer": "A",
+    "reason": "Edge triggering isolates master and slave stages or uses pulse-narrowing feedback to prevent inputs from racing during the clock window."
+  },
+  {
+    "id": 178,
+    "topic": "D Flip-Flop",
+    "question": "What is meant by the 'clock-to-output propagation delay' (tpd, clk-to-Q)?",
+    "options": {
+      "A": "Time required to charge the clock input pin capacitance",
+      "B": "Time elapsed between the active clock edge and the valid output transition at Q",
+      "C": "Time between data changing and the clock rising",
+      "D": "Pulse duration of the reset signal"
+    },
+    "answer": "B",
+    "reason": "Clock-to-Q delay measures the time it takes for a state change to propagate from the clock edge to output Q."
+  },
+  {
+    "id": 179,
+    "topic": "D Flip-Flop",
+    "question": "When building a 3-bit Linear Feedback Shift Register (LFSR), the input D0 is typically driven by:",
+    "options": {
+      "A": "VCC",
+      "B": "An XOR/XNOR parity feedback of selected tap bits",
+      "C": "An analog voltage divider",
+      "D": "Ground"
+    },
+    "answer": "B",
+    "reason": "LFSR pseudo-random pattern generators feed back the XOR/XNOR sum of selected register taps into the first flip-flop input D0."
+  },
+  {
+    "id": 180,
+    "topic": "D Flip-Flop",
+    "question": "If PRESET' = 1 and CLEAR' = 0 on an active-LOW asynchronous interface of a D Flip-Flop, the output Q will be:",
+    "options": {
+      "A": "1",
+      "B": "0",
+      "C": "Toggled",
+      "D": "Tri-stated"
+    },
+    "answer": "B",
+    "reason": "Asserting CLEAR' (LOW) while PRESET' is inactive (HIGH) immediately clears output Q to 0 regardless of clock or data inputs."
+  },
+  {
+    "id": 181,
+    "topic": "Ring & Johnson Counters",
+    "question": "How many distinct valid states does an n-bit Ring Counter have?",
+    "options": {
+      "A": "2^n",
+      "B": "2n",
+      "C": "n",
+      "D": "n - 1"
+    },
+    "answer": "C",
+    "reason": "An n-bit Ring Counter circulates a single logic '1' across n flip-flops, resulting in exactly n distinct valid states."
+  },
+  {
+    "id": 182,
+    "topic": "Ring & Johnson Counters",
+    "question": "How many distinct states does an n-bit Johnson (Twisted Ring) Counter provide?",
+    "options": {
+      "A": "n",
+      "B": "2n",
+      "C": "2^n",
+      "D": "2^(n-1)"
+    },
+    "answer": "B",
+    "reason": "Because the inverted output of the last flip-flop is fed back to the input of the first, an n-bit Johnson counter cycles through 2n states."
+  },
+  {
+    "id": 183,
+    "topic": "Ring & Johnson Counters",
+    "question": "How many unused (illegal) states exist in a 4-bit Ring Counter?",
+    "options": {
+      "A": "4",
+      "B": "8",
+      "C": "12",
+      "D": "16"
+    },
+    "answer": "C",
+    "reason": "A 4-bit register has 2^4 = 16 total possible states. A Ring Counter uses only 4 states, leaving 16 - 4 = 12 unused states."
+  },
+  {
+    "id": 184,
+    "topic": "Ring & Johnson Counters",
+    "question": "How many unused states exist in a 4-bit Johnson Counter?",
+    "options": {
+      "A": "4",
+      "B": "8",
+      "C": "12",
+      "D": "16"
+    },
+    "answer": "B",
+    "reason": "A 4-bit Johnson counter uses 2n = 8 states out of 16 possible states, leaving 16 - 8 = 8 unused states."
+  },
+  {
+    "id": 185,
+    "topic": "Ring & Johnson Counters",
+    "question": "In a 4-bit Ring Counter, if the initial state is 1000, what is the state after 2 clock pulses?",
+    "options": {
+      "A": "0100",
+      "B": "0010",
+      "C": "0001",
+      "D": "1000"
+    },
+    "answer": "B",
+    "reason": "Pulse 1 shifts the '1' to the right: 0100. Pulse 2 shifts it again: 0010."
+  },
+  {
+    "id": 186,
+    "topic": "Ring & Johnson Counters",
+    "question": "In a 4-bit Johnson Counter starting at 0000, what is the state after 3 clock pulses?",
+    "options": {
+      "A": "1110",
+      "B": "1100",
+      "C": "1000",
+      "D": "0111"
+    },
+    "answer": "A",
+    "reason": "Starting at 0000: Pulse 1 -> 1000; Pulse 2 -> 1100; Pulse 3 -> 1110."
+  },
+  {
+    "id": 187,
+    "topic": "Ring & Johnson Counters",
+    "question": "What is another common name for a Johnson Counter?",
+    "options": {
+      "A": "Binary Ripple Counter",
+      "B": "Twisted Ring / Moebius Counter",
+      "C": "Decade Up-Down Counter",
+      "D": "Modulo-N Synchronous Counter"
+    },
+    "answer": "B",
+    "reason": "Because the feedback path inverts the data line, it is commonly called a Twisted Ring, Moebius, or Walking counter."
+  },
+  {
+    "id": 188,
+    "topic": "Ring & Johnson Counters",
+    "question": "To decode any state in a Johnson Counter, how many inputs are needed for each decoding gate?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "n",
+      "D": "2n"
+    },
+    "answer": "B",
+    "reason": "In a Johnson counter, adjacent state codes change by only one bit at a time, allowing any state to be decoded with a simple 2-input AND gate."
+  },
+  {
+    "id": 189,
+    "topic": "Ring & Johnson Counters",
+    "question": "To decode a specific state in an n-bit Ring Counter, how many gate inputs are required?",
+    "options": {
+      "A": "No extra gates are required (direct single flip-flop output)",
+      "B": "2",
+      "C": "n",
+      "D": "2^n"
+    },
+    "answer": "A",
+    "reason": "Each state in a Ring Counter is uniquely signaled by a '1' on a single dedicated flip-flop's Q output, needing no external decoding logic."
+  },
+  {
+    "id": 190,
+    "topic": "Ring & Johnson Counters",
+    "question": "What happens if a Ring Counter accidentally enters an illegal state (e.g., 0000 or 1100) due to noise?",
+    "options": {
+      "A": "It automatically recovers in the next cycle without extra logic",
+      "B": "It circulates within an illegal closed loop unless self-correcting logic is added",
+      "C": "All outputs burn out",
+      "D": "The clock stops running"
+    },
+    "answer": "B",
+    "reason": "Without auxiliary self-correcting gates, an illegal state will continue circulating invalid patterns indefinitely."
+  },
+  {
+    "id": 191,
+    "topic": "Ring & Johnson Counters",
+    "question": "Which logic gate can be added in the feedback loop to make a 4-bit Ring Counter self-starting from 0000?",
+    "options": {
+      "A": "An AND gate combining Q0, Q1, and Q2",
+      "B": "A NOR gate receiving Q0, Q1, and Q2 fed to D0",
+      "C": "An XOR gate on Q3 and Q2",
+      "D": "An inverter on Q3"
+    },
+    "answer": "B",
+    "reason": "If Q0=Q1=Q2=0, the NOR gate generates a logic 1 at D0, injecting the missing '1' back into the counter."
+  },
+  {
+    "id": 192,
+    "topic": "Ring & Johnson Counters",
+    "question": "How many flip-flops are needed to build a MOD-10 Johnson Counter?",
+    "options": {
+      "A": "10",
+      "B": "5",
+      "C": "4",
+      "D": "8"
+    },
+    "answer": "B",
+    "reason": "For a Johnson counter, MOD = 2n. Therefore, 2n = 10 -> n = 5 flip-flops."
+  },
+  {
+    "id": 193,
+    "topic": "Ring & Johnson Counters",
+    "question": "How many flip-flops are needed to build a MOD-10 Ring Counter?",
+    "options": {
+      "A": "10",
+      "B": "5",
+      "C": "4",
+      "D": "8"
+    },
+    "answer": "A",
+    "reason": "For a Ring Counter, MOD = n. Therefore, a MOD-10 counter requires 10 flip-flops."
+  },
+  {
+    "id": 194,
+    "topic": "Ring & Johnson Counters",
+    "question": "Are Ring and Johnson Counters classified as synchronous or asynchronous counters?",
+    "options": {
+      "A": "Asynchronous because they ripple through stages",
+      "B": "Synchronous because all flip-flops share the same clock",
+      "C": "Combinational circuits",
+      "D": "Both synchronous and asynchronous simultaneously"
+    },
+    "answer": "B",
+    "reason": "All flip-flops in shift-register based counters receive the master clock pulse concurrently."
+  },
+  {
+    "id": 195,
+    "topic": "Ring & Johnson Counters",
+    "question": "If an input clock frequency of 100 kHz is applied to a 5-bit Johnson Counter, what is the output frequency at any flip-flop pin?",
+    "options": {
+      "A": "20 kHz",
+      "B": "10 kHz",
+      "C": "50 kHz",
+      "D": "5 kHz"
+    },
+    "answer": "B",
+    "reason": "A 5-bit Johnson counter divides frequency by 2n = 2(5) = 10. f_out = 100 kHz / 10 = 10 kHz."
+  },
+  {
+    "id": 196,
+    "topic": "Ring & Johnson Counters",
+    "question": "What is the duty cycle of the output waveform from an n-bit Johnson Counter?",
+    "options": {
+      "A": "(1/n) * 100%",
+      "B": "50%",
+      "C": "(1/2n) * 100%",
+      "D": "75%"
+    },
+    "answer": "B",
+    "reason": "In an n-bit Johnson counter, each flip-flop stays HIGH for n clock cycles and LOW for n clock cycles, producing a perfect 50% duty cycle."
+  },
+  {
+    "id": 197,
+    "topic": "Ring & Johnson Counters",
+    "question": "What is the duty cycle of the output waveform from an n-bit Ring Counter?",
+    "options": {
+      "A": "(1/n) * 100%",
+      "B": "50%",
+      "C": "(n-1)/n * 100%",
+      "D": "100%"
+    },
+    "answer": "A",
+    "reason": "A flip-flop in a Ring Counter is HIGH for only 1 clock cycle out of n total cycles, yielding a duty cycle of 1/n."
+  },
+  {
+    "id": 198,
+    "topic": "Ring & Johnson Counters",
+    "question": "Which counter is more hardware-efficient in terms of flip-flop utilization for dividing clock frequencies?",
+    "options": {
+      "A": "Ring Counter",
+      "B": "Johnson Counter",
+      "C": "Both are identical",
+      "D": "Neither can divide frequency"
+    },
+    "answer": "B",
+    "reason": "A Johnson counter yields 2n states using n flip-flops, whereas a Ring counter only yields n states."
+  },
+  {
+    "id": 199,
+    "topic": "Ring & Johnson Counters",
+    "question": "In a 3-bit Johnson counter, what is the complete state sequence starting from 000?",
+    "options": {
+      "A": "000, 100, 110, 111, 011, 001",
+      "B": "000, 001, 010, 011, 100, 101",
+      "C": "100, 010, 001, 100",
+      "D": "000, 111, 000"
+    },
+    "answer": "A",
+    "reason": "At each step, the next bit shifted into the MSB is Q_last'. Sequence: 000 -> 100 -> 110 -> 111 -> 011 -> 001 -> back to 000."
+  },
+  {
+    "id": 200,
+    "topic": "Ring & Johnson Counters",
+    "question": "What feedback connection defines an n-bit Ring Counter constructed with D Flip-Flops?",
+    "options": {
+      "A": "D0 = Q(n-1)'",
+      "B": "D0 = Q(n-1)",
+      "C": "D0 = Q0",
+      "D": "D0 = Q0'"
+    },
+    "answer": "B",
+    "reason": "The non-inverted output of the final stage Q(n-1) is routed directly to the first stage input D0."
+  },
+  {
+    "id": 201,
+    "topic": "Ring & Johnson Counters",
+    "question": "What feedback connection defines an n-bit Johnson Counter constructed with D Flip-Flops?",
+    "options": {
+      "A": "D0 = Q(n-1)'",
+      "B": "D0 = Q(n-1)",
+      "C": "D0 = Q0",
+      "D": "D0 = Q0'"
+    },
+    "answer": "A",
+    "reason": "The inverted output of the final stage Q(n-1)' is fed back to the input of the first stage D0."
+  },
+  {
+    "id": 202,
+    "topic": "Ring & Johnson Counters",
+    "question": "What is the primary initialization requirement for a basic Ring Counter before clocking begins?",
+    "options": {
+      "A": "Clear all flip-flops to 0000",
+      "B": "Preset one flip-flop to 1 and clear all others to 0",
+      "C": "Set all flip-flops to 1111",
+      "D": "Hold the clock pin HIGH"
+    },
+    "answer": "B",
+    "reason": "A ring counter requires a single '1' (or '0' in active-LOW schemes) to be initialized into the register to circulate."
+  },
+  {
+    "id": 203,
+    "topic": "Ring & Johnson Counters",
+    "question": "Can a Johnson Counter start normally from state 0000 without requiring special preset logic?",
+    "options": {
+      "A": "Yes, 0000 is part of its normal counting sequence",
+      "B": "No, 0000 is an illegal state",
+      "C": "No, it locks up at 0000",
+      "D": "Only if clock frequency is zero"
+    },
+    "answer": "A",
+    "reason": "State 0000 is a valid state; on the next pulse, Q_last' = 1 is shifted in, moving the counter to 1000."
+  },
+  {
+    "id": 204,
+    "topic": "Ring & Johnson Counters",
+    "question": "How many unused states exist in an 8-bit Johnson Counter?",
+    "options": {
+      "A": "16",
+      "B": "240",
+      "C": "128",
+      "D": "64"
+    },
+    "answer": "B",
+    "reason": "Total states = 2^8 = 256. Valid states = 2n = 16. Unused states = 256 - 16 = 240."
+  },
+  {
+    "id": 205,
+    "topic": "Ring & Johnson Counters",
+    "question": "In a 4-bit Johnson counter, which Boolean expression decodes the state Q3 Q2 Q1 Q0 = 1100?",
+    "options": {
+      "A": "Q2 · Q1'",
+      "B": "Q3 · Q0",
+      "C": "Q1 · Q0'",
+      "D": "Q3' · Q2"
+    },
+    "answer": "A",
+    "reason": "In 1100, the transition boundary between 1 and 0 occurs between Q2 (1) and Q1 (0), so it is uniquely decoded by Q2 · Q1'."
+  },
+  {
+    "id": 206,
+    "topic": "Ring & Johnson Counters",
+    "question": "Why are Johnson Counters preferred in multiphase clock generation?",
+    "options": {
+      "A": "They produce symmetric square waves shifted in phase by equal intervals",
+      "B": "They consume no dynamic power",
+      "C": "They are completely asynchronous",
+      "D": "They eliminate all setup time constraints"
+    },
+    "answer": "A",
+    "reason": "Each flip-flop outputs a 50% duty cycle square wave shifted by one clock period relative to adjacent stages."
+  },
+  {
+    "id": 207,
+    "topic": "Ring & Johnson Counters",
+    "question": "If a 6-bit Ring counter is clocked by a 12 MHz clock, what is the period of the output signal at any stage?",
+    "options": {
+      "A": "500 ns",
+      "B": "83.3 ns",
+      "C": "1 us",
+      "D": "250 ns"
+    },
+    "answer": "A",
+    "reason": "Clock period = 1 / 12 MHz = 83.33 ns. The counter divides by 6, so output period = 6 * 83.33 ns = 500 ns."
+  },
+  {
+    "id": 208,
+    "topic": "Ring & Johnson Counters",
+    "question": "A ring counter constructed with n flip-flops has a count capacity of:",
+    "options": {
+      "A": "n",
+      "B": "2^n",
+      "C": "2n",
+      "D": "n^2"
+    },
+    "answer": "A",
+    "reason": "The number of unique count states (capacity) equals the number of flip-flops n."
+  },
+  {
+    "id": 209,
+    "topic": "Ring & Johnson Counters",
+    "question": "What is the primary drawback of using a Ring Counter for large modulus values (e.g., MOD-64)?",
+    "options": {
+      "A": "It requires an excessive number of flip-flops compared to a binary counter",
+      "B": "Decoding logic becomes too complex",
+      "C": "It cannot run on high clock speeds",
+      "D": "It produces severe glitching"
+    },
+    "answer": "A",
+    "reason": "A MOD-64 ring counter needs 64 flip-flops, whereas a binary counter requires only 6 flip-flops (2^6 = 64)."
+  },
+  {
+    "id": 210,
+    "topic": "Ring & Johnson Counters",
+    "question": "In a 4-bit Ring Counter, if state 1000 is followed by 0100, which direction is the data circulating?",
+    "options": {
+      "A": "Shift-Right",
+      "B": "Shift-Left",
+      "C": "Bidirectional",
+      "D": "Random"
+    },
+    "answer": "A",
+    "reason": "Moving the '1' from MSB (bit 3) toward lower significance bits represents a shift-right operation."
+  },
+  {
+    "id": 211,
+    "topic": "Asynchronous Counters",
+    "question": "Why is an asynchronous counter commonly called a 'ripple' counter?",
+    "options": {
+      "A": "Because its output voltage has ripple noise",
+      "B": "Because the clock signal ripples through each flip-flop sequentially rather than simultaneously",
+      "C": "Because it uses analog LC resonant circuits",
+      "D": "Because it only counts down"
+    },
+    "answer": "B",
+    "reason": "Each stage is triggered by the transition of the preceding flip-flop, creating a progressive ripple delay down the line."
+  },
+  {
+    "id": 212,
+    "topic": "Asynchronous Counters",
+    "question": "How many flip-flops are required to construct a MOD-4 asynchronous counter?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "4",
+      "D": "8"
+    },
+    "answer": "B",
+    "reason": "2^n >= MOD. For MOD = 4: 2^2 = 4, so exactly 2 flip-flops are needed."
+  },
+  {
+    "id": 213,
+    "topic": "Asynchronous Counters",
+    "question": "How many flip-flops are required to construct a MOD-8 asynchronous counter?",
+    "options": {
+      "A": "2",
+      "B": "3",
+      "C": "4",
+      "D": "8"
+    },
+    "answer": "B",
+    "reason": "2^n >= MOD. For MOD = 8: 2^3 = 8, so 3 flip-flops are needed."
+  },
+  {
+    "id": 214,
+    "topic": "Asynchronous Counters",
+    "question": "How many flip-flops are required to construct a MOD-10 (Decade) asynchronous counter?",
+    "options": {
+      "A": "3",
+      "B": "4",
+      "C": "5",
+      "D": "10"
+    },
+    "answer": "B",
+    "reason": "2^3 = 8 < 10 and 2^4 = 16 >= 10, meaning 4 flip-flops are needed."
+  },
+  {
+    "id": 215,
+    "topic": "Asynchronous Counters",
+    "question": "What is the maximum count state reached by a 3-bit MOD-8 binary up-counter?",
+    "options": {
+      "A": "8 (1000)",
+      "B": "7 (111)",
+      "C": "9 (1001)",
+      "D": "15 (1111)"
+    },
+    "answer": "B",
+    "reason": "A MOD-8 counter cycles through 8 states from 0 to (MOD - 1), which is 0 to 7 (000 to 111)."
+  },
+  {
+    "id": 216,
+    "topic": "Asynchronous Counters",
+    "question": "What is the count sequence of a MOD-4 binary up-counter?",
+    "options": {
+      "A": "00 -> 01 -> 10 -> 11 -> 00",
+      "B": "01 -> 10 -> 11 -> 00",
+      "C": "11 -> 10 -> 01 -> 00",
+      "D": "00 -> 10 -> 01 -> 11"
+    },
+    "answer": "A",
+    "reason": "A MOD-4 binary up-counter counts sequentially through decimal values 0, 1, 2, 3, and then resets back to 0."
+  },
+  {
+    "id": 217,
+    "topic": "Asynchronous Counters",
+    "question": "In a MOD-10 asynchronous up-counter, which state is detected by feedback logic to reset the counter back to 0?",
+    "options": {
+      "A": "9 (1001)",
+      "B": "10 (1010)",
+      "C": "11 (1011)",
+      "D": "15 (1111)"
+    },
+    "answer": "B",
+    "reason": "The counter must count from 0 to 9. Upon reaching 10 (1010 in binary), the feedback gate immediately pulses the clear lines to reset it to 0000."
+  },
+  {
+    "id": 218,
+    "topic": "Asynchronous Counters",
+    "question": "Which logic gate is standardly used to reset a MOD-10 ripple counter using active-LOW clear pins upon reaching state 1010?",
+    "options": {
+      "A": "A 2-input NAND gate connected to Q3 and Q1",
+      "B": "A 2-input AND gate connected to Q2 and Q0",
+      "C": "A NOR gate connected to Q3 and Q0",
+      "D": "An XOR gate connected to Q3 and Q2"
+    },
+    "answer": "A",
+    "reason": "State 10 corresponds to Q3=1 and Q1=1. A NAND gate with inputs Q3 and Q1 outputs a LOW (0) pulse, which clears active-LOW reset pins."
+  },
+  {
+    "id": 219,
+    "topic": "Asynchronous Counters",
+    "question": "To build an asynchronous UP counter using negative edge-triggered flip-flops, the clock of each subsequent stage must be driven by:",
+    "options": {
+      "A": "The inverted output Q' of the preceding stage",
+      "B": "The normal output Q of the preceding stage",
+      "C": "The master clock input directly",
+      "D": "Ground"
+    },
+    "answer": "B",
+    "reason": "For negative edge-triggered flip-flops, connecting clock to normal output Q yields an UP-counter sequence."
+  },
+  {
+    "id": 220,
+    "topic": "Asynchronous Counters",
+    "question": "To build an asynchronous DOWN counter using negative edge-triggered flip-flops, the clock of each subsequent stage must be driven by:",
+    "options": {
+      "A": "The inverted output Q' of the preceding stage",
+      "B": "The normal output Q of the preceding stage",
+      "C": "The master clock directly",
+      "D": "VCC"
+    },
+    "answer": "A",
+    "reason": "For negative edge-triggered flip-flops, connecting clock to inverted output Q' produces a DOWN-counter sequence."
+  },
+  {
+    "id": 221,
+    "topic": "Asynchronous Counters",
+    "question": "What is the total cumulative propagation delay of a 3-bit MOD-8 ripple counter if each flip-flop has a delay of 25 ns?",
+    "options": {
+      "A": "25 ns",
+      "B": "50 ns",
+      "C": "75 ns",
+      "D": "100 ns"
+    },
+    "answer": "C",
+    "reason": "In a ripple counter, delays accumulate linearly: Total delay = n * tpd = 3 * 25 ns = 75 ns."
+  },
+  {
+    "id": 222,
+    "topic": "Asynchronous Counters",
+    "question": "What limits the maximum operating clock frequency of an asynchronous counter?",
+    "options": {
+      "A": "The cumulative propagation delay through all cascaded stages (n * tpd)",
+      "B": "The supply current rating",
+      "C": "The input setup time of stage 0 only",
+      "D": "The duty cycle of the master clock"
+    },
+    "answer": "A",
+    "reason": "The clock period T must be greater than n * tpd to prevent false decoding and ensure all stages settle before the next clock pulse arrives."
+  },
+  {
+    "id": 223,
+    "topic": "Asynchronous Counters",
+    "question": "If a MOD-8 ripple counter is driven by an 80 MHz clock, what is the frequency at the output of the final flip-flop (Q2)?",
+    "options": {
+      "A": "40 MHz",
+      "B": "20 MHz",
+      "C": "10 MHz",
+      "D": "8 MHz"
+    },
+    "answer": "C",
+    "reason": "A MOD-8 counter divides the input clock frequency by 8: f_out = 80 MHz / 8 = 10 MHz."
+  },
+  {
+    "id": 224,
+    "topic": "Asynchronous Counters",
+    "question": "Why do decoding spikes (glitches) occur at the outputs of asynchronous counters?",
+    "options": {
+      "A": "Due to parasitic inductance on the circuit board",
+      "B": "Due to unequal propagation delays as states transition across ripple stages",
+      "C": "Because the flip-flops toggle at the same instant",
+      "D": "Because the supply voltage drops"
+    },
+    "answer": "B",
+    "reason": "Since flip-flops do not switch simultaneously, the counter passes through brief intermediate states (e.g., 011 -> 010 -> 000 -> 100), triggering momentary false outputs in decoding gates."
+  },
+  {
+    "id": 225,
+    "topic": "Asynchronous Counters",
+    "question": "In a MOD-4 counter, if an input frequency of 1 kHz is applied, what is the frequency at Q0 and Q1 respectively?",
+    "options": {
+      "A": "500 Hz and 250 Hz",
+      "B": "250 Hz and 125 Hz",
+      "C": "1 kHz and 500 Hz",
+      "D": "500 Hz and 500 Hz"
+    },
+    "answer": "A",
+    "reason": "Stage 0 divides by 2 (1000 / 2 = 500 Hz), and Stage 1 divides stage 0 by 2 (500 / 2 = 250 Hz)."
+  },
+  {
+    "id": 226,
+    "topic": "Asynchronous Counters",
+    "question": "How many invalid states exist in a MOD-10 counter built using 4 flip-flops?",
+    "options": {
+      "A": "2",
+      "B": "4",
+      "C": "6",
+      "D": "10"
+    },
+    "answer": "C",
+    "reason": "Four flip-flops provide 2^4 = 16 total states. A MOD-10 counter uses 10 states (0–9), leaving 16 - 10 = 6 unused states (10–15)."
+  },
+  {
+    "id": 227,
+    "topic": "Asynchronous Counters",
+    "question": "What is the popular 7400-series TTL IC number for an asynchronous Decade (MOD-10) Counter?",
+    "options": {
+      "A": "7490",
+      "B": "7493",
+      "C": "7474",
+      "D": "74138"
+    },
+    "answer": "A",
+    "reason": "The 7490 is a classic asynchronous decade counter containing a MOD-2 and a MOD-5 counter stage."
+  },
+  {
+    "id": 228,
+    "topic": "Asynchronous Counters",
+    "question": "The 7493 TTL IC is internally configured as:",
+    "options": {
+      "A": "A 4-bit synchronous counter",
+      "B": "A MOD-2 counter stage and a MOD-8 counter stage",
+      "C": "A dual decade counter",
+      "D": "A shift register"
+    },
+    "answer": "B",
+    "reason": "The 7493 consists of one independent flip-flop (MOD-2) and a three-flip-flop ripple block (MOD-8), which combine to form a 4-bit MOD-16 counter."
+  },
+  {
+    "id": 229,
+    "topic": "Asynchronous Counters",
+    "question": "If each flip-flop has a delay of tpd = 10 ns, what is the maximum operating frequency of a MOD-4 ripple counter?",
+    "options": {
+      "A": "100 MHz",
+      "B": "50 MHz",
+      "C": "25 MHz",
+      "D": "10 MHz"
+    },
+    "answer": "B",
+    "reason": "Total delay = 2 * 10 ns = 20 ns. Maximum frequency fmax = 1 / (20 ns) = 50 MHz."
+  },
+  {
+    "id": 230,
+    "topic": "Asynchronous Counters",
+    "question": "In a 3-bit ripple counter, which flip-flop experiences the highest toggling frequency?",
+    "options": {
+      "A": "The LSB flip-flop (FF0)",
+      "B": "The middle flip-flop (FF1)",
+      "C": "The MSB flip-flop (FF2)",
+      "D": "All flip-flops toggle at the same frequency"
+    },
+    "answer": "A",
+    "reason": "FF0 receives the primary external clock and toggles on every active edge, running at the highest frequency."
+  },
+  {
+    "id": 231,
+    "topic": "Asynchronous Counters",
+    "question": "Which flip-flop experiences the lowest toggling frequency in a MOD-8 ripple counter?",
+    "options": {
+      "A": "FF0",
+      "B": "FF1",
+      "C": "FF2 (MSB)",
+      "D": "All toggle equally"
+    },
+    "answer": "C",
+    "reason": "The MSB flip-flop toggles only once for every 4 toggles of the LSB, operating at 1/8th the master clock frequency."
+  },
+  {
+    "id": 232,
+    "topic": "Asynchronous Counters",
+    "question": "How can a MOD-8 ripple counter be modified to count DOWN using positive edge-triggered flip-flops?",
+    "options": {
+      "A": "Drive stage clocks from the normal Q outputs of preceding stages",
+      "B": "Drive stage clocks from the inverted Q' outputs of preceding stages",
+      "C": "Tie all clock inputs together",
+      "D": "Invert the supply voltage"
+    },
+    "answer": "A",
+    "reason": "For positive edge-triggered flip-flops, taking clock signals from the normal Q outputs creates a down-counter."
+  },
+  {
+    "id": 233,
+    "topic": "Asynchronous Counters",
+    "question": "What is the transient glitch duration during the reset phase of a MOD-10 ripple counter?",
+    "options": {
+      "A": "Zero seconds",
+      "B": "Equal to the propagation delay of the NAND gate plus the flip-flop clear time",
+      "C": "Exactly one full clock period",
+      "D": "Indefinite"
+    },
+    "answer": "B",
+    "reason": "State 1010 exists only for the tiny fraction of time needed for the NAND gate to decode 1010 and assert the clear line."
+  },
+  {
+    "id": 234,
+    "topic": "Asynchronous Counters",
+    "question": "Can a MOD-10 counter be constructed by cascading a MOD-2 counter and a MOD-5 counter in series?",
+    "options": {
+      "A": "Yes, overall modulus is 2 * 5 = 10",
+      "B": "No, modulus values must be powers of 2",
+      "C": "No, asynchronous counters cannot cascade",
+      "D": "Only if both stages use identical flip-flops"
+    },
+    "answer": "A",
+    "reason": "Cascading modular stages multiplies their moduli: MOD_total = MOD1 * MOD2 = 2 * 5 = 10."
+  },
+  {
+    "id": 235,
+    "topic": "Asynchronous Counters",
+    "question": "In a 3-bit MOD-8 binary up-counter, if the current state is 101, what is the next state?",
+    "options": {
+      "A": "110",
+      "B": "100",
+      "C": "111",
+      "D": "000"
+    },
+    "answer": "A",
+    "reason": "Binary 101 represents decimal 5. The next state in an up-counter sequence is decimal 6, which is binary 110."
+  },
+  {
+    "id": 236,
+    "topic": "Asynchronous Counters",
+    "question": "In a 3-bit MOD-8 binary down-counter, if the current state is 000, what is the next state?",
+    "options": {
+      "A": "001",
+      "B": "111",
+      "C": "010",
+      "D": "110"
+    },
+    "answer": "B",
+    "reason": "Counting down from 000 rolls over to the maximum state, which is decimal 7 (111)."
+  },
+  {
+    "id": 237,
+    "topic": "Asynchronous Counters",
+    "question": "How many AND gate inputs are required to construct a truncated MOD-6 ripple counter from 3 flip-flops (resetting at 110)?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "4"
+    },
+    "answer": "B",
+    "reason": "State 6 in binary is 110 (Q2=1, Q1=1, Q0=0). Detecting Q2 and Q1 requires a 2-input NAND gate."
+  },
+  {
+    "id": 238,
+    "topic": "Asynchronous Counters",
+    "question": "What is the duty cycle of the output signal from the MSB stage of a MOD-8 binary ripple counter?",
+    "options": {
+      "A": "12.5%",
+      "B": "25%",
+      "C": "50%",
+      "D": "75%"
+    },
+    "answer": "C",
+    "reason": "The MSB is LOW for 4 counts (0–3) and HIGH for 4 counts (4–7), producing a symmetric 50% duty cycle square wave."
+  },
+  {
+    "id": 239,
+    "topic": "Asynchronous Counters",
+    "question": "What happens if a ripple counter is driven at a clock frequency greater than 1 / (n * tpd)?",
+    "options": {
+      "A": "The counter counts faster with complete accuracy",
+      "B": "Higher-order bits fail to update before subsequent edges arrive, producing corrupted counts",
+      "C": "The flip-flops burn out",
+      "D": "It switches to synchronous mode"
+    },
+    "answer": "B",
+    "reason": "The cumulative ripple delay exceeds the clock period, meaning next clock edges arrive before the previous ripple settles."
+  },
+  {
+    "id": 240,
+    "topic": "Asynchronous Counters",
+    "question": "What is the primary operational advantage of an asynchronous counter over a synchronous counter?",
+    "options": {
+      "A": "Much higher operational speed",
+      "B": "Simpler circuitry with no external lookahead clocking logic required",
+      "C": "Total absence of decoding glitches",
+      "D": "Zero propagation delay"
+    },
+    "answer": "B",
+    "reason": "Asynchronous counters require minimal external gating because each flip-flop clock is derived directly from the prior stage."
+  },
+  {
+    "id": 241,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the closed-loop voltage gain (Av) of an ideal inverting operational amplifier?",
+    "options": {
+      "A": "-Rf / R1",
+      "B": "1 + (Rf / R1)",
+      "C": "-R1 / Rf",
+      "D": "Rf / (R1 + Rf)"
+    },
+    "answer": "A",
+    "reason": "Using nodal analysis with a virtual ground at the inverting terminal yields Av = Vout / Vin = -Rf / R1."
+  },
+  {
+    "id": 242,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the closed-loop voltage gain (Av) of an ideal non-inverting operational amplifier?",
+    "options": {
+      "A": "-Rf / R1",
+      "B": "1 + (Rf / R1)",
+      "C": "-(1 + Rf / R1)",
+      "D": "R1 / (R1 + Rf)"
+    },
+    "answer": "B",
+    "reason": "Voltage division at the inverting feedback node gives Vin = Vout * (R1 / (R1 + Rf)), so Av = 1 + (Rf / R1)."
+  },
+  {
+    "id": 243,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the concept of 'virtual ground' in an inverting op-amp configuration?",
+    "options": {
+      "A": "A physical low-resistance path to chassis earth",
+      "B": "The inverting input stays at ground potential (0V) because open-loop gain is infinite and the non-inverting input is grounded",
+      "C": "A point that can supply infinite ground current",
+      "D": "A floating DC power terminal"
+    },
+    "answer": "B",
+    "reason": "Because Vd = (V+ - V-) = Vout / Aol and Aol is approximately infinite, V- tracks V+ (0V), acting as a virtual ground without sinking current."
+  },
+  {
+    "id": 244,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the input impedance of an ideal inverting amplifier circuit with input resistor R1 and feedback resistor Rf?",
+    "options": {
+      "A": "Infinite",
+      "B": "R1",
+      "C": "Rf",
+      "D": "R1 + Rf"
+    },
+    "answer": "B",
+    "reason": "Since the inverting terminal is held at virtual ground (0V), the input source looks directly into resistor R1, making Zin = R1."
+  },
+  {
+    "id": 245,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the input impedance of an ideal non-inverting operational amplifier?",
+    "options": {
+      "A": "Zero",
+      "B": "R1",
+      "C": "Rf",
+      "D": "Infinite (theoretically infinite, practically very high)"
+    },
+    "answer": "D",
+    "reason": "The input signal connects directly to the high-impedance non-inverting terminal of the op-amp, drawing zero input bias current."
+  },
+  {
+    "id": 246,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the phase shift between the input and output voltages in an inverting amplifier?",
+    "options": {
+      "A": "0 degrees",
+      "B": "90 degrees",
+      "C": "180 degrees",
+      "D": "270 degrees"
+    },
+    "answer": "C",
+    "reason": "The negative gain sign represents an inversion, creating a 180-degree phase shift between input and output."
+  },
+  {
+    "id": 247,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the phase shift between the input and output voltages in a non-inverting amplifier?",
+    "options": {
+      "A": "0 degrees (in-phase)",
+      "B": "90 degrees",
+      "C": "180 degrees",
+      "D": "360 degrees out-of-phase"
+    },
+    "answer": "A",
+    "reason": "The voltage gain is positive (1 + Rf/R1), meaning input and output signals remain in-phase (0 degrees phase difference)."
+  },
+  {
+    "id": 248,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the voltage gain of a voltage follower (unity gain buffer)?",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "-1",
+      "D": "Infinite"
+    },
+    "answer": "B",
+    "reason": "A voltage follower is a non-inverting amplifier with Rf = 0 and R1 = infinite, yielding Av = 1 + 0 = 1."
+  },
+  {
+    "id": 249,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the main circuit purpose of a unity gain voltage follower?",
+    "options": {
+      "A": "High voltage amplification",
+      "B": "Impedance matching and isolation (high input impedance, low output impedance) to eliminate loading effects",
+      "C": "Phase inversion",
+      "D": "Frequency doubling"
+    },
+    "answer": "B",
+    "reason": "It buffers a high-impedance source from a low-impedance load without loading down the source voltage."
+  },
+  {
+    "id": 250,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "If R1 = 10 kΩ and Rf = 100 kΩ in an inverting amplifier, what is the output voltage if Vin = 0.5 V?",
+    "options": {
+      "A": "5.0 V",
+      "B": "-5.0 V",
+      "C": "-5.5 V",
+      "D": "5.5 V"
+    },
+    "answer": "B",
+    "reason": "Vout = -(Rf / R1) * Vin = -(100 kΩ / 10 kΩ) * 0.5 V = -10 * 0.5 V = -5.0 V."
+  },
+  {
+    "id": 251,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "If R1 = 10 kΩ and Rf = 100 kΩ in a non-inverting amplifier, what is the output voltage if Vin = 0.5 V?",
+    "options": {
+      "A": "5.0 V",
+      "B": "-5.0 V",
+      "C": "5.5 V",
+      "D": "-5.5 V"
+    },
+    "answer": "C",
+    "reason": "Av = 1 + (Rf / R1) = 1 + (100 / 10) = 11. Vout = 11 * 0.5 V = 5.5 V."
+  },
+  {
+    "id": 252,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "Can the magnitude of voltage gain in a non-inverting amplifier be designed to be less than 1?",
+    "options": {
+      "A": "Yes, by choosing Rf < R1",
+      "B": "No, because Av = 1 + (Rf / R1), so gain is always >= 1",
+      "C": "Yes, by using negative resistance",
+      "D": "Only at negative supply voltages"
+    },
+    "answer": "B",
+    "reason": "Because Rf and R1 are positive real resistances, 1 + (Rf / R1) is mathematically always greater than or equal to 1."
+  },
+  {
+    "id": 253,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "Can the magnitude of voltage gain in an inverting amplifier be less than 1?",
+    "options": {
+      "A": "Yes, by choosing Rf < R1 (acting as an attenuator)",
+      "B": "No, it must always be >= 1",
+      "C": "Never, op-amps cannot attenuate",
+      "D": "Only with open feedback loop"
+    },
+    "answer": "A",
+    "reason": "The gain magnitude is |Av| = Rf / R1. If Rf = 1 kΩ and R1 = 10 kΩ, |Av| = 0.1, attenuating the signal."
+  },
+  {
+    "id": 254,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What resistor value should be placed at the non-inverting terminal of an inverting amplifier to minimize input bias current errors?",
+    "options": {
+      "A": "R1 + Rf",
+      "B": "R1 || Rf (R1 * Rf / (R1 + Rf))",
+      "C": "Rf - R1",
+      "D": "0 Ω (Direct ground)"
+    },
+    "answer": "B",
+    "reason": "Matching the DC resistance seen by both input terminals (Rcomp = R1 || Rf) equalizes voltage drops caused by input bias currents."
+  },
+  {
+    "id": 255,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the output impedance of an ideal op-amp circuit with negative feedback?",
+    "options": {
+      "A": "Infinite",
+      "B": "Equal to Rf",
+      "C": "Zero",
+      "D": "Equal to R1"
+    },
+    "answer": "C",
+    "reason": "Negative voltage feedback reduces output impedance by a factor of (1 + Aol * β), making it virtually zero."
+  },
+  {
+    "id": 256,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What occurs if the calculated output voltage exceeds the op-amp's DC supply voltages (+Vcc / -Vee)?",
+    "options": {
+      "A": "The op-amp burns out immediately",
+      "B": "The output saturates near the power supply rails (clipping occurs)",
+      "C": "The gain doubles",
+      "D": "The virtual ground collapses completely"
+    },
+    "answer": "B",
+    "reason": "An op-amp cannot produce output voltages beyond its power supply rails; the output waveform clips at the saturation levels."
+  },
+  {
+    "id": 257,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What happens to the bandwidth of an inverting amplifier as its closed-loop gain is increased?",
+    "options": {
+      "A": "Bandwidth increases proportionally",
+      "B": "Bandwidth decreases such that the Gain-Bandwidth Product (GBW) remains constant",
+      "C": "Bandwidth remains unchanged",
+      "D": "Bandwidth drops to zero instantly"
+    },
+    "answer": "B",
+    "reason": "For internally compensated op-amps, the Gain-Bandwidth Product (GBW) is constant: increasing closed-loop gain proportionally reduces bandwidth."
+  },
+  {
+    "id": 258,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "In an inverting summing amplifier with three inputs (V1, V2, V3) and equal input resistors R, the output voltage is:",
+    "options": {
+      "A": "-(Rf / R) * (V1 + V2 + V3)",
+      "B": "(Rf / R) * (V1 + V2 + V3)",
+      "C": "-(V1 + V2 + V3) / Rf",
+      "D": "-R / Rf * (V1 + V2 + V3)"
+    },
+    "answer": "A",
+    "reason": "Summing currents at the virtual ground node gives Vout = -Rf * (V1/R + V2/R + V3/R) = -(Rf/R) * (V1 + V2 + V3)."
+  },
+  {
+    "id": 259,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the feedback fraction (β) in a non-inverting amplifier with resistors R1 and Rf?",
+    "options": {
+      "A": "R1 / (R1 + Rf)",
+      "B": "Rf / (R1 + Rf)",
+      "C": "Rf / R1",
+      "D": "R1 / Rf"
+    },
+    "answer": "A",
+    "reason": "The feedback network is a voltage divider from Vout to the inverting pin: β = Vf / Vout = R1 / (R1 + Rf)."
+  },
+  {
+    "id": 260,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "If an inverting amplifier has R1 = 5 kΩ and Rf = 0 Ω, what is the output voltage?",
+    "options": {
+      "A": "Vin",
+      "B": "0 V",
+      "C": "Infinite",
+      "D": "-Vin"
+    },
+    "answer": "B",
+    "reason": "Vout = -(Rf / R1) * Vin = -(0 / 5 kΩ) * Vin = 0 V."
+  },
+  {
+    "id": 261,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "If a non-inverting amplifier has Rf = 0 Ω and R1 is omitted (open circuit), what is the circuit called?",
+    "options": {
+      "A": "Inverting buffer",
+      "B": "Voltage follower",
+      "C": "Schmitt trigger",
+      "D": "Differentiator"
+    },
+    "answer": "B",
+    "reason": "With full direct feedback from output to inverting terminal and no ground resistor, it is a unity-gain voltage follower."
+  },
+  {
+    "id": 262,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What type of feedback is applied in linear inverting and non-inverting amplifiers?",
+    "options": {
+      "A": "Positive feedback to the non-inverting terminal",
+      "B": "Negative feedback to the inverting terminal",
+      "C": "Both positive and negative feedback equally",
+      "D": "No feedback (open-loop)"
+    },
+    "answer": "B",
+    "reason": "Negative feedback stabilizes closed-loop gain, expands bandwidth, and reduces distortion."
+  },
+  {
+    "id": 263,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the Common-Mode Rejection Ratio (CMRR) of an ideal operational amplifier?",
+    "options": {
+      "A": "0",
+      "B": "1",
+      "C": "Infinite",
+      "D": "-1"
+    },
+    "answer": "C",
+    "reason": "An ideal op-amp completely rejects signals common to both inputs, giving Acm = 0 and CMRR = |Adm / Acm| = infinite."
+  },
+  {
+    "id": 264,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "In an inverting amplifier, why is current flowing through the feedback resistor Rf equal to current flowing through input resistor R1?",
+    "options": {
+      "A": "Because the op-amp input draws virtually zero current due to extremely high internal input impedance",
+      "B": "Because both resistors are in parallel",
+      "C": "Because the supply rails cancel out current",
+      "D": "Because current loops through chassis ground"
+    },
+    "answer": "A",
+    "reason": "Since the inverting terminal has near-infinite input impedance, zero current enters the op-amp terminal (I_in = 0), so I_R1 = I_Rf."
+  },
+  {
+    "id": 265,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the Slew Rate of an operational amplifier?",
+    "options": {
+      "A": "The maximum rate of change of output voltage per unit time (dVout / dt)",
+      "B": "The ratio of differential gain to common mode gain",
+      "C": "The input bias current divided by temperature",
+      "D": "The minimum supply voltage required"
+    },
+    "answer": "A",
+    "reason": "Slew rate defines the maximum speed at which the internal compensation capacitance allows the output voltage to change, expressed in V/µs."
+  },
+  {
+    "id": 266,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "If an op-amp has a slew rate of 1 V/µs, what is the maximum undistorted frequency for a 10 V peak output sine wave?",
+    "options": {
+      "A": "15.9 kHz",
+      "B": "31.8 kHz",
+      "C": "100 kHz",
+      "D": "1.59 MHz"
+    },
+    "answer": "A",
+    "reason": "SR = 2 * π * f * Vp. Rearranging gives fmax = SR / (2 * π * Vp) = 10^6 / (2 * π * 10) ≈ 15.915 kHz."
+  },
+  {
+    "id": 267,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "In an AC-coupled non-inverting amplifier, what is the function of a capacitor placed in series with R1 to ground?",
+    "options": {
+      "A": "It forces DC gain to unity (1), preventing DC input offset voltage from being amplified",
+      "B": "It increases high-frequency noise",
+      "C": "It converts the amplifier into an oscillator",
+      "D": "It eliminates the need for power supplies"
+    },
+    "answer": "A",
+    "reason": "At DC, the capacitor acts as an open circuit (R1 = infinite), reducing DC gain to 1 + Rf/infinite = 1 and preventing DC offset amplification."
+  },
+  {
+    "id": 268,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "Which op-amp configuration provides a higher input impedance?",
+    "options": {
+      "A": "Inverting configuration",
+      "B": "Non-inverting configuration",
+      "C": "Both have identical input impedance",
+      "D": "Inverting summing amplifier"
+    },
+    "answer": "B",
+    "reason": "The non-inverting amplifier inputs directly into the op-amp gate/base (Zin in gigaohms), whereas the inverting configuration's input impedance is limited to R1."
+  },
+  {
+    "id": 269,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "What is the typical open-loop DC voltage gain (Aol) of a standard 741 operational amplifier?",
+    "options": {
+      "A": "100",
+      "B": "1,000",
+      "C": "200,000 (approx. 106 dB)",
+      "D": "Infinite"
+    },
+    "answer": "C",
+    "reason": "A standard bipolar 741 op-amp has a typical open-loop gain of approximately 2 * 10^5 (around 100 dB to 106 dB)."
+  },
+  {
+    "id": 270,
+    "topic": "Inverting & Non-Inverting Op-Amps",
+    "question": "If Rf is accidentally disconnected (open circuit) in an inverting amplifier with negative feedback, what happens?",
+    "options": {
+      "A": "The gain drops to 0",
+      "B": "The op-amp operates in open-loop mode, driving the output to saturation for any non-zero input",
+      "C": "The gain becomes exactly 1",
+      "D": "The virtual ground remains active"
+    },
+    "answer": "B",
+    "reason": "Without feedback (Rf = infinite), the circuit reverts to an open-loop comparator with massive gain, driving output into saturation."
+  },
+  {
+    "id": 271,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "An Astable Multivibrator using the 555 timer IC has how many stable states?",
+    "options": {
+      "A": "0 (Free-running)",
+      "B": "1",
+      "C": "2",
+      "D": "3"
+    },
+    "answer": "A",
+    "reason": "An astable multivibrator is a free-running relaxation oscillator with zero stable states; it continuously alternates between two quasi-stable states."
+  },
+  {
+    "id": 272,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What is the charging time (T_HIGH) of the timing capacitor in a standard 555 astable circuit with timing resistors R_A, R_B and capacitor C?",
+    "options": {
+      "A": "0.693 * R_B * C",
+      "B": "0.693 * (R_A + R_B) * C",
+      "C": "1.1 * (R_A + R_B) * C",
+      "D": "0.693 * R_A * C"
+    },
+    "answer": "B",
+    "reason": "During the HIGH output period, capacitor C charges from (1/3)Vcc to (2/3)Vcc through the series path of both R_A and R_B: T_HIGH = ln(2) * (R_A + R_B) * C ≈ 0.693 * (R_A + R_B) * C."
+  },
+  {
+    "id": 273,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What is the discharging time (T_LOW) of the timing capacitor in a standard 555 astable circuit?",
+    "options": {
+      "A": "0.693 * R_B * C",
+      "B": "0.693 * (R_A + R_B) * C",
+      "C": "0.693 * R_A * C",
+      "D": "1.1 * R_B * C"
+    },
+    "answer": "A",
+    "reason": "During the LOW output period, internal discharge transistor Q1 turns ON (pin 7), discharging capacitor C from (2/3)Vcc to (1/3)Vcc exclusively through R_B to ground: T_LOW = ln(2) * R_B * C ≈ 0.693 * R_B * C."
+  },
+  {
+    "id": 274,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "The total period (T) of the output waveform in a standard 555 astable multivibrator is:",
+    "options": {
+      "A": "0.693 * (R_A + 2*R_B) * C",
+      "B": "0.693 * (2*R_A + R_B) * C",
+      "C": "1.44 / ((R_A + 2*R_B) * C)",
+      "D": "1.1 * (R_A + R_B) * C"
+    },
+    "answer": "A",
+    "reason": "T = T_HIGH + T_LOW = 0.693 * (R_A + R_B) * C + 0.693 * R_B * C = 0.693 * (R_A + 2*R_B) * C."
+  },
+  {
+    "id": 275,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What is the output frequency (f) of a standard 555 astable multivibrator?",
+    "options": {
+      "A": "1.44 / ((R_A + 2*R_B) * C)",
+      "B": "1 / (0.693 * (R_A + R_B) * C)",
+      "C": "1.1 / ((R_A + 2*R_B) * C)",
+      "D": "1.44 / ((2*R_A + R_B) * C)"
+    },
+    "answer": "A",
+    "reason": "f = 1 / T = 1 / [ln(2) * (R_A + 2*R_B) * C] ≈ 1.44 / [(R_A + 2*R_B) * C]."
+  },
+  {
+    "id": 276,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "The duty cycle (D) of a standard 555 astable multivibrator is defined as:",
+    "options": {
+      "A": "(R_A + R_B) / (R_A + 2*R_B) * 100%",
+      "B": "R_B / (R_A + 2*R_B) * 100%",
+      "C": "R_A / (R_A + R_B) * 100%",
+      "D": "(R_A + 2*R_B) / (R_A + R_B) * 100%"
+    },
+    "answer": "A",
+    "reason": "D = (T_HIGH / T) * 100% = [0.693*(R_A + R_B)*C] / [0.693*(R_A + 2*R_B)*C] = (R_A + R_B) / (R_A + 2*R_B) * 100%."
+  },
+  {
+    "id": 277,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "Can a standard 555 astable circuit without external diodes achieve a duty cycle of less than 50%?",
+    "options": {
+      "A": "Yes, by setting R_A < R_B",
+      "B": "No, because T_HIGH is always greater than T_LOW",
+      "C": "Yes, by varying the supply voltage",
+      "D": "Yes, by tying pin 5 to ground"
+    },
+    "answer": "B",
+    "reason": "Since T_HIGH depends on (R_A + R_B) and T_LOW depends on R_B, T_HIGH > T_LOW always holds, keeping the duty cycle strictly greater than 50% in the standard topology."
+  },
+  {
+    "id": 278,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "How can a 555 astable multivibrator be modified to achieve an exact 50% or <50% duty cycle?",
+    "options": {
+      "A": "Connect a diode in parallel with R_B (anode to pin 7, cathode to pin 6/2)",
+      "B": "Remove R_A completely",
+      "C": "Connect pin 4 to ground",
+      "D": "Connect pin 5 to Vcc"
+    },
+    "answer": "A",
+    "reason": "Placing a diode across R_B bypasses R_B during charging so that C charges through R_A alone and discharges through R_B, allowing independent control of T_HIGH and T_LOW."
+  },
+  {
+    "id": 279,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "Between which two voltage limits does the timing capacitor voltage oscillate in an unmodified 555 astable circuit?",
+    "options": {
+      "A": "0V and Vcc",
+      "B": "(1/3)Vcc and (2/3)Vcc",
+      "C": "(1/2)Vcc and Vcc",
+      "D": "0V and (2/3)Vcc"
+    },
+    "answer": "B",
+    "reason": "The internal voltage divider sets the lower comparator reference at (1/3)Vcc and the upper comparator reference at (2/3)Vcc."
+  },
+  {
+    "id": 280,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "Which pins are tied together in a standard 555 astable multivibrator configuration?",
+    "options": {
+      "A": "Pin 2 (Trigger) and Pin 6 (Threshold)",
+      "B": "Pin 6 (Threshold) and Pin 7 (Discharge)",
+      "C": "Pin 4 (Reset) and Pin 2 (Trigger)",
+      "D": "Pin 3 (Output) and Pin 7 (Discharge)"
+    },
+    "answer": "A",
+    "reason": "Pin 2 (triggering at < 1/3 Vcc) and Pin 6 (thresholding at > 2/3 Vcc) are tied together to sense the voltage on the shared timing capacitor."
+  },
+  {
+    "id": 281,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What is the function of pin 5 (Control Voltage) when bypassed with a 0.01 µF capacitor to ground?",
+    "options": {
+      "A": "To increase output oscillation frequency",
+      "B": "To filter high-frequency noise and prevent false triggering of internal comparators",
+      "C": "To provide positive feedback",
+      "D": "To adjust duty cycle to 50%"
+    },
+    "answer": "B",
+    "reason": "Connecting a 0.01 µF capacitor from pin 5 to ground bypasses electrical noise from the supply rail that could destabilize the internal (2/3)Vcc reference point."
+  },
+  {
+    "id": 282,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "If R_A = 1 kΩ, R_B = 100 kΩ, and C = 0.1 µF in a standard 555 astable circuit, the duty cycle is approximately:",
+    "options": {
+      "A": "50.2%",
+      "B": "75%",
+      "C": "99%",
+      "D": "25%"
+    },
+    "answer": "A",
+    "reason": "D = (R_A + R_B)/(R_A + 2*R_B) = (1 + 100)/(1 + 200) = 101/201 ≈ 50.25%."
+  },
+  {
+    "id": 283,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "Why must R_A not be set to 0 Ω in a standard 555 astable circuit?",
+    "options": {
+      "A": "The circuit cannot start oscillating",
+      "B": "Internal discharge transistor at pin 7 shorts Vcc directly to ground when active, destroying the IC",
+      "C": "Output frequency drops to 0 Hz",
+      "D": "Duty cycle becomes negative"
+    },
+    "answer": "B",
+    "reason": "Pin 7 grounds internally during discharge; if R_A = 0 Ω, pin 7 connects Vcc directly to ground without current limiting, causing catastrophic overcurrent damage."
+  },
+  {
+    "id": 284,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What is the internal resistance of each of the three matched resistors forming the reference divider in a standard bipolar 555 timer?",
+    "options": {
+      "A": "1 kΩ",
+      "B": "5 kΩ",
+      "C": "10 kΩ",
+      "D": "100 kΩ"
+    },
+    "answer": "B",
+    "reason": "The '555' timer gets its name from the three matched internal 5 kΩ resistors that establish the reference voltages."
+  },
+  {
+    "id": 285,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What happens to the oscillation frequency of a 555 astable multivibrator if an external positive voltage higher than (2/3)Vcc is applied to pin 5?",
+    "options": {
+      "A": "Frequency increases",
+      "B": "Frequency decreases",
+      "C": "Frequency remains unaffected",
+      "D": "Oscillations cease completely"
+    },
+    "answer": "B",
+    "reason": "Raising pin 5 voltage increases the upper threshold above (2/3)Vcc, requiring more time for the capacitor to charge and discharge, thereby increasing period T and reducing frequency f."
+  },
+  {
+    "id": 286,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What happens if Pin 4 (Reset) of a 555 astable multivibrator is connected to Ground (0V)?",
+    "options": {
+      "A": "Oscillations continue at half frequency",
+      "B": "The output is held permanently LOW and oscillations are inhibited",
+      "C": "The output is held permanently HIGH",
+      "D": "The capacitor voltage charges to Vcc"
+    },
+    "answer": "B",
+    "reason": "Pin 4 is active-LOW; grounding it overrides all inputs, holding the output LOW and keeping discharge transistor pin 7 ON."
+  },
+  {
+    "id": 287,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What is the maximum sink/source output current capability of a standard bipolar NE555 timer output (pin 3)?",
+    "options": {
+      "A": "10 mA",
+      "B": "50 mA",
+      "C": "200 mA",
+      "D": "1 A"
+    },
+    "answer": "C",
+    "reason": "Standard bipolar 555 timers (like NE555) can source or sink up to 200 mA, allowing them to directly drive small relays or LEDs."
+  },
+  {
+    "id": 288,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "How does the oscillation frequency of a 555 astable multivibrator depend on the power supply voltage Vcc?",
+    "options": {
+      "A": "Linearly proportional to Vcc",
+      "B": "Inversely proportional to Vcc",
+      "C": "Largely independent of Vcc",
+      "D": "Proportional to Vcc squared"
+    },
+    "answer": "C",
+    "reason": "Because the comparator trip points [(1/3)Vcc and (2/3)Vcc] scale in direct proportion with Vcc alongside capacitor charging currents, Vcc cancels out of the timing equations."
+  },
+  {
+    "id": 289,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "If R_A = 4.7 kΩ, R_B = 4.7 kΩ, and C = 0.01 µF, what is the frequency of oscillation?",
+    "options": {
+      "A": "10.2 kHz",
+      "B": "15.3 kHz",
+      "C": "20.4 kHz",
+      "D": "5.1 kHz"
+    },
+    "answer": "A",
+    "reason": "f = 1.44 / [(R_A + 2*R_B) * C] = 1.44 / [(4.7k + 9.4k) * 0.01µF] = 1.44 / [14.1k * 10^-8] ≈ 10,212 Hz (10.2 kHz)."
+  },
+  {
+    "id": 290,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What waveform is observed across timing capacitor C in a 555 astable multivibrator?",
+    "options": {
+      "A": "Pure sine wave",
+      "B": "Square wave",
+      "C": "Exponential charging and discharging (triangular-like) waveform",
+      "D": "DC constant voltage"
+    },
+    "answer": "C",
+    "reason": "The capacitor voltage exponentially rises toward Vcc and exponentially decays toward 0V between limits (1/3)Vcc and (2/3)Vcc."
+  },
+  {
+    "id": 291,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "If the diode across R_B is connected such that anode is at pin 7 and cathode is at pin 6, and R_A = R_B = R, what is the duty cycle?",
+    "options": {
+      "A": "25%",
+      "B": "50%",
+      "C": "75%",
+      "D": "100%"
+    },
+    "answer": "B",
+    "reason": "Charging occurs through R_A (neglecting diode drop: T_HIGH ≈ 0.693*R*C) and discharging occurs through R_B (T_LOW = 0.693*R*C). Since T_HIGH = T_LOW, duty cycle is 50%."
+  },
+  {
+    "id": 292,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What is the typical upper practical limit of oscillation frequency for a standard bipolar NE555 timer?",
+    "options": {
+      "A": "10 kHz",
+      "B": "100 kHz to 500 kHz",
+      "C": "10 MHz",
+      "D": "50 MHz"
+    },
+    "answer": "B",
+    "reason": "Internal transistor propagation delays and storage time of the discharge transistor limit practical bipolar NE555 operation to roughly 500 kHz (CMOS TLC555 reaches ~2-3 MHz)."
+  },
+  {
+    "id": 293,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What is the role of the internal flip-flop in the 555 timer IC during astable operation?",
+    "options": {
+      "A": "It memorizes the instantaneous comparator outputs and drives the output stage and discharge transistor",
+      "B": "It shifts clock bits into a register",
+      "C": "It generates a sinusoidal reference",
+      "D": "It acts as a linear voltage amplifier"
+    },
+    "answer": "A",
+    "reason": "The internal RS flip-flop is set by the trigger comparator (forcing output HIGH) and reset by the threshold comparator (forcing output LOW and turning ON the discharge transistor)."
+  },
+  {
+    "id": 294,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "In a 555 astable circuit, when the capacitor voltage reaches (2/3)Vcc:",
+    "options": {
+      "A": "The threshold comparator fires, resetting the flip-flop to drive output LOW and turn ON discharge transistor",
+      "B": "The trigger comparator fires, driving output HIGH",
+      "C": "The circuit resets pin 4",
+      "D": "Capacitor voltage remains clamped at (2/3)Vcc permanently"
+    },
+    "answer": "A",
+    "reason": "When V_C reaches (2/3)Vcc, the upper comparator (pin 6) transitions HIGH, resetting the internal flip-flop, driving output (pin 3) LOW, and grounding pin 7 to start discharge."
+  },
+  {
+    "id": 295,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "In a 555 astable circuit, when the capacitor voltage decays down to (1/3)Vcc:",
+    "options": {
+      "A": "The trigger comparator fires, setting the flip-flop to drive output HIGH and turn OFF discharge transistor",
+      "B": "The threshold comparator fires, driving output LOW",
+      "C": "The discharge transistor is saturated harder",
+      "D": "The supply rail drops"
+    },
+    "answer": "A",
+    "reason": "When V_C drops below (1/3)Vcc, the lower comparator (pin 2) outputs a pulse that sets the flip-flop, switching output (pin 3) HIGH and opening pin 7 to start charging."
+  },
+  {
+    "id": 296,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "Which application commonly utilizes a 555 astable multivibrator with pin 5 fed by a modulating audio signal?",
+    "options": {
+      "A": "Pulse Width Modulation (PWM) / Pulse Position Modulation (PPM)",
+      "B": "Linear power amplification",
+      "C": "Active low-pass filtering",
+      "D": "Peak rectification"
+    },
+    "answer": "A",
+    "reason": "Applying an analog signal to pin 5 varies the threshold levels dynamically, modulating the output frequency and pulse width to produce PPM/PWM."
+  },
+  {
+    "id": 297,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What is the purpose of connecting a pull-up resistor to pin 4 when reset functionality is not actively used?",
+    "options": {
+      "A": "To prevent accidental logic-LOW reset triggering caused by ambient noise",
+      "B": "To increase charging current",
+      "C": "To ground the internal discharge transistor",
+      "D": "To match line impedance"
+    },
+    "answer": "A",
+    "reason": "Pin 4 is active-LOW; leaving it floating can pick up EMI/noise that randomly resets the timer, so tying it to Vcc ensures reliable operation."
+  },
+  {
+    "id": 298,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "If R_A = 10 kΩ, R_B = 10 kΩ, and C = 1 µF, what is T_HIGH?",
+    "options": {
+      "A": "6.93 ms",
+      "B": "13.86 ms",
+      "C": "20.79 ms",
+      "D": "1.38 ms"
+    },
+    "answer": "B",
+    "reason": "T_HIGH = 0.693 * (R_A + R_B) * C = 0.693 * (10k + 10k) * 1µF = 0.693 * 20 * 10^-3 s = 13.86 ms."
+  },
+  {
+    "id": 299,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "For the same component values (R_A = 10 kΩ, R_B = 10 kΩ, C = 1 µF), what is T_LOW?",
+    "options": {
+      "A": "6.93 ms",
+      "B": "13.86 ms",
+      "C": "20.79 ms",
+      "D": "3.46 ms"
+    },
+    "answer": "A",
+    "reason": "T_LOW = 0.693 * R_B * C = 0.693 * 10k * 1µF = 6.93 ms."
+  },
+  {
+    "id": 300,
+    "topic": "555 Timer Astable Multivibrator",
+    "question": "What is the total period T for R_A = 10 kΩ, R_B = 10 kΩ, and C = 1 µF?",
+    "options": {
+      "A": "6.93 ms",
+      "B": "13.86 ms",
+      "C": "20.79 ms",
+      "D": "27.72 ms"
+    },
+    "answer": "C",
+    "reason": "T = T_HIGH + T_LOW = 13.86 ms + 6.93 ms = 20.79 ms."
+  },
+  {
+    "id": 301,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "How many stable states does a 555 Monostable Multivibrator possess?",
+    "options": {
+      "A": "0",
+      "B": "1 stable state and 1 quasi-stable state",
+      "C": "2 stable states",
+      "D": "3 stable states"
+    },
+    "answer": "B",
+    "reason": "A monostable circuit has one permanently stable state (output LOW) and one transient quasi-stable state (output HIGH) entered upon triggering."
+  },
+  {
+    "id": 302,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What is another name for a Monostable Multivibrator?",
+    "options": {
+      "A": "Free-running multivibrator",
+      "B": "One-shot multivibrator",
+      "C": "Bistable multivibrator",
+      "D": "Schmitt trigger"
+    },
+    "answer": "B",
+    "reason": "It is referred to as a 'one-shot' circuit because each external trigger input generates exactly one output pulse of predetermined duration."
+  },
+  {
+    "id": 303,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What is the formula for the output pulse width (t_w) of a 555 monostable multivibrator with timing resistor R and capacitor C?",
+    "options": {
+      "A": "0.693 * R * C",
+      "B": "1.1 * R * C",
+      "C": "1.44 / (R * C)",
+      "D": "2.2 * R * C"
+    },
+    "answer": "B",
+    "reason": "The capacitor charges from 0V to (2/3)Vcc: V_C(t) = Vcc * (1 - e^(-t / RC)). Setting V_C = (2/3)Vcc yields t = RC * ln(3) ≈ 1.0986 * R * C ≈ 1.1 * R * C."
+  },
+  {
+    "id": 304,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What type of input signal is required to initiate the output pulse in a 555 monostable circuit?",
+    "options": {
+      "A": "A positive-going pulse exceeding (2/3)Vcc",
+      "B": "A negative-going trigger pulse dropping below (1/3)Vcc at Pin 2",
+      "C": "A steady DC high voltage on Pin 6",
+      "D": "A square wave on Pin 7"
+    },
+    "answer": "B",
+    "reason": "Pin 2 is connected to the inverting input of the lower comparator, which trips when the trigger voltage drops below (1/3)Vcc."
+  },
+  {
+    "id": 305,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "In the quiescent (stable) state of a 555 monostable multivibrator, what is the output state and capacitor condition?",
+    "options": {
+      "A": "Output is LOW, capacitor is discharged to 0V through pin 7",
+      "B": "Output is HIGH, capacitor is charged to Vcc",
+      "C": "Output is LOW, capacitor is charged to (2/3)Vcc",
+      "D": "Output oscillates"
+    },
+    "answer": "A",
+    "reason": "In the stable state, the internal flip-flop is reset, pin 3 output is LOW, and internal discharge transistor Q1 is saturated ON, clamping capacitor C at approximately 0V."
+  },
+  {
+    "id": 306,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What happens when a negative trigger pulse (< 1/3 Vcc) is applied to Pin 2 of a 555 monostable multivibrator?",
+    "options": {
+      "A": "Output goes LOW and discharge transistor turns ON",
+      "B": "Output goes HIGH and discharge transistor turns OFF, allowing capacitor C to charge through R",
+      "C": "The timer resets immediately",
+      "D": "The internal divider burns out"
+    },
+    "answer": "B",
+    "reason": "Lower comparator trips, setting the flip-flop: pin 3 goes HIGH and discharge transistor turns OFF, releasing capacitor C to charge exponentially toward Vcc through R."
+  },
+  {
+    "id": 307,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What ends the quasi-stable HIGH state in a 555 monostable multivibrator?",
+    "options": {
+      "A": "Trigger pulse returning HIGH",
+      "B": "Capacitor voltage reaching (2/3)Vcc at Pin 6",
+      "C": "Supply voltage dropping to 0V",
+      "D": "Discharge transistor reaching saturation"
+    },
+    "answer": "B",
+    "reason": "When capacitor voltage reaches (2/3)Vcc, the upper comparator (pin 6) fires, resetting the flip-flop, driving output LOW, and discharging C back to 0V."
+  },
+  {
+    "id": 308,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What must be the duration of the trigger pulse applied to Pin 2 relative to the output pulse width (t_w)?",
+    "options": {
+      "A": "Trigger pulse duration must be shorter than the output pulse width t_w",
+      "B": "Trigger pulse duration must be longer than t_w",
+      "C": "Trigger pulse duration must be equal to exactly 2 * t_w",
+      "D": "Trigger duration is irrelevant"
+    },
+    "answer": "A",
+    "reason": "If pin 2 remains LOW after the capacitor reaches (2/3)Vcc, the trigger input overrides the threshold comparator, latching the output HIGH indefinitely."
+  },
+  {
+    "id": 309,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "How are Pin 6 (Threshold) and Pin 7 (Discharge) connected in a 555 monostable multivibrator?",
+    "options": {
+      "A": "Tied together to the junction of timing resistor R and capacitor C",
+      "B": "Connected to Ground",
+      "C": "Pin 6 to Vcc, Pin 7 to ground",
+      "D": "Isolated from each other"
+    },
+    "answer": "A",
+    "reason": "Both pins connect to the R-C timing junction: pin 6 senses when voltage reaches (2/3)Vcc, and pin 7 discharges C once the timing period completes."
+  },
+  {
+    "id": 310,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "If R = 100 kΩ and C = 10 µF, what is the output pulse duration of the 555 monostable circuit?",
+    "options": {
+      "A": "0.693 seconds",
+      "B": "1.1 seconds",
+      "C": "1.44 seconds",
+      "D": "11 seconds"
+    },
+    "answer": "B",
+    "reason": "t_w = 1.1 * R * C = 1.1 * (100 * 10^3) * (10 * 10^-6) = 1.1 * 1.0 = 1.1 seconds."
+  },
+  {
+    "id": 311,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "How does output pulse width t_w change if the power supply Vcc is doubled from 5V to 10V?",
+    "options": {
+      "A": "Pulse width doubles",
+      "B": "Pulse width halves",
+      "C": "Pulse width remains virtually unchanged",
+      "D": "Pulse width increases by 1.414"
+    },
+    "answer": "C",
+    "reason": "The threshold voltage (2/3 Vcc) and charging target (Vcc) scale together, making the pulse duration mathematically independent of Vcc."
+  },
+  {
+    "id": 312,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What is the function of an input differentiator circuit (series C, pull-up R, diode) placed before Pin 2 of a 555 monostable?",
+    "options": {
+      "A": "To convert a wide input pulse into a narrow negative trigger spike",
+      "B": "To amplify the trigger voltage",
+      "C": "To filter supply ripple",
+      "D": "To increase output current"
+    },
+    "answer": "A",
+    "reason": "An RC differentiator produces a brief negative spike from falling edges, ensuring the trigger returns HIGH before the timing period finishes."
+  },
+  {
+    "id": 313,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What happens if a reset pulse (0V) is applied to Pin 4 during the timing period t_w of a 555 monostable circuit?",
+    "options": {
+      "A": "The pulse is extended by another t_w",
+      "B": "The output pulse terminates immediately, returning output to LOW and discharging C",
+      "C": "The circuit oscillates",
+      "D": "Pin 4 burns out"
+    },
+    "answer": "B",
+    "reason": "Pin 4 is an active-LOW master reset; pulling it to 0V aborts the current timing cycle, forces output LOW, and turns ON discharge transistor pin 7."
+  },
+  {
+    "id": 314,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "If an external control voltage is applied to pin 5 of a 555 monostable multivibrator, what parameter of the output pulse is modified?",
+    "options": {
+      "A": "Output pulse amplitude",
+      "B": "Output pulse width (duration)",
+      "C": "Capacitor initial discharge voltage",
+      "D": "Slew rate"
+    },
+    "answer": "B",
+    "reason": "Altering the voltage at pin 5 shifts the upper comparator trip threshold, lengthening or shortening the time C takes to charge to that level."
+  },
+  {
+    "id": 315,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What application commonly uses a 555 monostable multivibrator with pin 5 modulated by an analog signal?",
+    "options": {
+      "A": "Pulse Width Modulator (PWM)",
+      "B": "Schmitt trigger",
+      "C": "Frequency counter",
+      "D": "Bridge rectifier"
+    },
+    "answer": "A",
+    "reason": "Triggering the monostable at a fixed clock rate while feeding an analog signal to pin 5 varies the pulse width proportionally, producing PWM."
+  },
+  {
+    "id": 316,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "If subsequent trigger pulses arrive at Pin 2 while the output is ALREADY HIGH (in quasi-stable state), what happens in a standard 555 monostable?",
+    "options": {
+      "A": "The pulses are ignored; the output pulse width remains 1.1*R*C (non-retriggerable)",
+      "B": "The timing cycle restarts from zero (retriggerable)",
+      "C": "The output goes LOW immediately",
+      "D": "The flip-flop enters metastability"
+    },
+    "answer": "A",
+    "reason": "The standard 555 monostable is non-retriggerable; once triggered, the lower comparator output cannot alter the flip-flop state until C reaches (2/3)Vcc."
+  },
+  {
+    "id": 317,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What is the recovery time of a 555 monostable multivibrator?",
+    "options": {
+      "A": "The time required for capacitor C to discharge fully through pin 7 after the timing period ends",
+      "B": "The propagation delay of the output buffer",
+      "C": "The width of the trigger pulse",
+      "D": "The fall time of the input power supply"
+    },
+    "answer": "A",
+    "reason": "Before another valid timing cycle can begin, C must discharge back down to near 0V through the saturation resistance of pin 7's discharge transistor."
+  },
+  {
+    "id": 318,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "If R = 10 kΩ and a pulse width of 1 ms is required, what value of capacitor C should be selected?",
+    "options": {
+      "A": "0.091 µF",
+      "B": "0.693 µF",
+      "C": "1.1 µF",
+      "D": "10 µF"
+    },
+    "answer": "A",
+    "reason": "C = t_w / (1.1 * R) = 10^-3 / (1.1 * 10^4) = 10^-7 / 1.1 ≈ 0.0909 * 10^-6 F = 0.091 µF."
+  },
+  {
+    "id": 319,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "Which circuit application uses a 555 monostable to remove noise/bouncing from mechanical switch contacts?",
+    "options": {
+      "A": "Switch Debouncer",
+      "B": "Frequency Multiplier",
+      "C": "Peak Detector",
+      "D": "Sample and Hold"
+    },
+    "answer": "A",
+    "reason": "The first contact closure triggers the monostable into its quasi-stable state, masking subsequent mechanical bounces occurring within t_w."
+  },
+  {
+    "id": 320,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "In a missing-pulse detector circuit built with a 555 monostable, what external component is placed across timing capacitor C?",
+    "options": {
+      "A": "A PNP or NPN transistor driven by the continuous pulse train to continuously reset C",
+      "B": "An inductor to form an LC tank",
+      "C": "A Zener diode to clamp voltage",
+      "D": "A feedback resistor to pin 3"
+    },
+    "answer": "A",
+    "reason": "An external transistor resets C to 0V on every incoming clock pulse. If a pulse goes missing, C completes its charge to (2/3)Vcc, triggering an output pulse."
+  },
+  {
+    "id": 321,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What is the maximum voltage reached across capacitor C during normal monostable operation?",
+    "options": {
+      "A": "(1/3)Vcc",
+      "B": "(1/2)Vcc",
+      "C": "(2/3)Vcc",
+      "D": "Vcc"
+    },
+    "answer": "C",
+    "reason": "The upper threshold comparator trips at (2/3)Vcc, discharging the capacitor immediately."
+  },
+  {
+    "id": 322,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "Why is an electrolytic capacitor with high leakage current unsuitable for long-duration 555 monostable timers?",
+    "options": {
+      "A": "Leakage current prevents the capacitor voltage from reaching (2/3)Vcc, causing the timer to hang indefinitely HIGH",
+      "B": "It reverses the polarity of pin 3",
+      "C": "It shorts the trigger pin to ground",
+      "D": "It destroys the internal 5 kΩ resistor ladder"
+    },
+    "answer": "A",
+    "reason": "If capacitor leakage current equals or exceeds charging current through high-value R, V_C never reaches (2/3)Vcc, leaving the output stuck HIGH."
+  },
+  {
+    "id": 323,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "Can a 555 monostable multivibrator be used as a frequency divider?",
+    "options": {
+      "A": "Yes, by setting t_w longer than the input period so it triggers only on every N-th pulse",
+      "B": "No, 555 timers can only multiply frequency",
+      "C": "Only if driven by an inductor",
+      "D": "Only if pin 5 is grounded"
+    },
+    "answer": "A",
+    "reason": "If pulse width t_w is adjusted to exceed the period of input trigger pulses, intermediate pulses are ignored, dividing frequency."
+  },
+  {
+    "id": 324,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "In a 555 monostable, what is the state of the internal discharge transistor when the output is HIGH?",
+    "options": {
+      "A": "Fully ON (Saturated)",
+      "B": "Fully OFF (Cut-off)",
+      "C": "Linear active region",
+      "D": "In breakdown"
+    },
+    "answer": "B",
+    "reason": "When the output is HIGH, the internal flip-flop's Q' output is LOW, turning OFF the discharge transistor to allow C to charge."
+  },
+  {
+    "id": 325,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What is the state of the internal discharge transistor when the output is in its stable LOW state?",
+    "options": {
+      "A": "Fully ON (Saturated)",
+      "B": "Fully OFF (Cut-off)",
+      "C": "High-impedance",
+      "D": "Floating"
+    },
+    "answer": "A",
+    "reason": "In the stable state, the flip-flop drives Q' HIGH, turning ON the discharge transistor to hold C discharged to ground."
+  },
+  {
+    "id": 326,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "If R = 47 kΩ and C = 0.47 µF, the output pulse width is approximately:",
+    "options": {
+      "A": "24.3 ms",
+      "B": "15.3 ms",
+      "C": "35.5 ms",
+      "D": "5.1 ms"
+    },
+    "answer": "A",
+    "reason": "t_w = 1.1 * 47,000 * (0.47 * 10^-6) = 1.1 * 0.02209 s ≈ 24.3 ms."
+  },
+  {
+    "id": 327,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "What happens if Pin 2 is tied permanently to Ground (0V)?",
+    "options": {
+      "A": "The timer outputs a continuous single 1.1*R*C pulse then turns off",
+      "B": "The output remains latched permanently HIGH",
+      "C": "The output stays permanently LOW",
+      "D": "The IC enters astable oscillation"
+    },
+    "answer": "B",
+    "reason": "With pin 2 below (1/3)Vcc, the lower comparator continuously asserts the set input, keeping output HIGH regardless of pin 6."
+  },
+  {
+    "id": 328,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "Why is a 555 monostable preferred over an analog RC delay circuit for driving logic gates?",
+    "options": {
+      "A": "It provides clean, fast digital output transitions with consistent voltage levels independent of slow RC edges",
+      "B": "It draws zero supply current",
+      "C": "It eliminates the need for a timing capacitor",
+      "D": "It operates without a DC supply"
+    },
+    "answer": "A",
+    "reason": "The internal flip-flop and output totem-pole driver provide fast rise and fall times (<100 ns), avoiding intermediate logic-level violations."
+  },
+  {
+    "id": 329,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "If pin 5 is pulled down to (1/3)Vcc using an external divider, what happens to pulse width t_w?",
+    "options": {
+      "A": "Pulse width decreases",
+      "B": "Pulse width increases",
+      "C": "Pulse width stays identical",
+      "D": "Pulse width doubles"
+    },
+    "answer": "A",
+    "reason": "Lowering the upper reference voltage means the capacitor charges to that trip point faster, shortening output pulse width t_w."
+  },
+  {
+    "id": 330,
+    "topic": "555 Timer Monostable Multivibrator",
+    "question": "How can two 555 monostable timers be configured to generate a delayed pulse?",
+    "options": {
+      "A": "Connect the output of Timer 1 through a differentiator into the trigger of Timer 2",
+      "B": "Tie their discharge pins together",
+      "C": "Tie their timing capacitors together",
+      "D": "Connect them in parallel across Vcc"
+    },
+    "answer": "A",
+    "reason": "Timer 1 sets the delay duration; its falling edge triggers Timer 2 to produce the delayed output pulse."
+  },
+  {
+    "id": 331,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What type of waveform is produced by an RC Phase Shift Oscillator?",
+    "options": {
+      "A": "Square wave",
+      "B": "Sinusoidal wave",
+      "C": "Triangular wave",
+      "D": "Sawtooth wave"
+    },
+    "answer": "B",
+    "reason": "An RC phase shift oscillator is a linear sinusoidal feedback oscillator operating via harmonic phase cancellation."
+  },
+  {
+    "id": 332,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What is the total phase shift required around the closed loop to satisfy the Barkhausen criterion for oscillation?",
+    "options": {
+      "A": "0° (or 360°)",
+      "B": "90°",
+      "C": "180°",
+      "D": "270°"
+    },
+    "answer": "A",
+    "reason": "The Barkhausen criterion requires total loop phase shift ∠Aβ = 0° (or integer multiples of 360°) and loop gain magnitude |Aβ| >= 1."
+  },
+  {
+    "id": 333,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "In an op-amp RC Phase Shift Oscillator, what phase shift is provided by the op-amp amplifier stage alone?",
+    "options": {
+      "A": "0°",
+      "B": "90°",
+      "C": "180°",
+      "D": "360°"
+    },
+    "answer": "C",
+    "reason": "The op-amp is wired in an inverting configuration, providing an intrinsic phase shift of 180°."
+  },
+  {
+    "id": 334,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "How much phase shift must the passive RC feedback network provide to sustain oscillations?",
+    "options": {
+      "A": "0°",
+      "B": "90°",
+      "C": "180°",
+      "D": "360°"
+    },
+    "answer": "C",
+    "reason": "Because the inverting op-amp introduces 180°, the feedback network must supply the remaining 180° to yield a total loop phase shift of 360° (0°)."
+  },
+  {
+    "id": 335,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "How many cascaded RC lead sections are used in a standard RC phase shift network?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "5"
+    },
+    "answer": "C",
+    "reason": "A single RC section provides < 90° of phase shift; three cascaded stages are required to achieve 180° (nominally 60° per section at the oscillation frequency)."
+  },
+  {
+    "id": 336,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What is the attenuation factor (|β|) of a standard 3-stage RC feedback ladder at the oscillation frequency?",
+    "options": {
+      "A": "1/3",
+      "B": "1/10",
+      "C": "1/29",
+      "D": "1/56"
+    },
+    "answer": "C",
+    "reason": "Derivation of the 3-stage high-pass RC ladder transfer function shows that at 180° phase shift, |β| = 1/29."
+  },
+  {
+    "id": 337,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What is the minimum magnitude of voltage gain (|Av| = Rf / R1) required from the inverting op-amp to sustain oscillations?",
+    "options": {
+      "A": "3",
+      "B": "10",
+      "C": "29",
+      "D": "58"
+    },
+    "answer": "C",
+    "reason": "To satisfy Barkhausen condition |Aβ| >= 1 with |β| = 1/29, amplifier gain magnitude |Av| must be at least 29."
+  },
+  {
+    "id": 338,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What is the formula for the oscillation frequency (f_o) of a 3-section high-pass RC phase shift oscillator?",
+    "options": {
+      "A": "1 / (2 * π * R * C * √6)",
+      "B": "1 / (2 * π * R * C * √3)",
+      "C": "1 / (2 * π * R * C)",
+      "D": "√6 / (2 * π * R * C)"
+    },
+    "answer": "A",
+    "reason": "Setting the imaginary component of the loop transfer function to zero yields f_o = 1 / (2 * π * R * C * √6)."
+  },
+  {
+    "id": 339,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "If R = 10 kΩ and C = 0.01 µF in a standard 3-stage RC phase shift oscillator, what is the frequency of oscillation?",
+    "options": {
+      "A": "649.7 Hz",
+      "B": "1.59 kHz",
+      "C": "3.89 kHz",
+      "D": "64.9 Hz"
+    },
+    "answer": "A",
+    "reason": "f_o = 1 / [2 * π * 10^4 * 10^-8 * √6] = 1 / [2 * π * 10^-4 * 2.4495] ≈ 1 / (1.539 * 10^-3) ≈ 649.7 Hz."
+  },
+  {
+    "id": 340,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "If R = 6.5 kΩ and C = 0.1 µF in a standard RC phase shift oscillator, what is f_o?",
+    "options": {
+      "A": "100 Hz",
+      "B": "1 kHz",
+      "C": "2.45 kHz",
+      "D": "500 Hz"
+    },
+    "answer": "A",
+    "reason": "f_o = 1 / (2 * π * 6500 * 10^-7 * √6) ≈ 1 / (0.01) = 100 Hz."
+  },
+  {
+    "id": 341,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "For an RC phase shift oscillator to reliably start oscillating from power-on thermal noise, initial loop gain |Aβ| should be:",
+    "options": {
+      "A": "Exactly 1.0",
+      "B": "Slightly greater than 1 (|Av| > 29)",
+      "C": "Less than 1",
+      "D": "0"
+    },
+    "answer": "B",
+    "reason": "To build oscillations up from ambient noise, initial gain must slightly exceed the threshold (|Aβ| > 1), after which non-linear limiting stabilizes amplitude."
+  },
+  {
+    "id": 342,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What amplitude stabilization technique is commonly used to prevent output clipping in op-amp RC oscillators?",
+    "options": {
+      "A": "Back-to-back Zener diodes in the feedback path",
+      "B": "Inductors in series with input",
+      "C": "Removing negative feedback",
+      "D": "Increasing DC supply voltage"
+    },
+    "answer": "A",
+    "reason": "Back-to-back Zeners or diodes in the feedback path clamp peak amplitude softly, reducing gain once desired output level is reached."
+  },
+  {
+    "id": 343,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What is the primary operational frequency range best suited for RC Phase Shift Oscillators?",
+    "options": {
+      "A": "Audio frequency range (a few Hz to ~100 kHz)",
+      "B": "VHF/UHF range (30 MHz - 300 MHz)",
+      "C": "Microwave range (> 1 GHz)",
+      "D": "Exclusively DC"
+    },
+    "answer": "A",
+    "reason": "RC oscillators are practical for low-to-audio frequencies; at RF frequencies, LC or crystal oscillators provide superior Q-factor and stability."
+  },
+  {
+    "id": 344,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "Why is it difficult to make an RC Phase Shift Oscillator variable-frequency over a wide band?",
+    "options": {
+      "A": "All three capacitors (or resistors) must be ganged and varied simultaneously to preserve 180° phase shift",
+      "B": "The op-amp will burn out",
+      "C": "Gain requirements change exponentially",
+      "D": "Virtual ground stops functioning"
+    },
+    "answer": "A",
+    "reason": "Varying frequency requires three-gang matched variable capacitors or potentiometers, making tracking complex compared to 2-element networks."
+  },
+  {
+    "id": 345,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "In an RC phase shift oscillator where the RC ladder consists of series resistors and shunt capacitors (low-pass form), what is f_o?",
+    "options": {
+      "A": "√6 / (2 * π * R * C)",
+      "B": "1 / (2 * π * R * C * √6)",
+      "C": "1 / (2 * π * R * C)",
+      "D": "1 / (2 * π * R * C * √3)"
+    },
+    "answer": "A",
+    "reason": "For the low-pass RC ladder configuration, solving for 180° phase shift yields f_o = √6 / (2 * π * R * C)."
+  },
+  {
+    "id": 346,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "In a 3-stage high-pass RC ladder, does each stage produce exactly 60° phase shift in practice?",
+    "options": {
+      "A": "Yes, exactly 60° independently",
+      "B": "No, because subsequent stages load preceding stages",
+      "C": "No, each stage produces 90°",
+      "D": "Yes, because op-amp isolates them"
+    },
+    "answer": "B",
+    "reason": "Unless buffer amplifiers isolate each stage, later stages load earlier ones, altering individual phase shifts while their total remains 180°."
+  },
+  {
+    "id": 347,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "If four RC stages are used instead of three in the feedback path, what phase shift is required per stage?",
+    "options": {
+      "A": "45°",
+      "B": "60°",
+      "C": "90°",
+      "D": "30°"
+    },
+    "answer": "A",
+    "reason": "Total feedback phase shift remains 180°; distributed across 4 stages, each contributes nominally 180° / 4 = 45°."
+  },
+  {
+    "id": 348,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What is the feedback ladder attenuation factor (|β|) for a 4-stage RC oscillator at oscillation frequency?",
+    "options": {
+      "A": "1/29",
+      "B": "1/18.4",
+      "C": "1/3",
+      "D": "1/56"
+    },
+    "answer": "B",
+    "reason": "A 4-stage ladder has lower attenuation (|β| ≈ 1/18.4), requiring a lower amplifier gain of only ~18.4 compared to 29."
+  },
+  {
+    "id": 349,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "How is the last resistor of the 3-stage feedback ladder commonly wired into an inverting op-amp?",
+    "options": {
+      "A": "Connected directly to the virtual ground inverting input, acting as input resistor R1",
+      "B": "Connected to positive supply rail",
+      "C": "Left floating",
+      "D": "Connected to non-inverting terminal"
+    },
+    "answer": "A",
+    "reason": "Because the inverting input is at virtual ground, resistor R1 of the amplifier doubles as the final ground-terminating resistor of the RC ladder."
+  },
+  {
+    "id": 350,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "If closed-loop amplifier gain |Av| is set significantly above 29 (e.g., Av = 100) without amplitude stabilization:",
+    "options": {
+      "A": "Output distorts heavily into a clipped, quasi-square wave",
+      "B": "Frequency doubles",
+      "C": "Oscillation dies out",
+      "D": "Op-amp enters thermal shutdown"
+    },
+    "answer": "A",
+    "reason": "Excess loop gain drives the op-amp output against its positive and negative power supply rails, causing severe waveform clipping."
+  },
+  {
+    "id": 351,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What supplies the initial electrical signal that starts oscillations in an RC phase shift oscillator?",
+    "options": {
+      "A": "An external trigger generator",
+      "B": "Thermal noise in resistors and semiconductor turn-on transients",
+      "C": "A crystal pilot signal",
+      "D": "A dedicated start capacitor"
+    },
+    "answer": "B",
+    "reason": "Thermal noise contains a broadband frequency spectrum; the selective feedback network filters and recirculates the resonant frequency."
+  },
+  {
+    "id": 352,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What is the non-inverting input of the op-amp connected to in a standard dual-supply RC phase shift oscillator?",
+    "options": {
+      "A": "Directly to ground (0V)",
+      "B": "+Vcc",
+      "C": "Output through a capacitor",
+      "D": "-Vee"
+    },
+    "answer": "A",
+    "reason": "Grounding the non-inverting input establishes a 0V reference and creates virtual ground at the inverting input."
+  },
+  {
+    "id": 353,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "How does increasing capacitance C by a factor of 4 affect oscillation frequency f_o?",
+    "options": {
+      "A": "f_o decreases by a factor of 4",
+      "B": "f_o decreases by a factor of 2",
+      "C": "f_o quadruples",
+      "D": "f_o remains constant"
+    },
+    "answer": "A",
+    "reason": "Because f_o is inversely proportional to C [f_o ∝ 1/C], multiplying C by 4 reduces f_o to 1/4 of its original value."
+  },
+  {
+    "id": 354,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "Why is an op-amp with high Gain-Bandwidth Product (GBW) required for high-frequency RC phase shift oscillators?",
+    "options": {
+      "A": "The amplifier must provide a gain of at least 29 at frequency f_o without adding unwanted internal phase lag",
+      "B": "To supply DC output offset",
+      "C": "To keep slew rate at zero",
+      "D": "To eliminate the need for resistors"
+    },
+    "answer": "A",
+    "reason": "If f_o is high, internal op-amp roll-off adds unwanted phase lag beyond 180° and reduces open-loop gain below the required 29."
+  },
+  {
+    "id": 355,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What happens if loop gain |Aβ| falls below 1 during operation?",
+    "options": {
+      "A": "Oscillations decay exponentially and cease",
+      "B": "Output clips to supply rail",
+      "C": "Frequency shifts to infinity",
+      "D": "Harmonics increase"
+    },
+    "answer": "A",
+    "reason": "When energy losses in the RC network exceed energy supplied by the amplifier (|Aβ| < 1), oscillation amplitude decays to zero."
+  },
+  {
+    "id": 356,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "An RC phase shift oscillator is classified as what category of oscillator?",
+    "options": {
+      "A": "Relaxation oscillator",
+      "B": "Sinusoidal feedback (Harmonic) oscillator",
+      "C": "Negative resistance oscillator",
+      "D": "Bistable multivibrator"
+    },
+    "answer": "B",
+    "reason": "It generates continuous sine waves by recycling a filtered portion of its output back to its input via a frequency-selective feedback network."
+  },
+  {
+    "id": 357,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "If R1 = 10 kΩ in the inverting amplifier, what is the minimum value of feedback resistor Rf needed for sustained oscillation?",
+    "options": {
+      "A": "10 kΩ",
+      "B": "290 kΩ",
+      "C": "29 kΩ",
+      "D": "580 kΩ"
+    },
+    "answer": "B",
+    "reason": "Gain magnitude |Av| = Rf / R1 >= 29. Therefore, Rf >= 29 * R1 = 29 * 10 kΩ = 290 kΩ."
+  },
+  {
+    "id": 358,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What is the main advantage of an RC Phase Shift Oscillator over an LC tank oscillator at low audio frequencies?",
+    "options": {
+      "A": "It avoids bulky, expensive, and heavy inductors",
+      "B": "It operates at microwave frequencies",
+      "C": "It provides higher Q-factor than crystals",
+      "D": "It consumes zero quiescent power"
+    },
+    "answer": "A",
+    "reason": "At low audio frequencies (e.g., 20 Hz – 1 kHz), LC circuits require large, expensive inductors, whereas RC networks use compact, inexpensive components."
+  },
+  {
+    "id": 359,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "What is the relationship between the attenuation factor and the number of stages in an RC phase ladder?",
+    "options": {
+      "A": "Adding more stages decreases network attenuation at the 180° frequency, lowering the required amplifier gain",
+      "B": "Adding more stages increases network attenuation",
+      "C": "Attenuation is independent of stage count",
+      "D": "Attenuation drops to zero"
+    },
+    "answer": "A",
+    "reason": "Increasing stage count shares the 180° phase shift across smaller per-stage increments, reducing overall ladder loss (|β| is ~1/29 for 3 stages, ~1/18.4 for 4 stages)."
+  },
+  {
+    "id": 360,
+    "topic": "RC Phase Shift Oscillator Using Op-Amp",
+    "question": "If one of the three capacitors in the feedback network degrades and drops in value by 50%, what happens?",
+    "options": {
+      "A": "Phase and attenuation shift, altering frequency and potentially extinguishing oscillations if |Aβ| drops below 1",
+      "B": "Frequency drops to exactly zero",
+      "C": "Gain doubles automatically",
+      "D": "Waveform converts cleanly to a square wave"
+    },
+    "answer": "A",
+    "reason": "Unbalanced component values disrupt the phase shift and increase attenuation; if loop gain drops below unity, oscillations cannot be sustained."
+  },
+  {
+    "id": 361,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "What type of amplifier configuration is used in a standard Wien Bridge Oscillator?",
+    "options": {
+      "A": "Inverting amplifier (Phase shift = 180°)",
+      "B": "Non-inverting amplifier (Phase shift = 0°)",
+      "C": "Summing amplifier",
+      "D": "Open-loop comparator"
+    },
+    "answer": "B",
+    "reason": "The Wien bridge lead-lag feedback network has a phase shift of 0° at resonance; therefore, a non-inverting amplifier (0° phase shift) is used to achieve total 0° loop phase."
+  },
+  {
+    "id": 362,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "What is the phase shift of the lead-lag Wien network at its resonant frequency f_o?",
+    "options": {
+      "A": "0°",
+      "B": "90°",
+      "C": "180°",
+      "D": "-90°"
+    },
+    "answer": "A",
+    "reason": "At resonant frequency f_o = 1 / (2*π*R*C), the series RC impedance equals the parallel RC admittance angle, resulting in a net phase shift of exactly 0°."
+  },
+  {
+    "id": 363,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "What is the attenuation factor (|β| = V_feedback / V_out) of the Wien lead-lag network at resonance when R1 = R2 and C1 = C2?",
+    "options": {
+      "A": "1/2",
+      "B": "1/3",
+      "C": "1/29",
+      "D": "1/√3"
+    },
+    "answer": "B",
+    "reason": "Evaluating the lead-lag network transfer function at resonance gives β = (1/3)∠0°."
+  },
+  {
+    "id": 364,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "What is the minimum non-inverting voltage gain (Av) required to sustain oscillations in a Wien Bridge oscillator?",
+    "options": {
+      "A": "1",
+      "B": "2",
+      "C": "3",
+      "D": "29"
+    },
+    "answer": "C",
+    "reason": "To satisfy Barkhausen criterion |Aβ| >= 1 with |β| = 1/3, amplifier gain Av must be at least 1 / (1/3) = 3."
+  },
+  {
+    "id": 365,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "What is the ratio of feedback resistors (Rf / R1) required in the non-inverting op-amp for sustained oscillations?",
+    "options": {
+      "A": "Rf / R1 = 1",
+      "B": "Rf / R1 = 2",
+      "C": "Rf / R1 = 3",
+      "D": "Rf / R1 = 29"
+    },
+    "answer": "B",
+    "reason": "Non-inverting gain is Av = 1 + (Rf / R1). Setting Av = 3 gives 1 + (Rf / R1) = 3 => Rf / R1 = 2 (Rf = 2 * R1)."
+  },
+  {
+    "id": 366,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "What is the formula for the resonant frequency (f_o) of a Wien Bridge Oscillator with equal R and C?",
+    "options": {
+      "A": "1 / (2 * π * R * C)",
+      "B": "1 / (2 * π * R * C * √6)",
+      "C": "1 / (2 * π * R * C * √2)",
+      "D": "1 / (4 * π * R * C)"
+    },
+    "answer": "A",
+    "reason": "Resonant frequency occurs where series capacitive reactance equals parallel capacitive reactance: f_o = 1 / (2 * π * R * C)."
+  },
+  {
+    "id": 367,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "If R = 10 kΩ and C = 0.01 µF in a Wien Bridge Oscillator, what is the oscillation frequency?",
+    "options": {
+      "A": "1.59 kHz",
+      "B": "15.9 kHz",
+      "C": "649 Hz",
+      "D": "3.18 kHz"
+    },
+    "answer": "A",
+    "reason": "f_o = 1 / (2 * π * 10^4 * 10^-8) = 1 / (2 * π * 10^-4) = 10,000 / (2 * π) ≈ 1591.5 Hz (1.59 kHz)."
+  },
+  {
+    "id": 368,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "If R = 15.9 kΩ and C = 0.01 µF, what is the oscillation frequency?",
+    "options": {
+      "A": "100 Hz",
+      "B": "1 kHz",
+      "C": "10 kHz",
+      "D": "500 Hz"
+    },
+    "answer": "B",
+    "reason": "f_o = 1 / (2 * π * 15900 * 10^-8) ≈ 1 / (10^-3) = 1000 Hz = 1 kHz."
+  },
+  {
+    "id": 369,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "The feedback network of a Wien Bridge consists of which two arms connected to the op-amp input?",
+    "options": {
+      "A": "A series RC arm and a parallel RC arm forming a lead-lag network",
+      "B": "Two series inductors and a shunt capacitor",
+      "C": "Three parallel high-pass filter stages",
+      "D": "A bridge rectifier with smoothing capacitor"
+    },
+    "answer": "A",
+    "reason": "The reactive voltage divider consists of a series R-C branch connected to a parallel R-C branch to ground, forming a bandpass (lead-lag) filter."
+  },
+  {
+    "id": 370,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "At frequencies BELOW the resonant frequency (f < f_o), the Wien network behaves as:",
+    "options": {
+      "A": "A lead network with phase shift between 0° and +90°",
+      "B": "A lag network with phase shift between 0° and -90°",
+      "C": "A pure resistor with 0° phase shift",
+      "D": "An open circuit with attenuation = 0"
+    },
+    "answer": "A",
+    "reason": "Below resonance, series capacitor reactance dominates, making output voltage lead input voltage with a positive phase angle (+90° toward 0°)."
+  },
+  {
+    "id": 371,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "At frequencies ABOVE the resonant frequency (f > f_o), the Wien network behaves as:",
+    "options": {
+      "A": "A lag network with phase shift between 0° and -90°",
+      "B": "A lead network with phase shift between 0° and +90°",
+      "C": "A resonant tank with infinite impedance",
+      "D": "A notch filter"
+    },
+    "answer": "A",
+    "reason": "Above resonance, parallel capacitor reactance shunts signal to ground, causing output voltage to lag input voltage (-90° toward 0°)."
+  },
+  {
+    "id": 372,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "Why is automatic gain control (AGC) or amplitude stabilization required in a Wien Bridge Oscillator?",
+    "options": {
+      "A": "If Av is strictly fixed at 3, temperature drift causes oscillations to either die out (Av < 3) or clip into distortion (Av > 3)",
+      "B": "To convert the sine wave to a square wave",
+      "C": "To keep frequency at 0 Hz",
+      "D": "To cancel op-amp input offset"
+    },
+    "answer": "A",
+    "reason": "Maintaining |Aβ| = 1 precisely across thermal drift is impossible with fixed resistors; dynamic stabilization is needed to maintain linear sine wave amplitude."
+  },
+  {
+    "id": 373,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "What classic non-linear component did William Hewlett use in the HP 200A audio oscillator to stabilize Wien bridge gain?",
+    "options": {
+      "A": "An incandescent tungsten filament light bulb as resistor R1",
+      "B": "A tunnel diode",
+      "C": "A neon glow lamp",
+      "D": "A phototransistor"
+    },
+    "answer": "A",
+    "reason": "Tungsten has a positive temperature coefficient (PTC); rising output amplitude heats the filament, increasing R1, which lowers gain Av = 1 + Rf/R1 back to 3."
+  },
+  {
+    "id": 374,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "When a JFET is used for modern amplitude control in a Wien Bridge oscillator, it operates as:",
+    "options": {
+      "A": "A voltage-controlled resistor (VCR) in the negative feedback path",
+      "B": "A digital on/off switch",
+      "C": "A constant current source",
+      "D": "A high-frequency RF mixer"
+    },
+    "answer": "A",
+    "reason": "Operated in its ohmic (triode) region, JFET drain-to-source resistance varies with gate voltage, providing linear gain control."
+  },
+  {
+    "id": 375,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "How can the oscillation frequency of a Wien Bridge oscillator be varied easily over a continuous band?",
+    "options": {
+      "A": "Using a two-gang variable potentiometer (varying both R resistors together)",
+      "B": "Varying DC power supply voltage",
+      "C": "Using a single feedback potentiometer in Rf",
+      "D": "Changing op-amp open-loop gain"
+    },
+    "answer": "A",
+    "reason": "Varying both resistors simultaneously with a two-gang potentiometer tunes frequency smoothly without disturbing the R1=R2, C1=C2 matching condition."
+  },
+  {
+    "id": 376,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "Why is a Wien Bridge oscillator easier to tune across frequency ranges than a 3-stage RC Phase Shift oscillator?",
+    "options": {
+      "A": "It requires varying only 2 ganged components instead of 3",
+      "B": "It operates without capacitors",
+      "C": "It does not require an op-amp",
+      "D": "It has infinite bandwidth"
+    },
+    "answer": "A",
+    "reason": "Tuning a Wien Bridge requires a 2-gang potentiometer or capacitor, whereas a 3-section RC oscillator requires 3 ganged components."
+  },
+  {
+    "id": 377,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "To change the frequency range by powers of 10 (decade stepping) in a lab Wien bridge generator:",
+    "options": {
+      "A": "Switch matched pairs of capacitors (C1, C2) by decade values",
+      "B": "Double supply voltage Vcc",
+      "C": "Vary op-amp slew rate",
+      "D": "Disconnect negative feedback"
+    },
+    "answer": "A",
+    "reason": "Switching capacitor pairs by decade values (e.g., 1 µF, 0.1 µF, 0.01 µF) scales the frequency range by 10x per step."
+  },
+  {
+    "id": 378,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "What is the total loop gain |Aβ| and loop phase shift ∠Aβ during steady-state, stable sine-wave oscillation?",
+    "options": {
+      "A": "|Aβ| = 1 and ∠Aβ = 0° (or 360°)",
+      "B": "|Aβ| = 3 and ∠Aβ = 180°",
+      "C": "|Aβ| = 29 and ∠Aβ = 0°",
+      "D": "|Aβ| < 1 and ∠Aβ = 90°"
+    },
+    "answer": "A",
+    "reason": "For sustained, constant-amplitude oscillations, the Barkhausen criterion dictates loop gain magnitude |Aβ| = 1 and phase shift = 0°."
+  },
+  {
+    "id": 379,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "If R1 = 12 kΩ in the non-inverting feedback path, what must be the value of Rf for initial oscillation startup?",
+    "options": {
+      "A": "Slightly greater than 24 kΩ",
+      "B": "Exactly 12 kΩ",
+      "C": "6 kΩ",
+      "D": "348 kΩ"
+    },
+    "answer": "A",
+    "reason": "For Av > 3 at startup, 1 + Rf/R1 > 3 => Rf > 2 * R1 = 2 * 12 kΩ = 24 kΩ."
+  },
+  {
+    "id": 380,
+    "topic": "Wien Bridge Oscillator Using Op-Amp",
+    "question": "What is the typical Total Harmonic Distortion (THD) profile of a well-designed Wien Bridge oscillator with AGC?",
+    "options": {
+      "A": "Very low distortion (< 0.1%), producing high-purity sine waves",
+      "B": "High distortion (> 25%)",
+      "C": "Predominantly square wave harmonics",
+      "D": "Pure white noise spectrum"
+    },
+    "answer": "A",
+    "reason": "With clean lead-lag filtering and active AGC, Wien Bridge oscillators achieve low THD (< 0.01%–0.1%), making them standard for audio test equipment."
+  }
+];

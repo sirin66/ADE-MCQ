@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Quiz 🏆 — Play To Gain Your Knowledge. An interactive 380-question Analog & Digital Electronics game with leaderboard, chapters, and diamond rewards.">
+  <title>Quiz 🏆 • ADE Mastery</title>
+
+  <!-- Typography: Syne (Chunky Display), Plus Jakarta Sans (UI Body), JetBrains Mono (Numbers) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Syne:wght@700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="showcase-mode">
+
+  <!-- Desktop Presentation Controls & Mode Switcher -->
+  <div class="showcase-toolbar">
+    <div class="toolbar-brand">
+      <span class="toolbar-logo">Quiz 🏆</span>
+      <span class="toolbar-sub">Analog & Digital Electronics • 380 Propositions</span>
+    </div>
+
+    <div class="toolbar-actions">
+      <!-- Screen Switcher Pills -->
+      <div class="screen-switch-group">
+        <button class="switch-pill" onclick="navigateToScreen('onboarding')">👋 Intro</button>
+        <button class="switch-pill active" id="swHome" onclick="navigateToScreen('home')">🏠 Home</button>
+        <button class="switch-pill" id="swQuiz" onclick="startQuizSession()">⚡ Play Quiz</button>
+        <button class="switch-pill" id="swBoard" onclick="navigateToScreen('leaderboard')">🏆 Ranking</button>
+        <button class="switch-pill" id="swChapters" onclick="navigateToScreen('chapters')">📚 All Chapters</button>
+      </div>
+
+      <!-- Viewport toggle: Phone Mockup vs Fluid Desktop -->
+      <div class="view-mode-toggle">
+        <button class="mode-btn active" id="btnPhoneView" onclick="setViewMode('phone')" title="Phone Frame Showcase">📱 Mobile View</button>
+        <button class="mode-btn" id="btnFluidView" onclick="setViewMode('fluid')" title="Expanded Desktop View">🖥️ Fullscreen</button>
+      </div>
+
+      <!-- Sound Toggle -->
+      <button class="sound-pill-btn" id="soundToggleBtn" onclick="toggleSound()" title="Sound Effects">
+        <span id="soundIcon">🔊</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Showcase Canvas Wrapper -->
+  <main class="showcase-stage">
+    
+    <!-- Phone Mockup Container -->
+    <div class="phone-device" id="phoneDevice">
+      
+      <!-- Device Bezel & Dynamic Island Header -->
+      <div class="phone-frame-header">
+        <span class="phone-time">9:41</span>
+        <div class="dynamic-island">
+          <div class="island-camera"></div>
+          <div class="island-sensor"></div>
+        </div>
+        <div class="phone-status-icons">
+          <span class="status-cell">📶</span>
+          <span class="status-wifi">ᯤ</span>
+          <span class="status-battery">🔋</span>
+        </div>
+      </div>
+
+      <!-- App Screen Viewport (Scrollable container inside phone) -->
+      <div class="app-viewport" id="appViewport">
+        
+        <!-- ================= 1. SCREEN: ONBOARDING / HERO ================= -->
+        <section class="screen-view hidden" id="screenOnboarding">
+          <div class="screen-content onboarding-content">
+            <!-- Header Logo -->
+            <div class="brand-masthead">
+              <h1 class="brand-title">Quiz <span class="brand-trophy">🏆</span></h1>
+            </div>
+
+            <!-- Visual Collage Art Illustration -->
+            <div class="collage-illustration">
+              <div class="confetti-stream left"></div>
+              <div class="confetti-stream right"></div>
+              
+              <!-- Retro Collage Central Art -->
+              <div class="collage-art-wrapper">
+                <div class="collage-badge-chip chip-left">ADE 380</div>
+                <div class="collage-photo-frame">
+                  <div class="collage-photo-inner">
+                    <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=500&q=80" alt="Students reviewing logic gates" class="collage-img main">
+                  </div>
+                </div>
+                <div class="collage-icon-cassette">✕</div>
+              </div>
+            </div>
+
+            <!-- Hero Typography -->
+            <div class="onboarding-copy">
+              <h2 class="onboarding-headline">Play To Gain Your Knowledge</h2>
+              <p class="onboarding-subtext">Master all 380 canonical propositions in Analog & Digital Electronics. Solve questions, earn diamonds, and claim top honors on the leaderboard.</p>
+            </div>
+
+            <!-- Big Black Action Pill -->
+            <div class="onboarding-cta-wrap">
+              <button class="pill-btn-black full-width" onclick="navigateToScreen('home')">
+                <span>Get started</span>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================= 2. SCREEN: HOME DASHBOARD ================= -->
+        <section class="screen-view" id="screenHome">
+          <div class="screen-content home-content">
+            
+            <!-- Home Masthead with Diamonds -->
+            <div class="home-top-bar">
+              <div class="brand-masthead-inline">
+                <h1 class="brand-title-small">Quiz <span class="brand-trophy">🏆</span></h1>
+              </div>
+              <div class="diamond-pill" onclick="navigateToScreen('leaderboard')">
+                <span class="diamond-glyph">💎</span>
+                <span class="diamond-num" id="userDiamondCount">20</span>
+              </div>
+            </div>
+
+            <!-- Friendly Subtitle Prompt -->
+            <p class="home-hero-text">Challenge your concepts and test yourself with our Quiz app. Let's see who comes out on top as the ultimate electronics champion and earns the bragging rights!</p>
+
+            <!-- Upgrade / Stats Pro Card Banner -->
+            <div class="pro-upgrade-card">
+              <div class="pro-left">
+                <div class="pro-crown">👑</div>
+                <div class="pro-text">
+                  <div class="pro-title">Upgrade pro</div>
+                  <div class="pro-sub">Access all 15 ADE Chapters, unlimited play and test modules</div>
+                </div>
+              </div>
+              <button class="pro-pill-btn" onclick="navigateToScreen('chapters')">Upgrade</button>
+            </div>
+
+            <!-- Section: Popular Game Cards (Horizontal Carousel) -->
+            <div class="section-heading-wrap">
+              <h3 class="section-title">Popular Game <span class="fire-icon">🔥</span></h3>
+              <button class="section-link" onclick="navigateToScreen('chapters')">View all</button>
+            </div>
+
+            <div class="popular-cards-scroll">
+              
+              <!-- Card 1: Technology / Digital Logic (Coral Red Card like Reference) -->
+              <div class="hero-category-card coral-theme" onclick="startQuizWithTopic('Half Adder')">
+                <div class="card-top-row">
+                  <span class="card-tag-pill">Logic Units</span>
+                  <button class="heart-toggle-btn" onclick="event.stopPropagation(); toggleFavorite('Logic Units')">🤍</button>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Arithmetic Adders</h4>
+                  <p class="card-desc">Explore the bedrock of computer hardware with 30 Half & Full Adder propositions from modulo-2 sums to ripple delays.</p>
+                </div>
+                <div class="card-footer-visual">
+                  <div class="card-visual-pill">30 Questions</div>
+                  <div class="card-mini-collage">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=300&q=80" alt="Tech" class="mini-collage-img">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 2: Flip-Flops & Latches (Cobalt Theme) -->
+              <div class="hero-category-card blue-theme" onclick="startQuizWithTopic('JK Flip-Flop')">
+                <div class="card-top-row">
+                  <span class="card-tag-pill">Sequential</span>
+                  <button class="heart-toggle-btn" onclick="event.stopPropagation(); toggleFavorite('Sequential')">🤍</button>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Flip-Flops & Latches</h4>
+                  <p class="card-desc">Master bistable memory cells: SR, JK, T, and D flip-flops, characteristic equations, and race-around elimination.</p>
+                </div>
+                <div class="card-footer-visual">
+                  <div class="card-visual-pill">120 Questions</div>
+                  <div class="card-mini-collage">
+                    <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=300&q=80" alt="Hardware" class="mini-collage-img">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Card 3: Op-Amps & 555 Timers (Amber Theme) -->
+              <div class="hero-category-card amber-theme" onclick="startQuizWithTopic('Inverting & Non-Inverting Op-Amps')">
+                <div class="card-top-row">
+                  <span class="card-tag-pill">Analog Waves</span>
+                  <button class="heart-toggle-btn" onclick="event.stopPropagation(); toggleFavorite('Analog')">🤍</button>
+                </div>
+                <div class="card-body">
+                  <h4 class="card-title">Op-Amps & 555 Timers</h4>
+                  <p class="card-desc">Analyze linear virtual-ground amplifiers, 555 astable/monostable multivibrators, and Barkhausen RC oscillators.</p>
+                </div>
+                <div class="card-footer-visual">
+                  <div class="card-visual-pill">140 Questions</div>
+                  <div class="card-mini-collage">
+                    <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=300&q=80" alt="Circuit" class="mini-collage-img">
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Section: Recent Played -->
+            <div class="section-heading-wrap mt-4">
+              <h3 class="section-title">Recent Played</h3>
+              <span class="items-count-pill" id="completedCountBadge">0/380 Solved</span>
+            </div>
+
+            <div class="recent-list">
+              <!-- Item 1 -->
+              <div class="recent-row-item" onclick="startQuizWithTopic('Half Subtractor')">
+                <div class="recent-left">
+                  <div class="category-circle-icon bg-pink">🧠</div>
+                  <div class="recent-meta">
+                    <div class="recent-title">Subtractors & Borrows</div>
+                    <div class="recent-sub">15 Questions • Minterms & Gates</div>
+                  </div>
+                </div>
+                <button class="pill-btn-red-sm" onclick="event.stopPropagation(); startQuizWithTopic('Half Subtractor')">Play again</button>
+              </div>
+
+              <!-- Item 2 -->
+              <div class="recent-row-item" onclick="startQuizWithTopic('Asynchronous Counters')">
+                <div class="recent-left">
+                  <div class="category-circle-icon bg-cyan">🧩</div>
+                  <div class="recent-meta">
+                    <div class="recent-title">Ripple & Ring Counters</div>
+                    <div class="recent-sub">60 Questions • MOD-N & Delays</div>
+                  </div>
+                </div>
+                <button class="pill-btn-red-sm" onclick="event.stopPropagation(); startQuizWithTopic('Asynchronous Counters')">Play again</button>
+              </div>
+
+              <!-- Item 3 -->
+              <div class="recent-row-item" onclick="startQuizWithTopic('555 Timer Astable Multivibrator')">
+                <div class="recent-left">
+                  <div class="category-circle-icon bg-amber">⚡</div>
+                  <div class="recent-meta">
+                    <div class="recent-title">555 Timer Multivibrators</div>
+                    <div class="recent-sub">60 Questions • Astable & One-Shot</div>
+                  </div>
+                </div>
+                <button class="pill-btn-red-sm" onclick="event.stopPropagation(); startQuizWithTopic('555 Timer Astable Multivibrator')">Play again</button>
+              </div>
+
+              <!-- Item 4 -->
+              <div class="recent-row-item" onclick="startQuizWithTopic('Wien Bridge Oscillator Using Op-Amp')">
+                <div class="recent-left">
+                  <div class="category-circle-icon bg-purple">〰️</div>
+                  <div class="recent-meta">
+                    <div class="recent-title">Harmonic Sine Oscillators</div>
+                    <div class="recent-sub">50 Questions • RC Ladder & Wien</div>
+                  </div>
+                </div>
+                <button class="pill-btn-red-sm" onclick="event.stopPropagation(); startQuizWithTopic('Wien Bridge Oscillator Using Op-Amp')">Play again</button>
+              </div>
+            </div>
+
+            <!-- Bottom spacing for floating navigation -->
+            <div class="bottom-dock-spacer"></div>
+          </div>
+        </section>
+
+        <!-- ================= 3. SCREEN: QUIZ GAMEPLAY ================= -->
+        <section class="screen-view hidden" id="screenQuiz">
+          <div class="screen-content quiz-play-content">
+            
+            <!-- Quiz Top Header -->
+            <div class="quiz-top-bar">
+              <button class="round-nav-btn" onclick="navigateToScreen('home')" title="Back to Home">←</button>
+              <div class="quiz-progress-pill" id="quizProgressPill">Q 1 / 380</div>
+              <div class="quiz-timer-pill" id="quizTimerPill">⏱️ 45:00</div>
+              <div class="diamond-pill sm">
+                <span class="diamond-glyph">💎</span>
+                <span class="diamond-num" id="quizDiamondCounter">20</span>
+              </div>
+            </div>
+
+            <!-- Chapter Tag & Bookmark Row -->
+            <div class="quiz-meta-row">
+              <span class="quiz-topic-badge" id="quizTopicBadge">HALF ADDER</span>
+              <button class="quiz-bookmark-btn" id="quizBookmarkBtn" onclick="toggleCurrentQuestionFlag()">
+                <span id="quizBookmarkIcon">☆</span>
+                <span id="quizBookmarkText">Save</span>
+              </button>
+            </div>
+
+            <!-- Question Card -->
+            <div class="quiz-question-card">
+              <div class="question-stem-text" id="quizQuestionStem">
+                A Half Adder is a combinational circuit designed to perform addition of:
+              </div>
+            </div>
+
+            <!-- Option Answer Buttons -->
+            <div class="quiz-options-container" id="quizOptionsContainer">
+              <!-- Dynamically populated -->
+            </div>
+
+            <!-- Explanation & Critique Card -->
+            <div class="quiz-explanation-card hidden" id="quizExplanationCard">
+              <div class="exp-header" id="expHeader">
+                <span class="exp-status-icon" id="expStatusIcon">✓</span>
+                <span class="exp-status-label" id="expStatusLabel">Accurate Premise</span>
+              </div>
+              <p class="exp-body" id="expBody">
+                By definition, a Half Adder only adds two single-bit binary inputs without accommodating a carry-in from a preceding stage.
+              </p>
+            </div>
+
+            <!-- Quiz Navigation Bottom Bar -->
+            <div class="quiz-nav-bottom-bar">
+              <button class="quiz-action-pill outline" id="btnQuizPrev" onclick="navigateQuizQuestion(-1)">← Prev</button>
+              <button class="quiz-action-pill solid" id="btnQuizNext" onclick="navigateQuizQuestion(1)">Next →</button>
+            </div>
+
+            <div class="bottom-dock-spacer"></div>
+          </div>
+        </section>
+
+        <!-- ================= 4. SCREEN: LEADERBOARD ================= -->
+        <section class="screen-view hidden" id="screenLeaderboard">
+          <div class="screen-content leaderboard-content">
+            
+            <!-- Top Bar -->
+            <div class="leaderboard-top-bar">
+              <button class="round-nav-btn" onclick="navigateToScreen('home')">←</button>
+              <h2 class="leaderboard-heading">Leaderboard <span class="fire-icon">🔥</span></h2>
+              <div class="diamond-pill">
+                <span class="diamond-glyph">💎</span>
+                <span class="diamond-num" id="leaderboardDiamonds">20</span>
+              </div>
+            </div>
+
+            <!-- Podium Top 3 Avatars -->
+            <div class="podium-container">
+              
+              <!-- 2nd Place: Sophia Cba -->
+              <div class="podium-col rank-2">
+                <div class="avatar-ring ring-silver">
+                  <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Sophia Cba" class="avatar-img">
+                  <div class="podium-badge badge-silver">2</div>
+                </div>
+                <div class="podium-name">Sophia Cba</div>
+                <div class="podium-diamonds">880 Diamonds</div>
+              </div>
+
+              <!-- 1st Place: Emma Ema -->
+              <div class="podium-col rank-1">
+                <div class="crown-icon-gold">👑</div>
+                <div class="avatar-ring ring-gold">
+                  <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=220&q=80" alt="Emma Ema" class="avatar-img">
+                  <div class="podium-badge badge-gold">1</div>
+                </div>
+                <div class="podium-name">Emma Ema</div>
+                <div class="podium-diamonds">888 Diamonds</div>
+              </div>
+
+              <!-- 3rd Place: Andrew W -->
+              <div class="podium-col rank-3">
+                <div class="avatar-ring ring-bronze">
+                  <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=200&q=80" alt="Andrew W" class="avatar-img">
+                  <div class="podium-badge badge-bronze">3</div>
+                </div>
+                <div class="podium-name">Andrew W</div>
+                <div class="podium-diamonds">808 Diamonds</div>
+              </div>
+
+            </div>
+
+            <!-- Ranked Players List -->
+            <div class="leaderboard-list">
+              
+              <!-- Current User "Me" row -->
+              <div class="player-rank-row current-user">
+                <div class="player-left">
+                  <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=120&q=80" alt="Me" class="player-avatar">
+                  <div class="player-info">
+                    <div class="player-name">Bayu aji sadewa</div>
+                    <div class="player-points" id="userPointsText">20 Point</div>
+                  </div>
+                </div>
+                <div class="player-right">
+                  <span class="user-me-pill">Me</span>
+                  <span class="score-badge badge-red" id="userScoreBadge">99</span>
+                </div>
+              </div>
+
+              <!-- Other Competitors -->
+              <div class="player-rank-row">
+                <div class="player-left">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="Olivia" class="player-avatar">
+                  <div class="player-info">
+                    <div class="player-name">Olivia Ava</div>
+                    <div class="player-points">60 Point</div>
+                  </div>
+                </div>
+                <div class="player-right">
+                  <span class="score-badge badge-cyan">50</span>
+                </div>
+              </div>
+
+              <div class="player-rank-row">
+                <div class="player-left">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=120&q=80" alt="David" class="player-avatar">
+                  <div class="player-info">
+                    <div class="player-name">David Joshua</div>
+                    <div class="player-points">88 Point</div>
+                  </div>
+                </div>
+                <div class="player-right">
+                  <span class="score-badge badge-green">52</span>
+                </div>
+              </div>
+
+              <div class="player-rank-row">
+                <div class="player-left">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80" alt="Charlotte" class="player-avatar">
+                  <div class="player-info">
+                    <div class="player-name">Charlotte Harper</div>
+                    <div class="player-points">22 Point</div>
+                  </div>
+                </div>
+                <div class="player-right">
+                  <span class="score-badge badge-yellow">87</span>
+                </div>
+              </div>
+
+              <div class="player-rank-row">
+                <div class="player-left">
+                  <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=120&q=80" alt="Mia" class="player-avatar">
+                  <div class="player-info">
+                    <div class="player-name">Mia Evelyn</div>
+                    <div class="player-points">11 Point</div>
+                  </div>
+                </div>
+                <div class="player-right">
+                  <span class="score-badge badge-purple">120</span>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="bottom-dock-spacer"></div>
+          </div>
+        </section>
+
+        <!-- ================= 5. SCREEN: ALL 15 CHAPTERS ================= -->
+        <section class="screen-view hidden" id="screenChapters">
+          <div class="screen-content chapters-content">
+            
+            <div class="chapters-top-bar">
+              <button class="round-nav-btn" onclick="navigateToScreen('home')">←</button>
+              <h2 class="chapters-heading">Curriculum Chapters 📚</h2>
+              <div class="items-count-pill">15 Modules</div>
+            </div>
+
+            <div class="chapters-search-box">
+              <input type="text" id="chapterSearchInput" placeholder="Search topics (e.g. 555, Op-Amp, JK FF)..." oninput="handleChapterSearch()">
+              <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="chapters-grid-list" id="chaptersGridList">
+              <!-- Dynamically populated with all 15 topics -->
+            </div>
+
+            <div class="bottom-dock-spacer"></div>
+          </div>
+        </section>
+
+      </div>
+
+      <!-- ================= FLOATING BOTTOM NAVIGATION DOCK ================= -->
+      <nav class="floating-dock" id="floatingDock">
+        <button class="dock-item active" id="dockHome" onclick="navigateToScreen('home')">
+          <span class="dock-icon">🏠</span>
+          <span class="dock-label">Home</span>
+        </button>
+        <button class="dock-item" id="dockChapters" onclick="navigateToScreen('chapters')">
+          <span class="dock-icon">📖</span>
+          <span class="dock-label">Chapters</span>
+        </button>
+        <button class="dock-item" id="dockQuiz" onclick="startQuizSession()">
+          <span class="dock-icon">⚡</span>
+          <span class="dock-label">Quiz</span>
+        </button>
+        <button class="dock-item" id="dockLeaderboard" onclick="navigateToScreen('leaderboard')">
+          <span class="dock-icon">🏆</span>
+          <span class="dock-label">Ranking</span>
+        </button>
+      </nav>
+
+    </div>
+
+  </main>
+
+  <!-- Diamond Floating Animation Target -->
+  <div class="floating-reward-container" id="floatingRewardContainer"></div>
+
+  <!-- Scripts -->
+  <script src="questions-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
